@@ -1,1 +1,29 @@
-<p>homepage works!</p>
+<div class="grid grid-cols-5 gap-2 w-full h-[calc(100vh-96px)] overflow-hidden">
+    <div class="col-span-3 bg-[url(./assets/images/dummy/banner-1.jpg)] bg-cover grayscale hover:grayscale-0 transition bg-center">
+    </div>
+    <div class="col-span-2 flex gap-2 flex-wrap">
+        <div class="w-full bg-[url(./assets/images/dummy/banner-2.jpg)] bg-cover grayscale hover:grayscale-0 transition bg-center">
+        </div>
+        <div class="w-full bg-[url(./assets/images/dummy/banner-3.jpg)] bg-cover grayscale hover:grayscale-0 transition bg-center">
+        </div>
+    </div>
+</div>
+
+<div class="px-4 lg:px-8 xl:px-12">
+    <div class="text-center font-semibold text-[20px] text-[#333] my-12">#Featured Products</div>
+    <div class="grid gap-4 grid-cols-6">
+        <div *ngFor="let item of products" class="relative">
+            <img class="absolute right-3 top-3 bg-white rounded-full w-8 h-8 p-[6px] cursor-pointer" src="./assets/images/heart.svg" alt="">
+            <img src="{{item.img}}" alt="">
+            <div class="flex flex-col py-2">
+                <p class="text-base text-[#002244] font-semibold mb-1">{{item.name}}</p>
+                <p class="text-sm text-[#666]">{{item.price |  currency:'INR':true}}
+                    <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |  currency:'INR':true}}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="my-10"></div>

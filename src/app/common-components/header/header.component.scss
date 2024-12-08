@@ -1,0 +1,18 @@
+.header-links{
+    a{
+        position: relative;
+        span{
+            position: absolute;
+            width:0;
+            height: 2px;
+            border-radius: 10px;
+            background: #26355D;
+            left: 0;
+            bottom: 0;
+            transition: .3s;
+        }
+        &:hover span{
+            width: 100%;
+        }
+    }
+}

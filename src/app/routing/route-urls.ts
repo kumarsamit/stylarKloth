@@ -13,7 +13,7 @@ const marketplaceRoutes: Routes = [
             module: 'website',
             header: 1,
             footer: 1,
-            sidebar: 1,
+            sidebar: 0,
             meta: {
                 en:{
                     title: 'Welcome to stylarKloth',
