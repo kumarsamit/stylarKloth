@@ -1,0 +1,11 @@
+<div class="bg-[#f8f8f8] h-[100vh]">
+	<app-header *ngIf="isHeader"></app-header>
+	<div class="flex"[ngStyle]="{'height': (isHeader === 1 && isSidebar === 1) ? 'calc(100vh - 50px)' : '100vh'}">
+		<app-sidebar *ngIf="isSidebar"></app-sidebar>
+		<div class="flex-1 overflow-auto" [ngStyle]="{'height': (isHeader === 1 && isSidebar === 1) ? 'calc(100vh - 60px)' : '100vh'}"
+			[ngStyle]="{'padding': (isHeader === 1 && isSidebar === 1) ? '16px' : ''}">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+	<app-footer *ngIf="isFooter"></app-footer>
+</div>
