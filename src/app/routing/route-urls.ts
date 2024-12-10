@@ -23,6 +23,106 @@ const marketplaceRoutes: Routes = [
             }
         },
     },
+    {
+        path: 'cart',
+        loadChildren: () => import('../pages/marketplace/cart/cart.module').then((m) => m.CartModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'website',
+            header: 1,
+            footer: 1,
+            sidebar: 0,
+            meta: {
+                en:{
+                    title: 'Welcome to stylarKloth',
+                    description: 'stylarKloth description',
+                    keyword: 'stylarKloth, fashion'
+                },
+            }
+        },
+    },
+    {
+        path: 'wishlist',
+        loadChildren: () => import('../pages/marketplace/wishlist/wishlist.module').then((m) => m.WishlistModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'website',
+            header: 1,
+            footer: 1,
+            sidebar: 0,
+            meta: {
+                en:{
+                    title: 'Welcome to stylarKloth',
+                    description: 'stylarKloth description',
+                    keyword: 'stylarKloth, fashion'
+                },
+            }
+        },
+    },
+    {
+        path: 'about',
+        loadChildren: () => import('../pages/marketplace/about/about.module').then((m) => m.AboutModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'website',
+            header: 1,
+            footer: 1,
+            sidebar: 0,
+            meta: {
+                en:{
+                    title: 'Welcome to stylarKloth',
+                    description: 'stylarKloth description',
+                    keyword: 'stylarKloth, fashion'
+                },
+            }
+        },
+    },
+    {
+        path: 'contact',
+        loadChildren: () => import('../pages/marketplace/contact/contact.module').then((m) => m.ContactModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'website',
+            header: 1,
+            footer: 1,
+            sidebar: 0,
+            meta: {
+                en:{
+                    title: 'Welcome to stylarKloth',
+                    description: 'stylarKloth description',
+                    keyword: 'stylarKloth, fashion'
+                },
+            }
+        },
+    },
+    {
+        path: 'products',
+        loadChildren: () => import('../pages/marketplace/product-listing/product-listing.module').then((m) => m.ProductListingModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'website',
+            header: 1,
+            footer: 1,
+            sidebar: 0,
+            meta: {
+                en:{
+                    title: 'Welcome to stylarKloth',
+                    description: 'stylarKloth description',
+                    keyword: 'stylarKloth, fashion'
+                },
+            }
+        },
+    },
 ];
 
 const adminRoutes: Routes = [

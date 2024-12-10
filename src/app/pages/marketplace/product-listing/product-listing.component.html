@@ -1,0 +1,27 @@
+<div class="h-[40v] min-h-[300px] bg-[url(./assets/images/banner/banner-3.jpg)] bg-cover bg-center flex justify-center items-center font-bold text-[40px] text-white grayscale-[50%]">
+        Products
+</div>
+
+
+<div class="flex items-center justify-center border-b border-[#d7d7d7] my-10 gap-4">
+    <a 
+    (click)="selectedTab = item"
+    [ngClass]="{'font-semibold !border-[#26355D]': item === selectedTab}"
+    *ngFor="let item of tabType" 
+    class="p-2 cursor-pointer text-[#26355D] border-b-2 border-white">{{item}}</a>
+</div>
+
+<div class="px-4 lg:px-8 xl:px-12">
+    <div class="grid gap-4 grid-cols-6">
+        <div *ngFor="let item of products" class="relative">
+            <img class="absolute right-3 top-3 bg-white rounded-full w-8 h-8 p-[6px] cursor-pointer" src="./assets/images/heart.svg" alt="">
+            <img src="{{item.img}}" alt="">
+            <div class="flex flex-col py-2">
+                <p class="text-base text-[#002244] font-semibold mb-1">{{item.name}}</p>
+                <p class="text-sm text-[#666]">{{item.price |  currency:'INR':true}}
+                    <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |  currency:'INR':true}}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

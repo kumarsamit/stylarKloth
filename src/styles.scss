@@ -12,3 +12,17 @@
 *{
     font-family: regular;
 }
+
+//scrollbar
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(38, 53, 93,0.4); 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(38, 53, 93,0.6); 
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(38, 53, 93,0.8); 
+  }
