@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-product-detail',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent {
+
+  constructor(private dialogRef: MatDialogRef<ProductDetailComponent>) {}
+
+  close() {
+    this.dialogRef.close();
+  }
 
 }

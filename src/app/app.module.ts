@@ -5,7 +5,10 @@ import { AppComponent } from './app.component/app.component';
 import { HeaderComponent } from './common-components/header/header.component';
 import { SidebarComponent } from './common-components/sidebar/sidebar.component';
 import { FooterComponent } from './common-components/footer/footer.component';
-import { ProductDetailComponent } from './common-components/product-detail/product-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductDetailComponent } from './pages/marketplace/product-detail/product-detail.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { ProductDetailComponent } from './common-components/product-detail/produ
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

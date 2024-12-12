@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ProductDetailComponent } from '../product-detail/product-detail.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
 	selector: 'app-product-listing',
@@ -85,8 +87,15 @@ export class ProductListingComponent {
 	];
 
 
-	openProductDetails(){
-		
+
+	constructor(private dialog: MatDialog) { }
+
+	openProductDetails() {
+		this.dialog.open(ProductDetailComponent, {
+			width: '80vw',
+			disableClose: true,			
+			data: { message: 'Hello from AppComponent!' }
+		});
 	}
 
 }

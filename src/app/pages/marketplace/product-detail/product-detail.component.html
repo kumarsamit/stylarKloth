@@ -1,0 +1,70 @@
+<div mat-dialog-content>
+    <div class="grid grid-cols-5">
+        <div class=" bg-[rgba(38,53,93,.2)] col-span-3 flex items-center justify-center p-5">
+            <img class="max-w-full w-[400px]" src="./assets/images/dummy/dress.png" alt="">
+        </div>
+        <div class="col-span-2 p-4 relative flex flex-col justify-between overflow-y-auto gap-10 py-[50px]">
+            <a (click)="close()" class="absolute right-0 top-0 cursor-pointer bg-[rgba(38,53,93,.2)] transition p-2">
+                <img class="w-4 h-4" src="./assets/images/close.svg" alt="">
+            </a>
+            <div>
+                <p class="text-sm">Baby Clothes</p>
+                <p class="text-3xl font-bold text-[#26355D] my-1">Sleeveless Onesie</p>
+                <p class="text-sm">A sleeveless onesie is a one-piece baby garment with no sleeves, snap closures for easy
+                    diaper changes, and soft, breathable fabric. Ideal for warm weather or layering. Comfortable and
+                    versatile! 👶</p>
+                <p class="text-lg font-semibold text-[#666] mt-4">{{849.15 | currency:'INR':true}}
+                    <span class="mx-2 text-[#bbb] text-sm font-normal">(15% OFF)</span>
+                </p>
+                <p class="text-sm text-[#bbb] line-through">{{999 | currency:'INR':true}}</p>
+                <div class="flex items-center gap-2 flex-wrap my-5">
+                    <div class="w-full text-base font-semibold">Sizes</div>
+                    <a class="text-xs border px-2 py-1 hover:bg-[#eee] transition cursor-pointer">6 - 12 Months</a>
+                    <a class="text-xs border px-2 py-1 hover:bg-[#eee] transition cursor-pointer">12 - 18 Months</a>
+                    <a class="text-xs border px-2 py-1 hover:bg-[#eee] transition cursor-pointer">18 - 24 Months</a>
+                    <a class="text-xs border px-2 py-1 hover:bg-[#eee] transition cursor-pointer">2 - 3 Years</a>
+                    <a class="text-xs border px-2 py-1 hover:bg-[#eee] transition cursor-pointer">3 - 4 Years</a>
+                    <a class="text-xs border px-2 py-1 hover:bg-[#eee] transition cursor-pointer">5 - 6 Years</a>
+                    <a class="text-xs border px-2 py-1 hover:bg-[#eee] transition cursor-pointer">5 - 6 Years</a>
+                    <a class="text-xs border px-2 py-1 hover:bg-[#eee] transition cursor-pointer">View size chart</a>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <a class="border border-[#26355d] text-[#26355d] text-sm w-[calc(50%-4px)] py-2 text-center cursor-pointer hover:bg-[#26355d] hover:text-white transition">Add To Bag</a>
+                    <a class="border border-[#26355d] text-[#26355d] text-sm w-[calc(50%-4px)] py-2 text-center cursor-pointer hover:bg-[#26355d] hover:text-white transition ">Add To Wishlist</a>
+                </div>
+
+                <div class="flex items-center gap-2 flex-wrap mt-5">
+                    <div class="w-full text-base font-semibold">Product details</div>
+                    <table class="text-sm">
+                        <tr>
+                            <td>Size</td>
+                            <td class="w-10"></td>
+                            <td>6 - 12 Months</td>
+                        </tr>
+                        <tr>
+                            <td>Label size</td>
+                            <td class="w-10"></td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Ideal for</td>
+                            <td class="w-10"></td>
+                            <td>Boys</td>
+                        </tr>
+                        <tr>
+                            <td>Fabric</td>
+                            <td class="w-10"></td>
+                            <td>Cotton</td>
+                        </tr>
+                        <tr>
+                            <td>Pattern</td>
+                            <td class="w-10"></td>
+                            <td>Printed</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
