@@ -9,6 +9,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class ProductDetailComponent {
 
+
   constructor(private dialogRef: MatDialogRef<ProductDetailComponent>) {}
 
   close() {
