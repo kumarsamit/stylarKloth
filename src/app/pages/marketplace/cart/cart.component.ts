@@ -10,7 +10,7 @@ export class CartComponent {
     {
       name : "Long dress",
       price : 400,
-      quantity : 4
+      quantity : 43
     },
     {
       name : "Long dress",

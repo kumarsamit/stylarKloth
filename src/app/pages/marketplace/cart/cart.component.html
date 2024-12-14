@@ -4,9 +4,9 @@
 </div>
 
 <div class="flex items-start gap-4 px-4 lg:px-8 xl:px-12 mt-10">
-    <div class="rounded-lg flex-1 border border-[#d7d7d7]">
+    <div class="rounded-lg flex-1 border border-[#d7d7d7] p-2">
        <table class="w-full table-auto border-spacing-2">
-            <tr>
+            <tr class="border-b border-[#d7d7d7]">
                 <th class="text-left">Product</th>
                 <th class="text-center">Quantity</th>
                 <th class="w-[100px] text-center">Total</th>
@@ -14,7 +14,13 @@
             </tr>
             <tr *ngFor="let item of list" class="border-b border-[#d7d7d7]">
                 <td class="text-left">{{item.name}}</td>
-                <td class="text-center">{{item.quantity}}</td>
+                <td class="text-center">
+                    <div class="counter">
+                        <a><img src="./assets/images/minus.svg" alt=""></a>
+                        <p>{{item.quantity}}</p>
+                        <a><img src="./assets/images/plus.svg" alt=""></a>
+                    </div>
+                </td>
                 <td class="text-sm text-center">
                     {{999 | currency:'INR':true}}
                 </td>
@@ -26,8 +32,30 @@
             </tr>
        </table>
     </div>
-    <div class="border border-[#d7d7d7] rounded-lg w-[400px] max-w-full">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, enim.
+    <div class="border border-[#d7d7d7] rounded-lg w-[400px] max-w-full p-4">
+        <p class="text-lg font-semibold text-[#333]">Order Summary</p>
+        <table class="w-full mt-4">
+            <tr>
+                <td>Sub Total</td>
+                <td>34</td>
+            </tr>
+            <tr>
+                <td>Discount</td>
+                <td>34</td>
+            </tr>
+            <tr>
+                <td>Delivery</td>
+                <td>34</td>
+            </tr>
+            <tr>
+                <td>Tax</td>
+                <td>34</td>
+            </tr>
+            <tr class="border-t border-[#d7d7d7]">
+                <td>Total</td>
+                <td>34</td>
+            </tr>
+        </table>
     </div>
 </div>
   
