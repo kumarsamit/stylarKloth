@@ -28,3 +28,34 @@
   }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+ // mat form
+ .mat-mdc-form-field-infix{
+  padding-top: 10px !important;
+  padding-bottom: 11px !important;
+  min-height: 45px;
+  font-size: 14px !important;
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
+  .mdc-notched-outline__trailing {
+  border-color: #ef8828 !important;
+}
+
+.mat-mdc-form-field-hint-wrapper, 
+.mat-mdc-form-field-error-wrapper {
+  padding: 0 !important;
+  font-size: 10px;
+  line-height: 1.1;
+  margin-top: -4px !important;
+}
+
+form label{
+  font-size: 14px;
+  margin-bottom: 4px;
+}
