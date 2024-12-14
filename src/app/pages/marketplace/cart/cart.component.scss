@@ -14,13 +14,35 @@
         height: 35px;
 
         img{
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
         }
     }
     p{
         width: 60px;
         border-left: 1px solid #fff;
         border-right: 1px solid #fff;
+    }
+}
+
+.cart-table td{
+    padding: 10px;
+}
+
+.calc-table td{
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.calc-table tr{
+    &:nth-last-child(2){
+        td{
+            padding-bottom: 15px;
+        }
+    }
+    &:last-child{
+        td{
+            padding-top: 15px;
+        }
     }
 }

@@ -1,19 +1,37 @@
-<div class="relative h-[40v] min-h-[300px] bg-[url(./assets/images/banner/cart-banner.jpg)] bg-cover bg-center flex justify-center items-center">
+<!-- <div class="relative h-[40v] min-h-[300px] bg-[url(./assets/images/banner/cart-banner.jpg)] bg-cover bg-center flex justify-center items-center">
     <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40"></div>
     <span class="relative z-10 font-bold text-[40px] text-white">Shopping Cart</span>
-</div>
+</div> -->
 
-<div class="flex items-start gap-4 px-4 lg:px-8 xl:px-12 mt-10">
-    <div class="rounded-lg flex-1 border border-[#d7d7d7] p-2">
-       <table class="w-full table-auto border-spacing-2">
-            <tr class="border-b border-[#d7d7d7]">
-                <th class="text-left">Product</th>
-                <th class="text-center">Quantity</th>
-                <th class="w-[100px] text-center">Total</th>
-                <th class="w-[100px] text-center">Action</th>
+
+<div class="px-4 lg:px-8 xl:px-12 my-10">
+    <div class="font-bold text-[20px] text-[#333] w-full mb-2">Your Shopping Cart</div>
+    <div class="text-[#666]">
+        Review your items and proceed to checkout. Your purchase is just a click away!
+    </div>
+</div>
+<div class="flex items-start gap-4 px-4 lg:px-8 xl:px-12 flex-wrap">
+    <div class="rounded-md flex-1 border border-[#d7d7d7] px-3 cart-table">
+        <table class="w-full table-auto border-spacing-2">
+            <tr class="">
+                <th class="text-left py-3">Product</th>
+                <th class="w-[100px] text-center py-3">Unit Price</th>
+                <th class="text-center py-3">Quantity</th>
+                <th class="w-[100px] text-center py-3">Total</th>
             </tr>
-            <tr *ngFor="let item of list" class="border-b border-[#d7d7d7]">
-                <td class="text-left">{{item.name}}</td>
+            <tr *ngFor="let item of list" class="border-t border-[#d7d7d7]">
+                <td class="text-left">
+                    <div class="flex items-center gap-2">
+                        <img class="w-[100px]" src="./assets/images/dummy/child-1.jpg" alt="">
+                        <div class="flex flex-col gap-1 items-start">
+                            <p class="text-base font-semibold"> {{item.name}}</p>
+                            <a class="text-sm cursor-pointer hover:underline text-[#333]">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-sm text-center">
+                    {{99 | currency:'INR':true}}
+                </td>
                 <td class="text-center">
                     <div class="counter">
                         <a><img src="./assets/images/minus.svg" alt=""></a>
@@ -24,38 +42,38 @@
                 <td class="text-sm text-center">
                     {{999 | currency:'INR':true}}
                 </td>
-                <td>
-                    <div class="flex justify-center">
-                        <img class="w-5" src="./assets/images/delete.svg" alt="">
-                    </div>
-                </td>
-            </tr>
-       </table>
-    </div>
-    <div class="border border-[#d7d7d7] rounded-lg w-[400px] max-w-full p-4">
-        <p class="text-lg font-semibold text-[#333]">Order Summary</p>
-        <table class="w-full mt-4">
-            <tr>
-                <td>Sub Total</td>
-                <td>34</td>
-            </tr>
-            <tr>
-                <td>Discount</td>
-                <td>34</td>
-            </tr>
-            <tr>
-                <td>Delivery</td>
-                <td>34</td>
-            </tr>
-            <tr>
-                <td>Tax</td>
-                <td>34</td>
-            </tr>
-            <tr class="border-t border-[#d7d7d7]">
-                <td>Total</td>
-                <td>34</td>
             </tr>
         </table>
     </div>
+    <div class="border border-[#d7d7d7] rounded-md w-[400px] max-w-full p-4">
+        <p class="text-lg font-semibold text-[#333]">Order Summary</p>
+        <div class="flex items-center my-4 border border-[#d7d7d7] rounded-md overflow-hidden">
+            <input type="text" placeholder="Coupon code" class="py-2 px-4 flex-1 outline-none">
+            <a class="bg-[#26355D] text-white px-4 text-center w-[100px] py-2">Apply</a>
+        </div>
+        <table class="w-full text-[#666] text-base calc-table">
+            <tr>
+                <td>Sub Total</td>
+                <td class="text-right">{{999 | currency:'INR':true}}</td>
+            </tr>
+            <tr>
+                <td>Discount</td>
+                <td class="text-right">{{999 | currency:'INR':true}}</td>
+            </tr>
+            <tr>
+                <td>Delivery</td>
+                <td class="text-right">{{999 | currency:'INR':true}}</td>
+            </tr>
+            <tr>
+                <td class="pb-2">Tax</td>
+                <td class="pb-2 text-right">{{999 | currency:'INR':true}}</td>
+            </tr>
+            <tr class="border-t border-[#d7d7d7]">
+                <td class="pt-2 text-[#333] font-semibold">Total</td>
+                <td class="pt-2 text-[#333] font-semibold text-right">{{999 | currency:'INR':true}}</td>
+            </tr>
+        </table>
+        <a
+            class="w-full rounded-md text-center font-semibold text-white bg-[#26355D] inline-block mt-4 cursor-pointer py-2">Checkout</a>
+    </div>
 </div>
-  
