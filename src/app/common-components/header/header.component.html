@@ -1,8 +1,8 @@
 <div class="bg-[#26355D] py-2 px-4 flex items-center justify-between">
     <p class="text-white text-xs leading-none">Welcome to the online store</p>
     <div class="flex items-center gap-4">   
-        <a class="text-white text-xs cursor-pointer mx-4 leading-none hover:font-semibold">Login or Register</a>
-        <a class="cursor-pointer">
+        <a class="text-white text-xs cursor-pointer mx-4 leading-none hover:font-semibold" (click)="loginPopup()">Login or Register</a>
+        <a class="cursor-pointer" target="_blank" href="https://www.instagram.com/stylarKloth/">
             <img class="w-5" src="./assets/images/instagram.svg" alt="">
         </a>
         <a class="cursor-pointer">
@@ -22,12 +22,12 @@
         <a class="cursor-pointer" routerLink="">New Arrivals
             <span></span>
         </a>
-        <a class="cursor-pointer" routerLink="/contact">Contact us
+        <a class="cursor-pointer" routerLink="">New Arrivals
             <span></span>
         </a>
     </div>
     <div class="flex items-center gap-5">
-        <a class="cursor-pointer">
+        <a class="cursor-pointer" routerLink="/search-results">
             <img class="w-5" src="./assets/images/search.svg" alt="">
         </a>
         <a class="cursor-pointer" routerLink="/wishlist">

@@ -8,6 +8,12 @@ import { FooterComponent } from './common-components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductDetailComponent } from './pages/marketplace/product-detail/product-detail.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule } from '@angular/material/input';
+
+
 
 
 @NgModule({
@@ -16,12 +22,17 @@ import {MatDialogModule} from '@angular/material/dialog';
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     MatDialogModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
     BrowserAnimationsModule
   ],
   providers: [],

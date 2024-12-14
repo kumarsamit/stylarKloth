@@ -77,3 +77,25 @@
             class="w-full rounded-md text-center font-semibold text-white bg-[#26355D] inline-block mt-4 cursor-pointer py-2">Checkout</a>
     </div>
 </div>
+
+
+<div class="px-4 lg:px-8 xl:px-12">
+    <div class="font-semibold text-[20px] text-[#333] mt-12 mb-8">You May Love These Too</div>
+    <div class="grid gap-4 grid-cols-6">
+        <div *ngFor="let item of products" class="border rounded border-[#d7d7d7] p-2">
+            <img src="{{item.img}}" alt="">
+            <div class="flex flex-col pt-2">
+                <p class="text-base text-[#002244] font-semibold mb-1">{{item.name}}</p>
+                <p class="text-sm text-[#666]">{{item.price |  currency:'INR':true}}
+                    <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |  currency:'INR':true}}</span>
+                </p>
+                <div class="flex w-full items-center h-[40px] mt-2 rounded overflow-hidden">
+                    <a class="h-full cursor-pointer text-white bg-[#26355D] leading-none flex-1 text-sm px-2 items-center flex border-r border-[#fff]">Add to Cart</a>
+                    <a class="cursor-pointer text-white bg-[#26355D] h-full flex items-center justify-center w-[40px]">
+                        <img class="w-6 h-6 invert" src="./assets/images/heart.svg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

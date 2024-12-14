@@ -28,4 +28,79 @@ export class CartComponent {
       quantity : 4
     }
   ]
+
+  products: any = [
+		{
+			name: "Blue dress",
+			price: "400",
+			offerPrice: "600",
+			img: "./assets/images/dummy/child-1.jpg"
+		},
+		{
+			name: "Blue dress",
+			price: "400",
+			// offerPrice : "600",
+			img: "./assets/images/dummy/child-1.jpg"
+		},
+		{
+			name: "Blue dress",
+			price: "400",
+			offerPrice: "600",
+			img: "./assets/images/dummy/child-1.jpg"
+		},
+		{
+			name: "Blue dress",
+			price: "400",
+			offerPrice: "600",
+			img: "./assets/images/dummy/child-1.jpg"
+		},
+		{
+			name: "Blue dress",
+			price: "400",
+			offerPrice: "600",
+			img: "./assets/images/dummy/child-1.jpg"
+		},
+		{
+			name: "Blue dress",
+			price: "400",
+			offerPrice: "600",
+			img: "./assets/images/dummy/child-1.jpg"
+		},
+		{
+			name: "Blue dress",
+			price: "400",
+			offerPrice: "600",
+			img: "./assets/images/dummy/child-1.jpg"
+		},
+		{
+			name: "Blue dress",
+			price: "400",
+			offerPrice: "600",
+			img: "./assets/images/dummy/child-1.jpg"
+		},
+		{
+			name: "Blue dress",
+			price: "400",
+			// offerPrice : "600",
+			img: "./assets/images/dummy/child-1.jpg"
+		},
+		{
+			name: "Blue dress",
+			price: "400",
+			offerPrice: "600",
+			img: "./assets/images/dummy/child-1.jpg"
+		},
+		{
+			name: "Blue dress",
+			price: "400",
+			offerPrice: "600",
+			img: "./assets/images/dummy/child-1.jpg"
+		},
+		{
+			name: "Blue dress",
+			price: "400",
+			offerPrice: "600",
+			img: "./assets/images/dummy/child-1.jpg"
+		}
+	];
 }

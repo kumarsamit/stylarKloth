@@ -1,0 +1,16 @@
+<div class="border border-lime-300 p-4">
+    <div class="text-xl font-semibold text-center text-[#26355D]">Login</div>
+    <div class="text-sm text-[#666] text-center">Welcome back! Login to access the sweet marketplace</div>
+    <form (ngSubmit)="login()" [formGroup]="loginFormForm" class="w-full">
+        <mat-form-field class="w-full">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="text" textOnly appearance="outline">
+        </mat-form-field>
+        <mat-form-field class="w-full">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="password" type="text" textOnly appearance="outline">
+        </mat-form-field>
+        <button type="submit">Login</button>
+    </form>
+
+</div>
