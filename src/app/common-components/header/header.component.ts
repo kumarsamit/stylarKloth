@@ -10,8 +10,7 @@ import { SignInComponent } from 'src/app/pages/auth/sign-in/sign-in.component';
 export class HeaderComponent {
 
 	constructor(private dialog: MatDialog) {
-		this.loginPopup();
-	 }
+	}
 
 	loginPopup() {
 		this.dialog.open(SignInComponent, {

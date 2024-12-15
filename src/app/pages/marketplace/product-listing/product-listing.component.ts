@@ -87,15 +87,4 @@ export class ProductListingComponent {
 	];
 
 
-
-	constructor(private dialog: MatDialog) { }
-
-	openProductDetails() {
-		this.dialog.open(ProductDetailComponent, {
-			width: '80vw',
-			disableClose: true,			
-			data: { message: 'Hello from AppComponent!' }
-		});
-	}
-
 }

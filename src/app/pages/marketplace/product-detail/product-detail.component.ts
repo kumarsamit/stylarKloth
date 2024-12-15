@@ -8,12 +8,81 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent {
+  products:any=[
+    {
+      name : "Blue dress",
+      price : "400",
+      offerPrice : "600",
+      img : "./assets/images/dummy/child-1.jpg"
+    },
+    {
+      name : "Blue dress",
+      price : "400",
+      // offerPrice : "600",
+      img : "./assets/images/dummy/child-1.jpg"
+    },
+    {
+      name : "Blue dress",
+      price : "400",
+      offerPrice : "600",
+      img : "./assets/images/dummy/child-1.jpg"
+    },
+    {
+      name : "Blue dress",
+      price : "400",
+      offerPrice : "600",
+      img : "./assets/images/dummy/child-1.jpg"
+    },
+    {
+      name : "Blue dress",
+      price : "400",
+      offerPrice : "600",
+      img : "./assets/images/dummy/child-1.jpg"
+    },
+    {
+      name : "Blue dress",
+      price : "400",
+      offerPrice : "600",
+      img : "./assets/images/dummy/child-1.jpg"
+    },
+    {
+      name : "Blue dress",
+      price : "400",
+      offerPrice : "600",
+      img : "./assets/images/dummy/child-1.jpg"
+    },
+    {
+      name : "Blue dress",
+      price : "400",
+      offerPrice : "600",
+      img : "./assets/images/dummy/child-1.jpg"
+    },
+    {
+      name : "Blue dress",
+      price : "400",
+      // offerPrice : "600",
+      img : "./assets/images/dummy/child-1.jpg"
+    },
+    {
+      name : "Blue dress",
+      price : "400",
+      offerPrice : "600",
+      img : "./assets/images/dummy/child-1.jpg"
+    },
+    {
+      name : "Blue dress",
+      price : "400",
+      offerPrice : "600",
+      img : "./assets/images/dummy/child-1.jpg"
+    },
+    {
+      name : "Blue dress",
+      price : "400",
+      offerPrice : "600",
+      img : "./assets/images/dummy/child-1.jpg"
+    }
+  ]
 
 
-  constructor(private dialogRef: MatDialogRef<ProductDetailComponent>) {}
-
-  close() {
-    this.dialogRef.close();
-  }
 
 }

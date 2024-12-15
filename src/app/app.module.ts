@@ -6,7 +6,6 @@ import { HeaderComponent } from './common-components/header/header.component';
 import { SidebarComponent } from './common-components/sidebar/sidebar.component';
 import { FooterComponent } from './common-components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductDetailComponent } from './pages/marketplace/product-detail/product-detail.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -22,7 +21,6 @@ import {MatInputModule } from '@angular/material/input';
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    ProductDetailComponent,
     SignInComponent
   ],
   imports: [
