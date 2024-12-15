@@ -163,6 +163,46 @@ const marketplaceRoutes: Routes = [
             }
         },
     },
+    {
+        path: 'user-profile',
+        loadChildren: () => import('../pages/marketplace/user-profile/user-profile.module').then((m) => m.UserProfileModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'website',
+            header: 1,
+            footer: 1,
+            sidebar: 0,
+            meta: {
+                en:{
+                    title: 'Welcome to stylarKloth',
+                    description: 'stylarKloth description',
+                    keyword: 'stylarKloth, fashion'
+                },
+            }
+        },
+    },
+    {
+        path: 'info',
+        loadChildren: () => import('../pages/marketplace/legal-info/legal-info.module').then((m) => m.LegalInfoModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'website',
+            header: 1,
+            footer: 1,
+            sidebar: 0,
+            meta: {
+                en:{
+                    title: 'Welcome to stylarKloth',
+                    description: 'stylarKloth description',
+                    keyword: 'stylarKloth, fashion'
+                },
+            }
+        },
+    },
 ];
 
 const adminRoutes: Routes = [

@@ -10,7 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class ProductListingComponent {
 
 	selectedTab: any = "Best Seller"
-	tabType: any = ['Best Seller', 'New Arrivals', 'Sale Product'];
+	tabType: any = ['Best Seller', 'Sale Product', 'Daily Steals'];
 	products: any = [
 		{
 			name: "Blue dress",

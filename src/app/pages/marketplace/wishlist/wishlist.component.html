@@ -1,1 +1,23 @@
-<p>wishlist works!</p>
+<div class="px-4 lg:px-8 xl:px-12 my-10">
+    <div class="font-bold text-[20px] text-[#333] w-full mb-2">Your Wishlist</div>
+    <div class="text-[#666]">
+        Keep track of your favorite products and never miss out. Your favorites are just a click away!
+    </div>
+</div>
+
+<div class="px-4 lg:px-8 xl:px-12 my-10 grid grid-cols-2 gap-4">
+    <div class="flex gap-x-5 gap-y-5 flex-wrap border border-[#d7d7d7] p-2 rounded-md" *ngFor="let item of products">
+        <div class="rounded-md overflow-hidden">
+            <img class="w-full max-w-[200px]" src="./assets/images/dummy/child-1.jpg" alt="">
+        </div>
+        <div class="flex-1 flex flex-col gap-2">
+            <p class="text-[20px] text-[#333] font-semibold">{{item.name}}</p>
+            <p class="text-lg text-[#666]">{{'200' |  currency:'INR':true}}
+                <span class="mx-2 line-through text-[#999] text-base">{{'3000' |  currency:'INR':true}}</span>
+            </p>
+            <p class="mb-1 text-lg font-semibold text-[#006A4E]" *ngIf="item.isStock">In Stock</p>
+            <p class="mb-1 text-lg font-semibold text-[#9e1b32]" *ngIf="!item.isStock">Out of Stock</p>
+            <a class="w-max py-2 rounded cursor-pointer text-white bg-[#26355D] leading-none text-base px-5">Add to Cart</a>
+        </div>
+    </div>
+</div>

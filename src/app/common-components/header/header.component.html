@@ -1,11 +1,12 @@
 <div class="bg-[#26355D] py-2 px-4 flex items-center justify-between">
     <p class="text-white text-xs leading-none">Welcome to the online store</p>
-    <div class="flex items-center gap-4">   
-        <a class="text-white text-xs cursor-pointer mx-4 leading-none hover:font-semibold" (click)="loginPopup()">Login or Register</a>
+    <div class="flex items-center gap-4">
+        <a class="text-white text-xs cursor-pointer mx-4 leading-none hover:font-semibold" (click)="loginPopup()">Login
+            or Register</a>
         <a class="cursor-pointer" target="_blank" href="https://www.instagram.com/stylarKloth/">
             <img class="w-5" src="./assets/images/instagram.svg" alt="">
         </a>
-        <a class="cursor-pointer">
+        <a class="cursor-pointer" href="https://api.whatsapp.com/send?text=Check%20out%20this%20amazing%20deal%20at%20[Your%20Website%20URL]!" target="_blank">
             <img class="w-5" src="./assets/images/whatsapp.svg" alt="">
         </a>
     </div>
@@ -19,10 +20,12 @@
         <a class="cursor-pointer" routerLink="/products">Shop
             <span></span>
         </a>
-        <a class="cursor-pointer" routerLink="">New Arrivals
+        <a class="cursor-pointer flex items-center gap-[2px]" [matMenuTriggerFor]="newArrivalMenu">
+            New Arrivals
+            <img class="w-6 rotate-180" src="./assets/images/angle.svg" alt="">
             <span></span>
         </a>
-        <a class="cursor-pointer" routerLink="">New Arrivals
+        <a class="cursor-pointer" routerLink="">Blogs
             <span></span>
         </a>
     </div>
@@ -36,5 +39,15 @@
         <a class="cursor-pointer" routerLink="/cart">
             <img class="w-5" src="./assets/images/cart.svg" alt="">
         </a>
+        <a class="cursor-pointer" routerLink="/user-profile">
+            <img class="w-5" src="./assets/images/user.svg" alt="">
+        </a>
     </div>
 </div>
+
+
+<mat-menu #newArrivalMenu="matMenu" panleClass="headerMatmenu">
+    <button mat-menu-item>All</button>
+    <button mat-menu-item>Boys</button>
+    <button mat-menu-item>Girls</button>
+</mat-menu>
