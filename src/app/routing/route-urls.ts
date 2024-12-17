@@ -219,6 +219,45 @@ const adminRoutes: Routes = [
             sidebar: 1,
         },
     },
+    {
+        path: 'product-management',
+        loadChildren: () => import('../pages/admin/product-management/product-management.module').then((m) => m.ProductManagementModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'admin',
+            header: 2,
+            footer: 0,
+            sidebar: 1,
+        },
+    },
+    {
+        path: 'order-management',
+        loadChildren: () => import('../pages/admin/order-management/order-management.module').then((m) => m.OrderManagementModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'admin',
+            header: 2,
+            footer: 0,
+            sidebar: 1,
+        },
+    },
+    {
+        path: 'customer-management',
+        loadChildren: () => import('../pages/admin/customer-management/customer-management.module').then((m) => m.CustomerManagementModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'admin',
+            header: 2,
+            footer: 0,
+            sidebar: 1,
+        },
+    },
 ];
 
 const otherRoutes: Routes = [

@@ -1,3 +1,18 @@
 ::-webkit-scrollbar {
     width: 4px;
 }
+
+.is-active {
+    color: white;
+    background: #26355D;
+
+    img {
+        &:first-child {
+            display: none !important;
+        }
+
+        &:last-child {
+            display: flex !important;
+        }
+    }
+}

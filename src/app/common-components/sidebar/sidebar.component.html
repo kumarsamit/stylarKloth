@@ -1,6 +1,88 @@
-<div class="border-r border-[#d7d7d7] p-2 h-full w-[240px] overflow-y-auto flex flex-col gap-1">
-    <a *ngFor="let item of sidebarURLs" class="cursor-pointer rounded-md flex items-center gap-2 p-2 hover:bg-[rgba(38,53,93,0.3)]">
-        <img class="w-7" [src]="item.img" alt="">
-        {{item.name}}
+<div class="border-r border-[#d7d7d7] py-2 pr-2 h-full w-[280px] overflow-y-auto flex flex-col gap-1">
+    <a [routerLinkActive]="'is-active'" 
+    routerLink="/dashboard"
+    class="cursor-pointer rounded-e-full flex items-center gap-2 p-3 hover:bg-[rgba(38,53,93,0.2)] text-[#26355d]">
+        <img class="w-7" src="./assets/images/sidebar/dashboard.svg" alt="">
+        <img class="w-7 hidden" src="./assets/images/sidebar/dashboard-active.svg" alt="">
+        Dashboard
     </a>
+
+    <a [routerLinkActive]="'is-active'" 
+    routerLink="/product-management"
+    class="cursor-pointer rounded-e-full flex items-center gap-2 p-3 hover:bg-[rgba(38,53,93,0.2)] text-[#26355d]">
+        <img class="w-7" src="./assets/images/sidebar/dashboard.svg" alt="">
+        <img class="w-7 hidden" src="./assets/images/sidebar/dashboard-active.svg" alt="">
+        Products management
+    </a>
+
+    <a [routerLinkActive]="'is-active'" 
+    routerLink="/order-management"
+    class="cursor-pointer rounded-e-full flex items-center gap-2 p-3 hover:bg-[rgba(38,53,93,0.2)] text-[#26355d]">
+        <img class="w-7" src="./assets/images/sidebar/dashboard.svg" alt="">
+        <img class="w-7 hidden" src="./assets/images/sidebar/dashboard-active.svg" alt="">
+        Order management
+    </a>
+
+    <a [routerLinkActive]="'is-active'" 
+    routerLink="/customer-management"
+    class="cursor-pointer rounded-e-full flex items-center gap-2 p-3 hover:bg-[rgba(38,53,93,0.2)] text-[#26355d]">
+        <img class="w-7" src="./assets/images/sidebar/dashboard.svg" alt="">
+        <img class="w-7 hidden" src="./assets/images/sidebar/dashboard-active.svg" alt="">
+        Customer management
+    </a>
+
+
+    <a [routerLinkActive]="'is-active'" 
+    routerLink="/product-management"
+    class="cursor-pointer rounded-e-full flex items-center gap-2 p-3 hover:bg-[rgba(38,53,93,0.2)] text-[#26355d]">
+        <img class="w-7" src="./assets/images/sidebar/dashboard.svg" alt="">
+        <img class="w-7 hidden" src="./assets/images/sidebar/dashboard-active.svg" alt="">
+        Marketing & Promotions
+    </a>
+
+
+    <a [routerLinkActive]="'is-active'" 
+    routerLink="/product-management"
+    class="cursor-pointer rounded-e-full flex items-center gap-2 p-3 hover:bg-[rgba(38,53,93,0.2)] text-[#26355d]">
+        <img class="w-7" src="./assets/images/sidebar/dashboard.svg" alt="">
+        <img class="w-7 hidden" src="./assets/images/sidebar/dashboard-active.svg" alt="">
+        Analytics & Reporting
+    </a>
+
+
+    <a [routerLinkActive]="'is-active'" 
+    routerLink="/product-management"
+    class="cursor-pointer rounded-e-full flex items-center gap-2 p-3 hover:bg-[rgba(38,53,93,0.2)] text-[#26355d]">
+        <img class="w-7" src="./assets/images/sidebar/dashboard.svg" alt="">
+        <img class="w-7 hidden" src="./assets/images/sidebar/dashboard-active.svg" alt="">
+        Payment & Transactions
+    </a>
+
+    <a [routerLinkActive]="'is-active'" 
+    routerLink="/product-management"
+    class="cursor-pointer rounded-e-full flex items-center gap-2 p-3 hover:bg-[rgba(38,53,93,0.2)] text-[#26355d]">
+        <img class="w-7" src="./assets/images/sidebar/dashboard.svg" alt="">
+        <img class="w-7 hidden" src="./assets/images/sidebar/dashboard-active.svg" alt="">
+        Shipping & Delivery
+    </a>
+
+    
+    <a [routerLinkActive]="'is-active'" 
+    routerLink="/product-management"
+    class="cursor-pointer rounded-e-full flex items-center gap-2 p-3 hover:bg-[rgba(38,53,93,0.2)] text-[#26355d]">
+        <img class="w-7" src="./assets/images/sidebar/dashboard.svg" alt="">
+        <img class="w-7 hidden" src="./assets/images/sidebar/dashboard-active.svg" alt="">
+        Content Management
+    </a>
+
+
+    
+    <a [routerLinkActive]="'is-active'" 
+    routerLink="/product-management"
+    class="cursor-pointer rounded-e-full flex items-center gap-2 p-3 hover:bg-[rgba(38,53,93,0.2)] text-[#26355d]">
+        <img class="w-7" src="./assets/images/sidebar/dashboard.svg" alt="">
+        <img class="w-7 hidden" src="./assets/images/sidebar/dashboard-active.svg" alt="">
+        Settings & Configuration
+    </a>
+
 </div>
