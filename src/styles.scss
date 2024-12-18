@@ -13,6 +13,10 @@
     font-family: regular;
 }
 
+:host ::ng-deep *{
+  font-family: regular;
+}
+
 //scrollbar
 ::-webkit-scrollbar {
     width: 8px;

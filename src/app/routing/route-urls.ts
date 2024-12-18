@@ -15,11 +15,9 @@ const marketplaceRoutes: Routes = [
             footer: 1,
             sidebar: 0,
             meta: {
-                en:{
-                    title: 'Welcome to stylarKloth',
-                    description: 'stylarKloth description',
-                    keyword: 'stylarKloth, fashion'
-                },
+                title: 'Welcome to stylarKloth',
+                description: 'stylarKloth description',
+                keyword: 'stylarKloth, fashion'
             }
         },
     },
@@ -35,11 +33,9 @@ const marketplaceRoutes: Routes = [
             footer: 1,
             sidebar: 0,
             meta: {
-                en:{
-                    title: 'Welcome to stylarKloth',
-                    description: 'stylarKloth description',
-                    keyword: 'stylarKloth, fashion'
-                },
+                title: 'Welcome to stylarKloth | Cart',
+                description: 'stylarKloth  cart description',
+                keyword: 'stylarKloth, fashion ,cart'
             }
         },
     },
@@ -55,11 +51,9 @@ const marketplaceRoutes: Routes = [
             footer: 1,
             sidebar: 0,
             meta: {
-                en:{
-                    title: 'Welcome to stylarKloth',
-                    description: 'stylarKloth description',
-                    keyword: 'stylarKloth, fashion'
-                },
+                title: 'Welcome to stylarKloth',
+                description: 'stylarKloth description',
+                keyword: 'stylarKloth, fashion'
             }
         },
     },
@@ -75,11 +69,9 @@ const marketplaceRoutes: Routes = [
             footer: 1,
             sidebar: 0,
             meta: {
-                en:{
-                    title: 'Welcome to stylarKloth',
-                    description: 'stylarKloth description',
-                    keyword: 'stylarKloth, fashion'
-                },
+                title: 'Welcome to stylarKloth',
+                description: 'stylarKloth description',
+                keyword: 'stylarKloth, fashion'
             }
         },
     },
@@ -95,11 +87,9 @@ const marketplaceRoutes: Routes = [
             footer: 1,
             sidebar: 0,
             meta: {
-                en:{
-                    title: 'Welcome to stylarKloth',
-                    description: 'stylarKloth description',
-                    keyword: 'stylarKloth, fashion'
-                },
+                title: 'Welcome to stylarKloth',
+                description: 'stylarKloth description',
+                keyword: 'stylarKloth, fashion'
             }
         },
     },
@@ -115,11 +105,9 @@ const marketplaceRoutes: Routes = [
             footer: 1,
             sidebar: 0,
             meta: {
-                en:{
-                    title: 'Welcome to stylarKloth',
-                    description: 'stylarKloth description',
-                    keyword: 'stylarKloth, fashion'
-                },
+                title: 'Welcome to stylarKloth',
+                description: 'stylarKloth description',
+                keyword: 'stylarKloth, fashion'
             }
         },
     },
@@ -135,11 +123,9 @@ const marketplaceRoutes: Routes = [
             footer: 1,
             sidebar: 0,
             meta: {
-                en:{
-                    title: 'Welcome to stylarKloth',
-                    description: 'stylarKloth description',
-                    keyword: 'stylarKloth, fashion'
-                },
+                title: 'Welcome to stylarKloth',
+                description: 'stylarKloth description',
+                keyword: 'stylarKloth, fashion'
             }
         },
     },
@@ -155,11 +141,9 @@ const marketplaceRoutes: Routes = [
             footer: 1,
             sidebar: 0,
             meta: {
-                en:{
-                    title: 'Welcome to stylarKloth',
-                    description: 'stylarKloth description',
-                    keyword: 'stylarKloth, fashion'
-                },
+                title: 'Welcome to stylarKloth',
+                description: 'stylarKloth description',
+                keyword: 'stylarKloth, fashion'
             }
         },
     },
@@ -175,11 +159,27 @@ const marketplaceRoutes: Routes = [
             footer: 1,
             sidebar: 0,
             meta: {
-                en:{
-                    title: 'Welcome to stylarKloth',
-                    description: 'stylarKloth description',
-                    keyword: 'stylarKloth, fashion'
-                },
+                title: 'Welcome to stylarKloth',
+                description: 'stylarKloth description',
+                keyword: 'stylarKloth, fashion'
+            }
+        },
+    },
+    {
+        path: 'new-arrival/:type',
+        loadChildren: () => import('../pages/marketplace/new-arrivals/new-arrivals.module').then((m) => m.NewArrivalsModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'website',
+            header: 1,
+            footer: 1,
+            sidebar: 0,
+            meta: {
+                title: 'Welcome to stylarKloth',
+                description: 'stylarKloth description',
+                keyword: 'stylarKloth, fashion'
             }
         },
     },
@@ -195,11 +195,9 @@ const marketplaceRoutes: Routes = [
             footer: 1,
             sidebar: 0,
             meta: {
-                en:{
-                    title: 'Welcome to stylarKloth',
-                    description: 'stylarKloth description',
-                    keyword: 'stylarKloth, fashion'
-                },
+                title: 'Welcome to stylarKloth',
+                description: 'stylarKloth description',
+                keyword: 'stylarKloth, fashion'
             }
         },
     },
@@ -268,4 +266,4 @@ const otherRoutes: Routes = [
 ];
 
 
-export const routesUrl: Routes = [...marketplaceRoutes, ...adminRoutes,  ...otherRoutes];
+export const routesUrl: Routes = [...marketplaceRoutes, ...adminRoutes, ...otherRoutes];

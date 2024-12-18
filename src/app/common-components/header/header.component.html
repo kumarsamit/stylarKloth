@@ -1,12 +1,15 @@
 <div class="bg-[#26355D] py-2 px-4 flex items-center justify-between">
     <p class="text-white text-xs leading-none">Welcome to the online store</p>
     <div class="flex items-center gap-4">
+        <a class="text-white text-xs cursor-pointer mx-1 leading-none hover:font-semibold" routerLink="/dashboard">Admin</a>
         <a class="text-white text-xs cursor-pointer mx-4 leading-none hover:font-semibold" (click)="loginPopup()">Login
             or Register</a>
         <a class="cursor-pointer" target="_blank" href="https://www.instagram.com/stylarKloth/">
             <img class="w-5" src="./assets/images/instagram.svg" alt="">
         </a>
-        <a class="cursor-pointer" href="https://api.whatsapp.com/send?text=Check%20out%20this%20amazing%20deal%20at%20[Your%20Website%20URL]!" target="_blank">
+        <a class="cursor-pointer"
+            href="https://api.whatsapp.com/send?text=Check%20out%20this%20amazing%20deal%20at%20[Your%20Website%20URL]!"
+            target="_blank">
             <img class="w-5" src="./assets/images/whatsapp.svg" alt="">
         </a>
     </div>
@@ -47,7 +50,7 @@
 
 
 <mat-menu #newArrivalMenu="matMenu" panleClass="headerMatmenu">
-    <button mat-menu-item>All</button>
-    <button mat-menu-item>Boys</button>
-    <button mat-menu-item>Girls</button>
+    <button mat-menu-item routerLink="/new-arrival/all">All</button>
+    <button mat-menu-item routerLink="/new-arrival/male">Boys</button>
+    <button mat-menu-item routerLink="/new-arrival/female"> Girls</button>
 </mat-menu>

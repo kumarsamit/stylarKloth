@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { ActivationEnd, Router } from '@angular/router';
 
 @Component({
@@ -11,22 +12,32 @@ export class AppComponent {
 	isHeader: any = '';
 	isSidebar: any = '';
 	isFooter: any = '';
-	
-	constructor(public _route: Router,) {
+
+	constructor(public _route: Router,
+		private titleService: Title,
+		private metaService: Meta
+	) {
 		this._route.events.subscribe((event: any) => {
 			if (event instanceof ActivationEnd) {
 				if (event.snapshot.data && Object.keys(event.snapshot.data).length > 0) {
 					if (event.snapshot.data['header'] >= 0) {
 						this.isHeader = event.snapshot.data['header'];
-						console.log('this.isHeader', this.isHeader)
 					}
 					if (event.snapshot.data['sidebar'] >= 0) {
 						this.isSidebar = event.snapshot.data['sidebar'];
-						console.log('this.isSidebar', this.isSidebar)
 					}
 					if (event.snapshot.data['footer'] >= 0) {
 						this.isFooter = event.snapshot.data['footer'];
-						console.log('this.isFooter', this.isFooter)
+					}
+					let { title, description, keyword } = event.snapshot.data['meta'];
+					if (title) {
+						this.titleService.setTitle(title);
+					}
+					if (description) {
+						this.metaService.updateTag({ name: 'description', content: description });
+					}
+					if (keyword) {
+						this.metaService.updateTag({ name: 'keywords', content: keyword });
 					}
 				}
 			}
