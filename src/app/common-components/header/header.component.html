@@ -1,5 +1,11 @@
 <div class="bg-[#26355D] py-2 px-4 flex items-center justify-between">
     <p class="text-white text-xs leading-none">Welcome to the online store</p>
+    <div class="bg-white rounded-md py-[6px] px-4 flex w-[400px] gap-2">
+        <input type="text" placeholder="search for products/category" class="text-sm outline-none flex-1">
+        <a routerLink="/search-results" class="cursor-pointer">
+            <img class="w-5" src="./assets/images/search.svg" alt="">
+        </a>
+    </div>
     <div class="flex items-center gap-4">
         <a class="text-white text-xs cursor-pointer mx-1 leading-none hover:font-semibold" routerLink="/dashboard">Admin</a>
         <a class="text-white text-xs cursor-pointer mx-4 leading-none hover:font-semibold" (click)="loginPopup()">Login
@@ -15,7 +21,7 @@
     </div>
 </div>
 <div class="flex justify-between items-center px-4 lg:px-8 xl:px-12 py-4 border-b border-[#d7d7d7]">
-    <a class="cursor-pointer" routerLink="">Stylar<span class="font-semibold text-[#26355D]">Kloth</span></a>
+    <a class="cursor-pointer text-lg" routerLink="">Stylar<span class="font-semibold text-[#26355D]">Kloth</span></a>
     <div class="flex items-center gap-10 header-links">
         <a routerLink="">Home
             <span></span>
