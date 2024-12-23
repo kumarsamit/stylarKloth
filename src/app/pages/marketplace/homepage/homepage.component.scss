@@ -1,0 +1,30 @@
+.heading-lines span{
+    position: relative;
+
+    &::before{
+        content: "";
+        width: 100px;
+        display: flex;
+        height: 2px;
+        border-radius: 4px;
+        position: absolute;
+        left: -120px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #333;
+    }
+
+    
+    &::after{
+        content: "";
+        width: 100px;
+        display: flex;
+        height: 2px;
+        border-radius: 4px;
+        position: absolute;
+        right: -120px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #333;
+    }
+}
