@@ -25,8 +25,8 @@ export class SearchResultsComponent {
       items : ['Male','Female',"Unisex"]
     },
     {
-      heading: "Gender",
-      items : ['Male','Female',"Unisex"]
+      heading: "Type",
+      items : ['T-shirt','Shirts',"Jeans", 'Jumpsuits','Cargo Pants']
     },
 
   ]

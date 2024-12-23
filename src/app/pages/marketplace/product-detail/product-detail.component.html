@@ -1,14 +1,46 @@
 <div class="px-4 lg:px-8 xl:px-12 pt-10">
     <div class="grid grid-cols-5">
-        <div class=" bg-[rgba(38,53,93,.2)] col-span-2 flex items-center justify-center p-5">
-            <img class="max-w-full w-[300px]" src="./assets/images/dummy/dress.png" alt="">
+        <div class="col-span-2 p-5 product-images">
+            <div class="bg-[rgba(38,53,93,.2)] flex items-center justify-center aspect-square">
+                <img class="max-w-full w-[300px]" src="./assets/images/dummy/dress.png" alt="">
+            </div>
+            <div class="flex items-center gap-2 mt-4 overflow-x-auto pb-1">
+                <div class="h-[100px] border border-[#d7d7d7] aspect-square p-2 rounded">
+                    <img class="object-center object-contain w-full h-full" src="./assets/images/dummy/dress.png"
+                        alt="">
+                </div>
+                <div class="h-[100px] border border-[#d7d7d7] aspect-square p-2 rounded">
+                    <img class="object-center object-contain w-full h-full" src="./assets/images/dummy/dress.png"
+                        alt="">
+                </div>
+                <div class="h-[100px] border border-[#d7d7d7] aspect-square p-2 rounded">
+                    <img class="object-center object-contain w-full h-full" src="./assets/images/dummy/dress.png"
+                        alt="">
+                </div>
+                <div class="h-[100px] border border-[#d7d7d7] aspect-square p-2 rounded">
+                    <img class="object-center object-contain w-full h-full" src="./assets/images/dummy/dress.png"
+                        alt="">
+                </div>
+                <div class="h-[100px] border border-[#d7d7d7] aspect-square p-2 rounded">
+                    <img class="object-center object-contain w-full h-full" src="./assets/images/dummy/dress.png"
+                        alt="">
+                </div>
+                <div class="h-[100px] border border-[#d7d7d7] aspect-square p-2 rounded">
+                    <img class="object-center object-contain w-full h-full" src="./assets/images/dummy/dress.png"
+                        alt="">
+                </div>
+                <div class="h-[100px] border border-[#d7d7d7] aspect-square p-2 rounded">
+                    <img class="object-center object-contain w-full h-full" src="./assets/images/dummy/dress.png"
+                        alt="">
+                </div>
+            </div>
         </div>
         <div class="col-span-3 p-4 relative flex flex-col justify-between overflow-y-auto gap-10 py-[50px]">
-          
             <div>
                 <p class="text-sm">Baby Clothes</p>
                 <p class="text-3xl font-bold text-[#26355D] my-1">Sleeveless Onesie</p>
-                <p class="text-sm">A sleeveless onesie is a one-piece baby garment with no sleeves, snap closures for easy
+                <p class="text-sm">A sleeveless onesie is a one-piece baby garment with no sleeves, snap closures for
+                    easy
                     diaper changes, and soft, breathable fabric. Ideal for warm weather or layering. Comfortable and
                     versatile! 👶</p>
                 <p class="text-lg font-semibold text-[#666] mt-4">{{849.15 | currency:'INR':true}}
@@ -26,10 +58,14 @@
                     <a class="text-xs border px-2 py-1 hover:bg-[#eee] transition cursor-pointer">5 - 6 Years</a>
                     <a class="text-xs border px-2 py-1 hover:bg-[#eee] transition cursor-pointer">View size chart</a>
                 </div>
-                
+
                 <div class="flex items-center gap-4">
-                    <a class="border border-[#26355d] text-[#26355d] text-sm w-[calc(50%-4px)] py-2 text-center cursor-pointer hover:bg-[#26355d] hover:text-white transition">Add To Bag</a>
-                    <a class="border border-[#26355d] text-[#26355d] text-sm w-[calc(50%-4px)] py-2 text-center cursor-pointer hover:bg-[#26355d] hover:text-white transition ">Add To Wishlist</a>
+                    <a
+                        class="border border-[#26355d] text-[#26355d] text-sm w-[calc(50%-4px)] py-2 text-center cursor-pointer hover:bg-[#26355d] hover:text-white transition">Add
+                        To Bag</a>
+                    <a
+                        class="border border-[#26355d] text-[#26355d] text-sm w-[calc(50%-4px)] py-2 text-center cursor-pointer hover:bg-[#26355d] hover:text-white transition ">Add
+                        To Wishlist</a>
                 </div>
 
                 <div class="flex items-center gap-2 flex-wrap mt-5">
@@ -67,6 +103,31 @@
     </div>
 </div>
 
+<div class="px-4 lg:px-8 xl:px-12 my-10">
+    <div class="border-b border-[#d7d7d7] flex items-center gap-2">
+        <a *ngFor="let item of prodcutDesList" (click)="activeProductDescTab = item"
+            [ngClass]="{'bg-[#F0F8FF] font-semibold': activeProductDescTab === item}"
+            class="cursor-pointer text-base py-2 px-4 rounded-t-md">{{item}}</a>
+    </div>
+    <div class="pt-6 bg-[#F0F8FF] pb-6 px-4">
+        <div class="" *ngIf="activeProductDescTab === 'Description'">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum ab vitae architecto quis minus delectus fuga
+            rerum aspernatur sapiente nesciunt esse, facilis illo consequatur libero ipsa eligendi, labore error
+            consequuntur ipsam numquam totam? Assumenda expedita, ad quod blanditiis similique tempore?
+        </div>
+        <div class="" *ngIf="activeProductDescTab === 'Reviews'">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam a nisi ut nam quisquam perspiciatis unde
+            possimus quae at sequi?
+        </div>
+        <div class="" *ngIf="activeProductDescTab === 'Q&A Section'">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod soluta labore quibusdam quis repellat
+            necessitatibus qui eius iure nihil, officiis facilis itaque aut dolorem, nam magnam. Iste molestias dolore
+            consequuntur molestiae amet aut qui obcaecati?
+        </div>
+    </div>
+
+</div>
+
 
 <div class="px-4 lg:px-8 xl:px-12">
     <div class="text-center font-semibold text-[20px] text-[#333] my-12">Related Products</div>
@@ -75,11 +136,14 @@
             <img src="{{item.img}}" alt="">
             <div class="flex flex-col pt-2">
                 <p class="text-base text-[#002244] font-semibold mb-1">{{item.name}}</p>
-                <p class="text-sm text-[#666]">{{item.price |  currency:'INR':true}}
-                    <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |  currency:'INR':true}}</span>
+                <p class="text-sm text-[#666]">{{item.price | currency:'INR':true}}
+                    <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |
+                        currency:'INR':true}}</span>
                 </p>
                 <div class="flex w-full items-center h-[40px] mt-2 rounded overflow-hidden">
-                    <a class="h-full cursor-pointer text-white bg-[#26355D] leading-none flex-1 text-sm px-3 items-center flex border-r border-[#fff]">Add to Cart</a>
+                    <a
+                        class="h-full cursor-pointer text-white bg-[#26355D] leading-none flex-1 text-sm px-3 items-center flex border-r border-[#fff]">Add
+                        to Cart</a>
                     <a class="cursor-pointer text-white bg-[#26355D] h-full flex items-center justify-center w-[40px]">
                         <img class="w-6 h-6 invert" src="./assets/images/heart.svg" alt="">
                     </a>
