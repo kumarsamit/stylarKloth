@@ -1,4 +1,4 @@
-<div class="relative h-[40v] min-h-[300px] bg-[url(./assets/images/banner/contact-us-banner.jpg)] bg-cover bg-center flex justify-center items-center">
+<div class="relative h-[40vh] min-h-[300px] bg-[url(./assets/images/banner/contact-us-banner.jpg)] bg-cover bg-center flex justify-center items-center">
     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/60"></div>
     <span class="relative z-10 font-bold text-[40px] text-white">Contact Us</span>
 </div>
@@ -25,7 +25,7 @@
 </div>
 
 
-<div class="px-4 lg:px-8 xl:px-12 my-10">
+<div class="px-4 lg:px-8 xl:px-12 mt-16">
     <div class="font-bold text-[20px] text-[#333] w-full mb-2">Get in Touch with Us</div>
     <div class="text-[#666] w-full max-w-[900px]">
         Have questions or need assistance? Reach out to us! Our team is here to help with inquiries, feedback, or support. Fill out the contact form, email us, or call our customer service line. We aim to respond promptly and ensure your experience with us is seamless and satisfying.
@@ -34,7 +34,7 @@
         <form (ngSubmit)="submitQuery()" [formGroup]="contactFormGroup" class="w-full mt-4">
             <div>
                 <mat-label>Name</mat-label>
-                <mat-form-field class="w-full mb-1">
+                <mat-form-field class="w-full mb-1" appearance="outline">
                     <input matInput formControlName="name" type="text" textOnly appearance="outline">
                     <mat-error *ngIf="contactFormGroup.controls['name'].hasError('required')">
                         This is required field
@@ -44,7 +44,7 @@
 
             <div>
                 <mat-label>E-mail</mat-label>
-                <mat-form-field class="w-full mb-1">
+                <mat-form-field class="w-full mb-1"  appearance="outline">
                     <input matInput formControlName="email" type="text" textOnly appearance="outline">
                     <mat-error *ngIf="contactFormGroup.controls['email'].hasError('required')">
                         This is required field
@@ -54,20 +54,31 @@
                     </mat-error>
                 </mat-form-field>
             </div>
-            <mat-form-field class="w-full mb-1">
-                <input matInput formControlName="phone" type="text" textOnly appearance="outline">
-                <mat-error *ngIf="contactFormGroup.controls['phone'].hasError('required')">
-                    This is required field
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field class="w-full mb-1">
-                <input matInput formControlName="desc" type="text" textOnly appearance="outline">
-                <mat-error *ngIf="contactFormGroup.controls['desc'].hasError('required')">
-                    This is required field
-                </mat-error>
-            </mat-form-field>
+            <div>
+                <mat-label>Phone</mat-label>
+                <mat-form-field class="w-full mb-1"  appearance="outline">
+                    <span matPrefix>+91</span>
+                    <input matInput formControlName="phone" type="text" textOnly appearance="outline">
+                    <mat-error *ngIf="contactFormGroup.controls['phone'].hasError('required')">
+                        This is required field
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-label>Description</mat-label>
+                <mat-form-field class="w-full mb-1"  appearance="outline">
+                    <textarea  matInput formControlName="desc" type="text" textOnly appearance="outline"></textarea>
+                    <mat-error *ngIf="contactFormGroup.controls['desc'].hasError('required')">
+                        This is required field
+                    </mat-error>
+                </mat-form-field>
+            </div>
             <button type="submit" class="text-white py-[11px] font-semibold w-full bg-[#26355D] rounded">Submit</button>
         </form>
+        <div class="flex items-center justify-center">
+            <img class="w-[70%]" src="./assets/images/contact-us.png" alt="">
+        </div>
     </div>
 </div>
 

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewArrivalsComponent } from './new-arrivals.component';
 import { Routes, RouterModule } from '@angular/router';
+import {MatSelectModule} from '@angular/material/select';
+
 
 const routes: Routes = [
   {
@@ -16,6 +18,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    MatSelectModule,
     RouterModule.forChild(routes)
 
   ]

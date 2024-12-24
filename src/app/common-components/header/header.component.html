@@ -29,9 +29,8 @@
         <a class="cursor-pointer" routerLink="/products">Shop
             <span></span>
         </a>
-        <a class="cursor-pointer flex items-center gap-[2px]" [matMenuTriggerFor]="newArrivalMenu">
+        <a class="cursor-pointer flex items-center gap-[2px]" routerLink="/new-arrival">
             New Arrivals
-            <img class="w-6 rotate-180" src="./assets/images/angle.svg" alt="">
             <span></span>
         </a>
         <a class="cursor-pointer" routerLink="">Blogs
@@ -53,10 +52,3 @@
         </a>
     </div>
 </div>
-
-
-<mat-menu #newArrivalMenu="matMenu" panleClass="headerMatmenu">
-    <button mat-menu-item routerLink="/new-arrival/all">All</button>
-    <button mat-menu-item routerLink="/new-arrival/male">Boys</button>
-    <button mat-menu-item routerLink="/new-arrival/female"> Girls</button>
-</mat-menu>

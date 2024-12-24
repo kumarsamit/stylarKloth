@@ -166,7 +166,7 @@ const marketplaceRoutes: Routes = [
         },
     },
     {
-        path: 'new-arrival/:type',
+        path: 'new-arrival',
         loadChildren: () => import('../pages/marketplace/new-arrivals/new-arrivals.module').then((m) => m.NewArrivalsModule),
         // resolve: {
         //     routeResolver: ValidateMeta
