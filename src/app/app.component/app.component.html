@@ -2,7 +2,7 @@
 <app-dashboard-header *ngIf="isHeader === 2"></app-dashboard-header>
 <div class="flex" [ngClass]="{'h-[calc(100vh-50px)]': isHeader === 2}">
 	<app-sidebar *ngIf="isSidebar"></app-sidebar>
-	<div class="flex-1" [ngClass]="{'bg-[#f7f7f7] p-3': isHeader === 2}">
+	<div class="flex-1" [ngClass]="{'bg-[#f7f7f7] p-3 overflow-y-auto': isHeader === 2}">
 		<router-outlet></router-outlet>
 	</div>
 </div>

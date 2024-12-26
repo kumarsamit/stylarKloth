@@ -1,1 +1,106 @@
-<p>dashboard works!</p>
+<p class="text-[18px] font-semibold text-[#303030]">Dashboard</p>
+
+<div class="bg-white rounded-md mt-4 p-4 shadow">
+    <div class="flex justify-between items-center">
+        <h2 class="text-[16px] font-semibold text-[#505050]">Orders</h2>
+        <a class="cursor-pointer" [matMenuTriggerFor]="menuStats">
+            <img class="h-[14px]" src="./assets/images/dots-vertical.svg" alt="">
+        </a>
+    </div>
+    <div class="grid grid-cols-5 gap-4 mt-4">
+        <div class="bg-[rgba(115,194,251,0.3)] rounded-md p-4 shadow">
+            <p class="text-sm">Total Orders</p>
+            <p class="text-[22px] font-bold text-[#444] mt-2">1100</p>
+        </div>
+        <div class="bg-[rgba(115,251,194,0.3)] rounded-md p-4 shadow">
+            <p class="text-sm">Completed Orders</p>
+            <p class="text-[22px] font-bold text-[#444] mt-2">100</p>
+        </div>
+        <div class="bg-[rgba(251,241,115,0.3)] rounded-md p-4 shadow">
+            <p class="text-sm">Pending Orders</p>
+            <p class="text-[22px] font-bold text-[#444] mt-2">110</p>
+        </div>
+        <div class="bg-[rgba(251,115,115,0.3)] rounded-md p-4 shadow">
+            <p class="text-sm">Canceled Orders</p>
+            <p class="text-[22px] font-bold text-[#444] mt-2">100</p>
+        </div>
+        <div class="bg-[rgba(176,176,176,0.3)] rounded-md p-4 shadow">
+            <p class="text-sm">Return Orders</p>
+            <p class="text-[22px] font-bold text-[#444] mt-2">100</p>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4 grid grid-cols-4 gap-4">
+    <div class="flex justify-between items-center bg-white rounded-md flex-wrap p-4 shadow">
+        <h2 class="text-[16px] font-semibold text-[#505050]">Total Revenue</h2>
+        <a class="cursor-pointer" [matMenuTriggerFor]="menuStats">
+            <img class="h-[14px]" src="./assets/images/dots-vertical.svg" alt="">
+        </a>
+        <p class="text-[22px] font-bold w-full mt-4 text-[#444]">{{2000 |  currency:'INR':true}}</p>
+    </div>
+    <div class="flex justify-between items-center bg-white rounded-md flex-wrap p-4 shadow">
+        <h2 class="text-[16px] font-semibold text-[#505050]">Refunded</h2>
+        <a class="cursor-pointer" [matMenuTriggerFor]="menuStats">
+            <img class="h-[14px]" src="./assets/images/dots-vertical.svg" alt="">
+        </a>
+        <p class="text-[22px] font-bold w-full mt-4 text-[#444]">{{2000 |  currency:'INR':true}}</p>
+    </div>
+    <div class="flex justify-between items-center bg-white rounded-md flex-wrap p-4 shadow">
+        <h2 class="text-[16px] font-semibold text-[#505050]">New Users</h2>
+        <a class="cursor-pointer" [matMenuTriggerFor]="menuStats">
+            <img class="h-[14px]" src="./assets/images/dots-vertical.svg" alt="">
+        </a>
+        <p class="text-[22px] font-bold w-full mt-4 text-[#444]">120</p>
+    </div>
+    <div class="flex justify-between items-center bg-white rounded-md flex-wrap p-4 shadow">
+        <h2 class="text-[16px] font-semibold text-[#505050]">Visitors Count</h2>
+        <a class="cursor-pointer" [matMenuTriggerFor]="menuStats">
+            <img class="h-[14px]" src="./assets/images/dots-vertical.svg" alt="">
+        </a>
+        <p class="text-[22px] font-bold w-full mt-4 text-[#444]">12</p>
+    </div>
+</div>
+
+
+<div class="mt-4 grid grid-cols-4 gap-4">
+        <div class="col-span-3 bg-white rounded-md shadow row-span-3 flex items-center justify-center">
+                sales chart of last 12 months
+        </div>
+        <div class="flex justify-between items-center bg-white rounded-md flex-wrap p-4 shadow">
+            <h2 class="text-[16px] font-semibold text-[#505050]">Total Products</h2>
+            <a class="cursor-pointer" [matMenuTriggerFor]="menuStats">
+                <img class="h-[14px]" src="./assets/images/dots-vertical.svg" alt="">
+            </a>
+            <p class="text-[22px] font-bold w-full mt-4 text-[#444]">12</p>
+        </div>
+        <div class="flex justify-between items-center bg-white rounded-md flex-wrap p-4 shadow">
+            <h2 class="text-[16px] font-semibold text-[#505050]">Products with low inventry</h2>
+            <a class="cursor-pointer" [matMenuTriggerFor]="menuStats">
+                <img class="h-[14px]" src="./assets/images/dots-vertical.svg" alt="">
+            </a>
+            <p class="text-[22px] font-bold w-full mt-4 text-[#444]">12</p>
+        </div>
+        <div class="flex justify-between items-center bg-white rounded-md flex-wrap p-4 shadow">
+            <h2 class="text-[16px] font-semibold text-[#505050]">Out of stock products</h2>
+            <a class="cursor-pointer" [matMenuTriggerFor]="menuStats">
+                <img class="h-[14px]" src="./assets/images/dots-vertical.svg" alt="">
+            </a>
+            <p class="text-[22px] font-bold w-full mt-4 text-[#444]">12</p>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
+<mat-menu #menuStats="matMenu">
+    <button mat-menu-item>Last 7 days</button>
+    <button mat-menu-item>Last 30 days</button>
+    <button mat-menu-item>Last 6 months</button>
+    <button mat-menu-item>Last 12 months</button>
+</mat-menu>

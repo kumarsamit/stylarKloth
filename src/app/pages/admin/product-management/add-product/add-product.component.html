@@ -1,0 +1,24 @@
+<div class="flex items-center gap-4"> 
+    <img (click)="back()" class="w-5 rotate-180 invert cursor-pointer" src="./assets/images/right-arrow.svg" alt="">
+    <p class="text-[18px] font-semibold text-[#303030]">Add Product</p>
+</div>
+
+<div class="bg-white rounded-md shadow-md p-4 mt-4">
+    <p class="text-[18px] font-semibold text-[#303030] mb-4">Product details</p>
+    <form (ngSubmit)="createProduct()" [formGroup]="productFormGroup" class="w-full grid grid-cols-2 gap-x-4">
+        <div class="flex flex-col gap-1">
+            <mat-label>Product Name</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="name" type="text" textOnly appearance="outline">
+                <mat-error *ngIf="productFormGroup.controls['name'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-span-2 flex justify-end">
+            <button type="submit" class="text-white py-[6px] font-semibold px-10 bg-[#26355D] rounded">Submit</button>
+        </div>
+    </form>
+
+</div>
