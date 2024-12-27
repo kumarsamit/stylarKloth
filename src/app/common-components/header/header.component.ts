@@ -20,4 +20,8 @@ export class HeaderComponent {
 		});
 	}
 
+	// ngOnInit(){
+	// 	this.loginPopup();
+	// }
+
 }
