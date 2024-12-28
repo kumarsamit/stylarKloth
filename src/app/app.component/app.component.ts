@@ -29,15 +29,17 @@ export class AppComponent {
 					if (event.snapshot.data['footer'] >= 0) {
 						this.isFooter = event.snapshot.data['footer'];
 					}
-					let { title, description, keyword } = event.snapshot.data['meta'];
-					if (title) {
-						this.titleService.setTitle(title);
-					}
-					if (description) {
-						this.metaService.updateTag({ name: 'description', content: description });
-					}
-					if (keyword) {
-						this.metaService.updateTag({ name: 'keywords', content: keyword });
+					if(event.snapshot.data['meta']){
+						let { title, description, keyword } = event.snapshot?.data['meta'];
+						if (title) {
+							this.titleService.setTitle(title);
+						}
+						if (description) {
+							this.metaService.updateTag({ name: 'description', content: description });
+						}
+						if (keyword) {
+							this.metaService.updateTag({ name: 'keywords', content: keyword });
+						}
 					}
 				}
 			}

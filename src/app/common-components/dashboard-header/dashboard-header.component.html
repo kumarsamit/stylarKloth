@@ -1,13 +1,22 @@
 <div class="flex items-center justify-between h-[50px] px-4 border-b border-[#d7d7d7]">
     <a class="cursor-pointer">Stylar<span class="font-semibold text-[#26355D]">Kloth</span></a>
-    <a class="cursor-pointer" [matMenuTriggerFor]="newArrivalMenu">
+    <a class="cursor-pointer" [matMenuTriggerFor]="Menu">
         <img class="w-5" src="./assets/images/user.svg" alt="">
     </a>
 </div>
 
 
-<mat-menu #newArrivalMenu="matMenu" panleClass="headerMatmenu">
-    <button mat-menu-item>Profile</button>
-    <button mat-menu-item>Marketplace</button>
-    <button mat-menu-item>Logout</button>
+<mat-menu #Menu="matMenu" class="headerMatmenu">
+    <button mat-menu-item routerLink="/dashboard">
+        <img class="w-5 opacity-70" src="./assets/images/user-menu.svg" alt="">
+        Profile
+    </button>
+    <button mat-menu-item routerLink="">
+        <img class="w-5 opacity-70" src="./assets/images/marketplace.svg" alt="">
+        Marketplace
+    </button>
+    <button mat-menu-item>
+        <img class="w-5 opacity-70" src="./assets/images/logout.svg" alt="">
+        Logout
+    </button>
 </mat-menu>

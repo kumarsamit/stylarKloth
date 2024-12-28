@@ -184,6 +184,24 @@ const marketplaceRoutes: Routes = [
         },
     },
     {
+        path: 'order-history',
+        loadChildren: () => import('../pages/marketplace/order-history/order-history.module').then((m) => m.OrderHistoryModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'website',
+            header: 1,
+            footer: 1,
+            sidebar: 0,
+            meta: {
+                title: 'Welcome to stylarKloth',
+                description: 'stylarKloth description',
+                keyword: 'stylarKloth, fashion'
+            }
+        },
+    },
+    {
         path: 'info',
         loadChildren: () => import('../pages/marketplace/legal-info/legal-info.module').then((m) => m.LegalInfoModule),
         // resolve: {

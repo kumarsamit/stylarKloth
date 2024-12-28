@@ -6,6 +6,8 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+
 
 const routes: Routes = [
 	{
@@ -26,10 +28,11 @@ const routes: Routes = [
 	],
 	imports: [
 		CommonModule,
-			MatFormFieldModule,
-			FormsModule,
-			ReactiveFormsModule,
-			MatInputModule,
+		MatFormFieldModule,
+		FormsModule,
+		ReactiveFormsModule,
+		MatInputModule,
+		MatTableModule,
 		RouterModule.forChild(routes)
 	]
 })

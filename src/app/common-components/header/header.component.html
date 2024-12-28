@@ -7,7 +7,6 @@
         </a>
     </div>
     <div class="flex items-center gap-4">
-        <a class="text-white text-xs cursor-pointer mx-1 leading-none hover:font-semibold" routerLink="/dashboard">Admin</a>
         <a class="text-white text-xs cursor-pointer mx-4 leading-none hover:font-semibold" (click)="loginPopup()">Login
             or Register</a>
         <a class="cursor-pointer" target="_blank" href="https://www.instagram.com/stylarKloth/">
@@ -44,8 +43,31 @@
         <a class="cursor-pointer" routerLink="/cart">
             <img class="w-5" src="./assets/images/cart.svg" alt="">
         </a>
-        <a class="cursor-pointer" routerLink="/user-profile">
+        <a class="cursor-pointer" [matMenuTriggerFor]="Menu">
             <img class="w-5" src="./assets/images/user.svg" alt="">
         </a>
     </div>
 </div>
+
+<mat-menu #Menu="matMenu" class="headerMatmenu">
+    <button mat-menu-item routerLink="/user-profile">
+        <img class="w-5 opacity-70" src="./assets/images/user-menu.svg" alt="">
+        Profile
+    </button>
+    <button mat-menu-item routerLink="/order-history">
+        <img class="w-5 opacity-70" src="./assets/images/order-history.svg" alt="">
+        Order history
+    </button>
+    <button mat-menu-item routerLink="/wishlist">
+        <img class="w-5 opacity-70" src="./assets/images/wishlist-menu.svg" alt="">
+        Wishlist
+    </button>
+    <button mat-menu-item routerLink="/dashboard">
+        <img class="w-5 opacity-70" src="./assets/images/admin.svg" alt="">
+        Admin
+    </button>
+    <button mat-menu-item>
+        <img class="w-5 opacity-70" src="./assets/images/logout.svg" alt="">
+        Logout
+    </button>
+</mat-menu>
