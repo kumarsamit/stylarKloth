@@ -1,5 +1,7 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,9 +16,21 @@ export class SignInComponent {
 		password: new FormControl('', [Validators.required]),
 	})
 
+  constructor(
+    private _router : Router,
+    private _dialogRef : DialogRef
+  ){
+
+  }
+
   login(){
 
     console.log("!11111111",this.loginFormGroup.value)
+  }
+
+  signup(){
+    this._router.navigate(['sign-up']);
+    this._dialogRef.close();
   }
 
 }

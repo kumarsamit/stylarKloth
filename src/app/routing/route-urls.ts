@@ -201,6 +201,24 @@ const marketplaceRoutes: Routes = [
             }
         },
     },
+    {
+        path: 'sign-up',
+        loadChildren: () => import('../pages/auth/sign-up/sign-up.module').then((m) => m.SignUpModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'website',
+            header: 0,
+            footer: 0,
+            sidebar: 0,
+            meta: {
+                title: 'Welcome to stylarKloth',
+                description: 'stylarKloth description',
+                keyword: 'stylarKloth, fashion'
+            }
+        },
+    },
 ];
 
 const adminRoutes: Routes = [
