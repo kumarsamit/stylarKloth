@@ -112,9 +112,16 @@
                     </mat-error>
                 </mat-form-field>
             </div>
+
+            <div class="flex flex-col gap-2">
+                <mat-label>Upload image</mat-label>
+                <label for="upload_image" class="bg-[#F0F8FF] w-full h-[40px] rounded-md flex items-center justify-center cursor-pointer">Click here to upload</label>
+                <input type="file" id="upload_image" hidden>
+
+            </div>
         </div>
 
-        <div class="text-[18px] font-semibold text-[#303030] my-4 col-span-2">
+        <div class="text-[18px] font-semibold text-[#303030] mb-4 mt-6 col-span-2">
             Meta details
         </div>
         <div class="flex flex-col gap-1">
@@ -138,7 +145,7 @@
 
 
         <div class="col-span-2 flex justify-end">
-            <button type="submit" class="text-white py-[6px] font-semibold px-10 bg-[#26355D] rounded">Submit</button>
+            <button type="submit" class="text-white py-[6px] font-semibold px-10 bg-[#26355D] rounded">Create</button>
         </div>
     </form>
 

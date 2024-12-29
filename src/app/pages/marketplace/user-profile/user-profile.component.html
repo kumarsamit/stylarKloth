@@ -7,17 +7,111 @@
         </div>
         <div class="flex-1">
             <mat-accordion>
-                <mat-expansion-panel>
+                <mat-expansion-panel [expanded]="true"> 
                     <mat-expansion-panel-header>
                         <mat-panel-title> Account & Information </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <p>This is the primary content of the panel.</p>
+                    <div class="">
+                        <form (ngSubmit)="updateUserDetails()" [formGroup]="userFormGroup" class="w-full grid grid-cols-2 gap-x-6">
+                            <div>
+                                <mat-label>Full Name</mat-label>
+                                <p class="font-semibold text-base mt-1 mb-4" *ngIf="!isEditable">Ken Norman</p>
+                                <mat-form-field class="w-full mb-1" appearance="outline" *ngIf="isEditable">
+                                    <input matInput formControlName="name" type="text" textOnly appearance="outline">
+                                    <mat-error *ngIf="userFormGroup.controls['name'].hasError('required')">
+                                        This is required field
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                
+                            <div>
+                                <mat-label>E-mail</mat-label>
+                                <p class="font-semibold text-base mt-1 mb-4" *ngIf="!isEditable">ken@gmail.com</p>
+                                <mat-form-field class="w-full mb-1"  appearance="outline" *ngIf="isEditable">
+                                    <input matInput formControlName="email" type="text" textOnly appearance="outline">
+                                    <mat-error *ngIf="userFormGroup.controls['email'].hasError('required')">
+                                        This is required field
+                                    </mat-error>
+                                    <mat-error *ngIf="userFormGroup.controls['email'].hasError('email')">
+                                        Enter valid email
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-label>Phone</mat-label>
+                                <p class="font-semibold text-base mt-1 mb-4" *ngIf="!isEditable">+91880098767</p>
+                                <mat-form-field class="w-full mb-1"  appearance="outline" *ngIf="isEditable">
+                                    <span matPrefix>+91</span>
+                                    <input matInput formControlName="phone" type="text" textOnly appearance="outline">
+                                    <mat-error *ngIf="userFormGroup.controls['phone'].hasError('required')">
+                                        This is required field
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                
+                            <div>
+                                <mat-label>Gender</mat-label>
+                                <p class="font-semibold text-base mt-1 mb-4" *ngIf="!isEditable">Male</p>
+                                <mat-form-field class="w-full mb-1"  appearance="outline" *ngIf="isEditable">
+                                    <span matPrefix>+91</span>
+                                    <input matInput formControlName="sex" type="text" textOnly appearance="outline">
+                                    <mat-error *ngIf="userFormGroup.controls['phone'].hasError('required')">
+                                        This is required field
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <a (click)="editForm();" *ngIf="!isEditable" class="inline-block text-white py-[11px] font-semibold px-6 bg-[#26355D] rounded cursor-pointer">Edit Details</a>
+                                <a (click)="editForm();" *ngIf="isEditable" class="inline-block text-[#333] py-[11px] font-semibold px-6 bg-[#ccc] rounded cursor-pointer">Cancel</a>
+                                <button type="submit" *ngIf="isEditable" class="text-white py-[11px] font-semibold bg-[#26355D] rounded px-6">Submit</button>
+
+                            </div>
+                        </form>
+
+
+                    </div>
                 </mat-expansion-panel>
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title> My Addresses</mat-panel-title>
                     </mat-expansion-panel-header>
-                    <p>I'm visible because I am open</p>
+                  <div class="">
+                    <div class="bg-[#F0F8FF] rounded-md grid-cols-2 grid p-4">
+                        <div>
+                            <p class="text-sm">Full Name</p>
+                            <p class="font-semibold text-base mt-1 mb-4">Ken Norman</p>
+                        </div>
+                        <div>
+                            <p class="text-sm">Address Line 1</p>
+                            <p class="font-semibold text-base mt-1 mb-4">Ken Norman</p>
+                        </div>
+                        <div>
+                            <p class="text-sm">Address Line 2</p>
+                            <p class="font-semibold text-base mt-1 mb-4">Ken Norman</p>
+                        </div>
+                        <div>
+                            <p class="text-sm">City</p>
+                            <p class="font-semibold text-base mt-1 mb-4">Ken Norman</p>
+                        </div>
+                        <div>
+                            <p class="text-sm">State</p>
+                            <p class="font-semibold text-base mt-1 mb-4">Ken Norman</p>
+                        </div>
+                        <div>
+                            <p class="text-sm">Country</p>
+                            <p class="font-semibold text-base mt-1 mb-4">Ken Norman</p>
+                        </div>
+                        <div>
+                            <p class="text-sm">Postal Code</p>
+                            <p class="font-semibold text-base mt-1 mb-4">Ken Norman</p>
+                        </div>
+                        <div>
+                            <p class="text-sm">Address Type</p>
+                            <p class="font-semibold text-base mt-1 mb-4">Home</p>
+                        </div>
+
+                    </div>
+                  </div>
                 </mat-expansion-panel>
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>

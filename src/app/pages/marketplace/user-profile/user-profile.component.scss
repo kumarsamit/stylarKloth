@@ -3,3 +3,20 @@
     border-color: #333;
 }
 }
+
+:host ::ng-deep .mat-mdc-form-field-icon-prefix{
+    padding: 10px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px 0 1px;
+    border-radius: 4px 0 0 4px;
+    border-right: 1px solid #d7d7d7;
+}
+
+:host ::ng-deep .mat-expansion-panel-header-title{
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+}
