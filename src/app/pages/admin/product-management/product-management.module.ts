@@ -8,6 +8,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { ProductSummaryComponent } from './product-summary/product-summary.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 const routes: Routes = [
@@ -20,7 +22,7 @@ const routes: Routes = [
 		component: AddProductComponent
 	},
 	{
-		path: 'update-product/:id',
+		path: 'summary/:id',
 		component: ProductSummaryComponent
 	}
 ];
@@ -39,6 +41,7 @@ const routes: Routes = [
 		ReactiveFormsModule,
 		MatInputModule,
 		MatTableModule,
+		MatProgressSpinnerModule,
 		RouterModule.forChild(routes)
 	]
 })

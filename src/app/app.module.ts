@@ -13,6 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule } from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
 import { DashboardHeaderComponent } from './common-components/dashboard-header/dashboard-header.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth-interceptor/auth.interceptor';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -31,6 +34,8 @@ import { DashboardHeaderComponent } from './common-components/dashboard-header/d
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
+    MatSnackBarModule,
     MatDialogModule,
     MatFormFieldModule,
     ReactiveFormsModule,
@@ -38,7 +43,13 @@ import { DashboardHeaderComponent } from './common-components/dashboard-header/d
     MatMenuModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

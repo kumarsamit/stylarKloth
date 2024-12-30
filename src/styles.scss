@@ -73,3 +73,48 @@ form label{
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+// mat snackbar
+
+.easy-snackStyle{
+  &.snack-success{
+      background: #44b444;
+      color: #fff;
+
+      .mdc-snackbar__surface{
+          background: #44b444 !important;
+          color: #fff !important;
+      }
+  }
+  &.snack-error{
+      background: #f33333;
+      color: #fff;
+
+      .mdc-snackbar__surface{
+          background: #f33333 !important;
+          color: #fff !important;
+      }
+  }
+
+  &.mat-mdc-snack-bar-container{
+      margin: 8px;
+      border-radius: 4px;
+      // width: 400px;
+      // max-width: 80%;
+  }
+
+  .mat-mdc-snack-bar-action{
+      color: #fff !important;
+      background: rgba(0,0,0,0.1) !important;
+      font-size: 14px;
+      border-radius: 4px;
+      padding: 4px 9px;
+      min-width: auto;
+      height: auto;
+  }
+}
+
+.mat-mdc-simple-snack-bar {
+  display: flex;
+  align-items: baseline;
+}
