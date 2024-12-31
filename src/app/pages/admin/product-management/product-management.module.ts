@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { ProductSummaryComponent } from './product-summary/product-summary.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 
@@ -42,6 +44,7 @@ const routes: Routes = [
 		MatInputModule,
 		MatTableModule,
 		MatProgressSpinnerModule,
+		MatSelectModule,
 		RouterModule.forChild(routes)
 	]
 })

@@ -4,6 +4,8 @@ import { CustomerManagementComponent } from './customer-management.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 const routes: Routes = [
@@ -26,6 +28,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     MatTableModule,
+    MatProgressSpinnerModule,
     RouterModule.forChild(routes)
 
   ]

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ADMIN_CREATE_PRODUCT_API } from '@env/api.path';
 import { RequestService } from '@services/https/request.service';
 import { SnackbarService } from '@services/snackbar/snackbar.service';
@@ -10,28 +11,70 @@ import { SnackbarService } from '@services/snackbar/snackbar.service';
 	styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent {
+	washing_instructions:any =  ['Machine Wash', 'Hand Wash Only', 'Wash in Cold Water', 'Wash in Warm Water', 'Do Not Wash','Gentle Cycle Only', 'Separate Colors'];
+	ironing_instructions:any =['Iron at Low Temperature', 'Iron at Medium Temperature', 'Iron at High Temperature', 'Steam Iron' ,'Do Not Iron'];
+	dry_cleaning:any = ['Dry Clean Only', 'Do Not Dry Clean', 'Dry Clean with Specific Solvents'];
+	storage_instructions:any = ['Store in a Cool, Dry Place','Do Not Fold','Avoid Humidity','Use Mothballs or Silica Gel for Protection','Store Flat'];
 
-	productFormGroup = new FormGroup({
-		name: new FormControl('', [Validators.required]),
-		email: new FormControl('', [Validators.required, Validators.email]),
-		phone: new FormControl('', [Validators.required]),
-		desc: new FormControl('', [Validators.required]),
-	})
 
+	
+	productFormGroup: FormGroup;
 	constructor(
 		private _request: RequestService,
 		private _snackbar: SnackbarService,
-
+		private _router: Router,
+		private fb: FormBuilder
 	) {
 
+		this.productFormGroup = this.fb.group({
+			productName: new FormControl('', [Validators.required]),
+			productDescription: new FormControl('', [Validators.required]),
+			productBrand: new FormControl('', [Validators.required]),
+			category: new FormControl('', [Validators.required]),
+			productPrice: new FormControl('', [Validators.required]),
+			productDiscountedPrice: new FormControl('', [Validators.required]),
+			productActualPrice: new FormControl('', [Validators.required]),
+			productMaterial: new FormControl('', [Validators.required]),
+			tags: new FormControl('', [Validators.required]),
+			productWeight: new FormControl('', []),
+			washing: new FormControl('', []),
+			ironing: new FormControl('', []),
+			drying: new FormControl('', []),
+			storage: new FormControl('', []),
+			title: new FormControl('', []),
+			description: new FormControl('', []),
+			seoKeyWords: new FormControl('', []),
+			variants: this.fb.array([]),
+		});
+	}
+
+	get variants():FormArray {
+		return this.productFormGroup.get('variants') as FormArray;
+	}
+
+	addVariant() {
+		const variantGroup = this.fb.group({
+			size: new FormControl('', [Validators.required]),
+			color: new FormControl('', [Validators.required]),
+			quantity: new FormControl('', [Validators.required]),
+		});
+		this.variants.push(variantGroup);
+	}
+
+	removeVariant(index: number) {
+		this.variants.removeAt(index);
 	}
 
 	createProduct() {
+		console.log('productFormGroup', this.productFormGroup.value);
+
+		return;
 		let requestedData = {}
 		this._request.GET(ADMIN_CREATE_PRODUCT_API, requestedData).subscribe({
 			next: (resp: any) => {
 				console.log('resp', resp)
-				this._snackbar.notify(resp.message, 2)
+				this._router.navigate(['/product-management'])
+				this._snackbar.notify(resp.message, 1)
 			}, error: (err) => {
 				this._snackbar.notify(err.message, 2)
 
@@ -43,13 +86,9 @@ export class AddProductComponent {
 		history.back();
 	}
 
-	ngOnInit() {
-		this.createProduct();
+	ngOnInit(){
+		this.addVariant();
 	}
-
-
-
-
 
 
 }

@@ -4,3 +4,16 @@
         Review all your past orders at a glance. Track details, statuses, and more.
     </div>
 </div>
+
+<div class="px-4 lg:px-8 xl:px-12 my-10">
+    <div class="border border-red-500 mb-6 flex gap-4" *ngFor="let item of products">
+        <div class="w-[200px]">
+            <img class="object-center object-cover w-full h-full" src="{{item.img}}" alt="">
+        </div>
+        <div>
+            <p>{{item.name}}</p>
+            <p>{{item.price}}</p>
+
+        </div>
+    </div>
+</div>

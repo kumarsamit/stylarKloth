@@ -7,37 +7,28 @@
     <p class="text-[18px] font-semibold text-[#303030] mb-4">Product details</p>
     <form (ngSubmit)="createProduct()" [formGroup]="productFormGroup" class="w-full grid grid-cols-2 gap-x-10">
         <div class="flex flex-col gap-1">
-            <mat-label>Product Name</mat-label>
+            <mat-label>Product Name <span>*</span></mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="name" type="text" textOnly appearance="outline">
-                <mat-error *ngIf="productFormGroup.controls['name'].hasError('required')">
+                <input matInput formControlName="productName" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['productName'].hasError('required')">
                     This is required field
                 </mat-error>
             </mat-form-field>
         </div>
         <div class="flex flex-col gap-1">
-            <mat-label>Category</mat-label>
+            <mat-label>Product Brand<span>*</span></mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="name" type="text" textOnly appearance="outline">
-                <mat-error *ngIf="productFormGroup.controls['name'].hasError('required')">
+                <input matInput formControlName="productBrand" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['productBrand'].hasError('required')">
                     This is required field
                 </mat-error>
             </mat-form-field>
         </div>
         <div class="flex flex-col gap-1">
-            <mat-label>Price</mat-label>
+            <mat-label>Category<span>*</span></mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="name" type="text" textOnly appearance="outline">
-                <mat-error *ngIf="productFormGroup.controls['name'].hasError('required')">
-                    This is required field
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="flex flex-col gap-1">
-            <mat-label>Discount</mat-label>
-            <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="name" type="text" textOnly appearance="outline">
-                <mat-error *ngIf="productFormGroup.controls['name'].hasError('required')">
+                <input matInput formControlName="category" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['category'].hasError('required')">
                     This is required field
                 </mat-error>
             </mat-form-field>
@@ -45,17 +36,14 @@
         <div class="flex flex-col gap-1">
             <mat-label>Weight</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="name" type="text" textOnly appearance="outline">
-                <mat-error *ngIf="productFormGroup.controls['name'].hasError('required')">
-                    This is required field
-                </mat-error>
+                <input matInput formControlName="productWeight" type="text" textOnly>
             </mat-form-field>
         </div>
         <div class="flex flex-col gap-1">
-            <mat-label>Material</mat-label>
+            <mat-label>Material<span>*</span></mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="name" type="text" textOnly appearance="outline">
-                <mat-error *ngIf="productFormGroup.controls['name'].hasError('required')">
+                <input matInput formControlName="productMaterial" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['productMaterial'].hasError('required')">
                     This is required field
                 </mat-error>
             </mat-form-field>
@@ -63,63 +51,115 @@
         <div class="flex flex-col gap-1 col-span-2">
             <mat-label>Tags</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="name" type="text" textOnly appearance="outline">
-                <mat-error *ngIf="productFormGroup.controls['name'].hasError('required')">
+                <input matInput formControlName="tags" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['tags'].hasError('required')">
                     This is required field
                 </mat-error>
             </mat-form-field>
         </div>
         <div class="flex flex-col gap-1 col-span-2">
-            <mat-label>Description</mat-label>
+            <mat-label>Description<span>*</span></mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <textarea matInput formControlName="name" type="text" textOnly></textarea>
-                <mat-error *ngIf="productFormGroup.controls['name'].hasError('required')">
+                <textarea matInput formControlName="productDescription" type="text" textOnly></textarea>
+                <mat-error *ngIf="productFormGroup.controls['productDescription'].hasError('required')">
                     This is required field
                 </mat-error>
             </mat-form-field>
         </div>
         <div class="text-[18px] font-semibold text-[#303030] my-4 col-span-2">
+            Discounts & Offer
+        </div>
+        <div class="grid grid-cols-4 col-span-2 gap-x-6">
+            <div class="flex flex-col gap-1">
+                <mat-label>Price<span>*</span></mat-label>
+                <mat-form-field class="w-full mb-1" appearance="outline">
+                    <input matInput formControlName="productPrice" type="text" textOnly>
+                    <mat-error *ngIf="productFormGroup.controls['productPrice'].hasError('required')">
+                        This is required field
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex flex-col gap-1">
+                <mat-label>Discount Price<span>*</span></mat-label>
+                <mat-form-field class="w-full mb-1" appearance="outline">
+                    <input matInput formControlName="productDiscountedPrice" type="text" textOnly>
+                    <mat-error *ngIf="productFormGroup.controls['productDiscountedPrice'].hasError('required')">
+                        This is required field
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex flex-col gap-1">
+                <mat-label>Actual Price<span>*</span></mat-label>
+                <mat-form-field class="w-full mb-1" appearance="outline">
+                    <input matInput formControlName="productActualPrice" type="text" textOnly>
+                    <mat-error *ngIf="productFormGroup.controls['productActualPrice'].hasError('required')">
+                        This is required field
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+
+        <div class="text-[18px] font-semibold text-[#303030] my-4 col-span-2">
             Variants
         </div>
 
-        <div class="col-span-2 grid grid-cols-3 gap-x-10">
-            <div class="flex flex-col gap-1">
-                <mat-label>Size</mat-label>
-                <mat-form-field class="w-full mb-1" appearance="outline">
-                    <input matInput formControlName="name" type="text" textOnly appearance="outline">
-                    <mat-error *ngIf="productFormGroup.controls['name'].hasError('required')">
-                        This is required field
-                    </mat-error>
-                </mat-form-field>
-            </div>
-    
-            <div class="flex flex-col gap-1">
-                <mat-label>Color</mat-label>
-                <mat-form-field class="w-full mb-1" appearance="outline">
-                    <input matInput formControlName="name" type="text" textOnly appearance="outline">
-                    <mat-error *ngIf="productFormGroup.controls['name'].hasError('required')">
-                        This is required field
-                    </mat-error>
-                </mat-form-field>
-            </div>
-    
-            <div class="flex flex-col gap-1">
-                <mat-label>Stock Quantity</mat-label>
-                <mat-form-field class="w-full mb-1" appearance="outline">
-                    <input matInput formControlName="name" type="text" textOnly appearance="outline">
-                    <mat-error *ngIf="productFormGroup.controls['name'].hasError('required')">
-                        This is required field
-                    </mat-error>
-                </mat-form-field>
+        <div formArrayName="variants" class="col-span-2">
+            <div class="w-full grid grid-cols-4 gap-x-10" *ngFor="let variant of variants.controls; let i = index"
+                [formGroupName]="i">
+                <div class="flex flex-col gap-1">
+                    <mat-label>Size<span>*</span></mat-label>
+                    <mat-form-field class="w-full mb-1" appearance="outline">
+                        <input matInput formControlName="size" type="text" textOnly>
+                        <mat-error *ngIf="variant.get('size')?.hasError('required')">
+                            This is required field
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="flex flex-col gap-1">
+                    <mat-label>Color<span>*</span></mat-label>
+                    <mat-form-field class="w-full mb-1" appearance="outline">
+                        <input matInput formControlName="color" type="text" textOnly>
+                        <mat-error *ngIf="variant.get('color')?.hasError('required')">
+                            This is required field
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="flex flex-col gap-1">
+                    <mat-label>Quantity<span>*</span></mat-label>
+                    <mat-form-field class="w-full mb-1" appearance="outline">
+                        <input matInput formControlName="quantity" type="text" textOnly>
+                        <mat-error *ngIf="variant.get('quantity')?.hasError('required')">
+                            This is required field
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="flex gap-3 items-center">
+                    <a class="cursor-pointer" (click)="addVariant();" *ngIf="i === variants.length - 1">
+                        <img class="w-7" src="./assets/images/add-square.svg" alt="">
+                    </a>
+                    <a class="cursor-pointer" (click)="removeVariant(i);" *ngIf="i < variants.length - 1">
+                        <img class="w-7" src="./assets/images/delete-red.svg" alt="">
+                    </a>
+                </div>
+
             </div>
 
-            <div class="flex flex-col gap-2">
-                <mat-label>Upload image</mat-label>
-                <label for="upload_image" class="bg-[#F0F8FF] w-full h-[40px] rounded-md flex items-center justify-center cursor-pointer">Click here to upload</label>
-                <input type="file" id="upload_image" hidden>
-
-            </div>
         </div>
+
+
+        <div class="flex flex-col gap-2">
+            <mat-label>Upload image</mat-label>
+            <label for="upload_image"
+                class="bg-[#F0F8FF] w-full h-[40px] rounded-md flex items-center justify-center cursor-pointer">Click
+                here to upload</label>
+            <input type="file" id="upload_image" hidden>
+
+        </div>
+
 
         <div class="text-[18px] font-semibold text-[#303030] mb-4 mt-6 col-span-2">
             Meta details
@@ -127,19 +167,55 @@
         <div class="flex flex-col gap-1">
             <mat-label>Meta Title</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="name" type="text" textOnly appearance="outline">
+                <input matInput formControlName="title" type="text" textOnly>
             </mat-form-field>
         </div>
         <div class="flex flex-col gap-1 col-span-2">
             <mat-label>Meta tags</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="name" type="text" textOnly appearance="outline">
+                <input matInput formControlName="seoKeyWords" type="text" textOnly>
             </mat-form-field>
         </div>
         <div class="flex flex-col gap-1 col-span-2">
             <mat-label>Meta Description</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <textarea matInput formControlName="name" type="text" textOnly></textarea>
+                <textarea matInput formControlName="description" type="text" textOnly></textarea>
+            </mat-form-field>
+        </div>
+
+        <div class="text-[18px] font-semibold text-[#303030] mb-4 mt-6 col-span-2">
+            Care instructions
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Washing</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <mat-select formControlName="washing">
+                    <mat-option [value]="item" *ngFor="let item of washing_instructions">{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Ironing</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <mat-select formControlName="ironing">
+                    <mat-option [value]="item" *ngFor="let item of ironing_instructions">{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Drying</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <mat-select formControlName="drying">
+                    <mat-option [value]="item" *ngFor="let item of dry_cleaning">{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Storage</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <mat-select formControlName="storage">
+                    <mat-option [value]="item" *ngFor="let item of storage_instructions">{{item}}</mat-option>
+                </mat-select>
             </mat-form-field>
         </div>
 
