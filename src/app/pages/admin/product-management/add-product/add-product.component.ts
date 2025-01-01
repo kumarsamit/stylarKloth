@@ -11,6 +11,10 @@ import {MatChipEditedEvent, MatChipInputEvent} from '@angular/material/chips';
 export interface Tag {
 	tag: string;
 }
+export interface KeyWords {
+	keyWord: string;
+}
+
 @Component({
 	selector: 'app-add-product',
 	templateUrl: './add-product.component.html',
@@ -23,7 +27,8 @@ export class AddProductComponent {
 	storage_instructions: any = ['Store in a Cool, Dry Place', 'Do Not Fold', 'Avoid Humidity', 'Use Mothballs or Silica Gel for Protection', 'Store Flat'];
 	readonly addOnBlur = true;
 	readonly separatorKeysCodes = [ENTER, COMMA] as const;
-	readonly tagList = signal<Tag[]>([{ tag : 'stylarKloth' }]);
+	tagList = signal<Tag[]>([{ tag : 'stylarKloth' }]);
+	seoKeywordList = signal<KeyWords[]>([{ keyWord : 'stylarKloth' }]);
 	readonly announcer = inject(LiveAnnouncer);
 
 
@@ -36,24 +41,30 @@ export class AddProductComponent {
 	) {
 
 		this.productFormGroup = this.fb.group({
-			productName: new FormControl('', [Validators.required]),
+			productName: new FormControl('Shirt', [Validators.required]),
 			productDescription: new FormControl('', [Validators.required]),
-			productBrand: new FormControl('', [Validators.required]),
-			category: new FormControl('', [Validators.required]),
-			productPrice: new FormControl('', [Validators.required]),
-			productDiscountedPrice: new FormControl('', [Validators.required]),
-			productActualPrice: new FormControl('', [Validators.required]),
-			productMaterial: new FormControl('', [Validators.required]),
-			tags: new FormControl('', [Validators.required]),
-			productWeight: new FormControl('', []),
-			washing: new FormControl('', []),
-			ironing: new FormControl('', []),
-			drying: new FormControl('', []),
-			storage: new FormControl('', []),
-			title: new FormControl('', []),
-			description: new FormControl('', []),
-			seoKeyWords: new FormControl('', []),
+			productBrand: new FormControl('StylarKloth', [Validators.required]),
+			category: new FormControl('Shirt', [Validators.required]),
+			productPrice: new FormControl(1000, [Validators.required]),
+			productDiscountedPrice: new FormControl(800, [Validators.required]),
+			productActualPrice: new FormControl(600, [Validators.required]),
+			productMaterial: new FormControl('Cotton', [Validators.required]),
+			productWeight: new FormControl('100', []),
+			productCancellable: new FormControl('true', []),
+			productReturnable: new FormControl('true', []),
 			variants: this.fb.array([]),
+			tags: [this.tagList()],
+			seoKeyWords: [this.seoKeywordList()],
+			metaData : this.fb.group({
+				title: new FormControl('Shirt', []),
+				description: new FormControl('', []),
+			}),
+			careInstruction : this.fb.group({
+				storage: new FormControl('', []),
+				washing: new FormControl('', []),
+				ironing: new FormControl('', []),
+				drying: new FormControl('', []),
+			})
 		});
 	}
 
@@ -61,48 +72,44 @@ export class AddProductComponent {
 
 	add(event: MatChipInputEvent): void {
 		const value = (event.value || '').trim();
-
-		// Add our fruit
 		if (value) {
 			this.tagList.update(tagList => [...tagList, { tag: value }]);
 		}
+		event.chipInput!.clear();
+	}
 
-		// Clear the input value
+	addSeo(event: MatChipInputEvent): void {
+		const value = (event.value || '').trim();
+		if (value) {
+			this.seoKeywordList.update(list => [...list, { keyWord: value }]);
+		}
 		event.chipInput!.clear();
 	}
 
 	remove(tag: Tag): void {
-		this.tagList.update(tagList => {
-			const index = tagList.indexOf(tag);
+		this.tagList.update(seoList => {
+			const index = seoList.indexOf(tag);
+			if (index < 0) {
+				return seoList;
+			}
+			seoList.splice(index, 1);
+			this.announcer.announce(`Removed ${tag.tag}`);
+			return [...seoList];
+		});
+	}
+
+	removeSeo(keyWord: KeyWords): void {
+		this.seoKeywordList.update(tagList => {
+			const index = tagList.indexOf(keyWord);
 			if (index < 0) {
 				return tagList;
 			}
-
 			tagList.splice(index, 1);
-			this.announcer.announce(`Removed ${tag.tag}`);
+			this.announcer.announce(`Removed ${keyWord.keyWord}`);
 			return [...tagList];
 		});
 	}
-
-	edit(tag: Tag, event: MatChipEditedEvent) {
-		const value = event.value.trim();
-
-		if (!value) {
-			this.remove(tag);
-			return;
-		}
-
-		// Edit existing fruit
-		this.tagList.update(tagList => {
-			const index = tagList.indexOf(tag);
-			if (index >= 0) {
-				tagList[index].tag = value;
-				return [...tagList];
-			}
-			return tagList;
-		});
-	}
-
+	
 	get variants(): FormArray {
 		return this.productFormGroup.get('variants') as FormArray;
 	}
@@ -121,19 +128,29 @@ export class AddProductComponent {
 	}
 
 	createProduct() {
-		this.productFormGroup.value.tags = this.tagList();
-		console.log('productFormGroup', this.productFormGroup.value);
-
-		return;
-		let requestedData = {}
-		this._request.GET(ADMIN_CREATE_PRODUCT_API, requestedData).subscribe({
+		let requestedData:any = {};
+		let imagesList= [
+			{
+				"imageUrl": "https://example.com/images/jacket1.jpg"
+			},
+			{
+				"imageUrl": "https://example.com/images/jacket1.jpg"
+			}
+		];
+		requestedData = {...this.productFormGroup.value};
+		requestedData['images'] = imagesList;
+		requestedData['currency'] = "INR";
+		console.log('this.productFormGroup.status', this.productFormGroup.status)
+		if(this.productFormGroup.status === 'INVALID'){
+			return
+		}
+		this._request.POST(ADMIN_CREATE_PRODUCT_API, requestedData).subscribe({
 			next: (resp: any) => {
 				console.log('resp', resp)
 				this._router.navigate(['/product-management'])
 				this._snackbar.notify(resp.message, 1)
 			}, error: (err) => {
 				this._snackbar.notify(err.message, 2)
-
 			}
 		})
 	}

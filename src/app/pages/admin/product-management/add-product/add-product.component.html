@@ -48,21 +48,38 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="flex flex-col gap-1 col-span-2">
-            <mat-label>Tags</mat-label>
-            <!-- <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="tags" type="text" textOnly>
-                <mat-error *ngIf="productFormGroup.controls['tags'].hasError('required')">
+        <div class="flex flex-col gap-1">
+            <mat-label>Product Cancellable</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <mat-select formControlName="productCancellable">
+                    <mat-option [value]="true">True</mat-option>
+                    <mat-option [value]="false">False</mat-option>
+                </mat-select>
+                <mat-error *ngIf="productFormGroup.controls['productMaterial'].hasError('required')">
                     This is required field
                 </mat-error>
-            </mat-form-field> -->
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Product Returnable</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <mat-select formControlName="productReturnable">
+                    <mat-option [value]="true">True</mat-option>
+                    <mat-option [value]="false">False</mat-option>
+                </mat-select>
+                <mat-error *ngIf="productFormGroup.controls['productMaterial'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1 col-span-2">
+            <mat-label>Tags</mat-label>
             <mat-form-field appearance="outline">
                 <mat-chip-grid #chipGrid> 
                     <mat-chip-row
                       *ngFor="let item of tagList(); let i = index"
                       (removed)="remove(item)"
                       [editable]="true"
-                      (edited)="edit(item, $event)"
                       [aria-description]="'Press enter to edit ' + item.tag"
                     >
                       {{ item.tag }}
@@ -78,7 +95,6 @@
                       (matChipInputTokenEnd)="add($event)"
                     />
                   </mat-chip-grid>
-                  
               </mat-form-field>
         </div>
 
@@ -189,61 +205,83 @@
         <div class="text-[18px] font-semibold text-[#303030] mb-4 mt-6 col-span-2">
             Meta details
         </div>
-        <div class="flex flex-col gap-1">
-            <mat-label>Meta Title</mat-label>
-            <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="title" type="text" textOnly>
-            </mat-form-field>
+        <div class="grid col-span-2 grid-cols-2 gap-x-6" formGroupName="metaData">
+            <div class="flex flex-col gap-1">
+                <mat-label>Meta Title</mat-label>
+                <mat-form-field class="w-full mb-1" appearance="outline">
+                    <input matInput formControlName="title" type="text" textOnly>
+                </mat-form-field>
+            </div>
+            <div class="flex flex-col gap-1 col-span-2">
+                <mat-label>Meta Description</mat-label>
+                <mat-form-field class="w-full mb-1" appearance="outline">
+                    <textarea matInput formControlName="description" type="text" textOnly></textarea>
+                </mat-form-field>
+            </div>
         </div>
         <div class="flex flex-col gap-1 col-span-2">
             <mat-label>Meta tags</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="seoKeyWords" type="text" textOnly>
-            </mat-form-field>
-        </div>
-        <div class="flex flex-col gap-1 col-span-2">
-            <mat-label>Meta Description</mat-label>
-            <mat-form-field class="w-full mb-1" appearance="outline">
-                <textarea matInput formControlName="description" type="text" textOnly></textarea>
+                <mat-chip-grid #chipGrid2> 
+                    <mat-chip-row
+                      *ngFor="let item of seoKeywordList(); let i = index"
+                      (removed)="removeSeo(item)"
+                      [editable]="true"
+                      [aria-description]="'Press enter to edit ' + item.keyWord"
+                    >
+                      {{ item.keyWord}}
+                      <button matChipRemove [attr.aria-label]="'Remove ' + item.keyWord">
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                    </mat-chip-row>
+                  
+                    <input
+                      [matChipInputFor]="chipGrid2"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="addOnBlur"
+                      (matChipInputTokenEnd)="addSeo($event)"
+                    />
+                  </mat-chip-grid>
             </mat-form-field>
         </div>
 
         <div class="text-[18px] font-semibold text-[#303030] mb-4 mt-6 col-span-2">
             Care instructions
         </div>
-        <div class="flex flex-col gap-1">
-            <mat-label>Washing</mat-label>
-            <mat-form-field class="w-full mb-1" appearance="outline">
-                <mat-select formControlName="washing">
-                    <mat-option [value]="item" *ngFor="let item of washing_instructions">{{item}}</mat-option>
-                </mat-select>
-            </mat-form-field>
+        <div class="col-span-2 grid grid-cols-2 gap-x-6" formGroupName="careInstruction">
+            <div class="flex flex-col gap-1">
+                <mat-label>Washing</mat-label>
+                <mat-form-field class="w-full mb-1" appearance="outline">
+                    <mat-select formControlName="washing">
+                        <mat-option [value]="item" *ngFor="let item of washing_instructions">{{item}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="flex flex-col gap-1">
+                <mat-label>Ironing</mat-label>
+                <mat-form-field class="w-full mb-1" appearance="outline">
+                    <mat-select formControlName="ironing">
+                        <mat-option [value]="item" *ngFor="let item of ironing_instructions">{{item}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="flex flex-col gap-1">
+                <mat-label>Drying</mat-label>
+                <mat-form-field class="w-full mb-1" appearance="outline">
+                    <mat-select formControlName="drying">
+                        <mat-option [value]="item" *ngFor="let item of dry_cleaning">{{item}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="flex flex-col gap-1">
+                <mat-label>Storage</mat-label>
+                <mat-form-field class="w-full mb-1" appearance="outline">
+                    <mat-select formControlName="storage">
+                        <mat-option [value]="item" *ngFor="let item of storage_instructions">{{item}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
         </div>
-        <div class="flex flex-col gap-1">
-            <mat-label>Ironing</mat-label>
-            <mat-form-field class="w-full mb-1" appearance="outline">
-                <mat-select formControlName="ironing">
-                    <mat-option [value]="item" *ngFor="let item of ironing_instructions">{{item}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div class="flex flex-col gap-1">
-            <mat-label>Drying</mat-label>
-            <mat-form-field class="w-full mb-1" appearance="outline">
-                <mat-select formControlName="drying">
-                    <mat-option [value]="item" *ngFor="let item of dry_cleaning">{{item}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div class="flex flex-col gap-1">
-            <mat-label>Storage</mat-label>
-            <mat-form-field class="w-full mb-1" appearance="outline">
-                <mat-select formControlName="storage">
-                    <mat-option [value]="item" *ngFor="let item of storage_instructions">{{item}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-
 
         <div class="col-span-2 flex justify-end">
             <button type="submit" class="text-white py-[6px] font-semibold px-10 bg-[#26355D] rounded">Create</button>

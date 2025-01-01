@@ -31,7 +31,7 @@ export class ProductManagementComponent {
 			next: (resp: any) => {
 				this.productList = resp.data;
 				this.loader = false;
-			}, error: (err) => {
+			}, error: (err:any) => {
 				this.loader = false;
 				this._snackbar.notify(err.message, 2)
 
