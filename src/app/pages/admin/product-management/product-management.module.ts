@@ -8,10 +8,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { ProductSummaryComponent } from './product-summary/product-summary.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatSelectModule} from '@angular/material/select';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatIconModule} from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { UpdateProductVarientsComponent } from './update-product-varients/update-product-varients.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -38,10 +40,12 @@ const routes: Routes = [
 	declarations: [
 		ProductManagementComponent,
 		AddProductComponent,
-  ProductSummaryComponent
+		ProductSummaryComponent,
+		UpdateProductVarientsComponent
 	],
 	imports: [
 		CommonModule,
+		MatDialogModule,
 		MatFormFieldModule,
 		FormsModule,
 		ReactiveFormsModule,
