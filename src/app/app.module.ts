@@ -16,6 +16,8 @@ import { DashboardHeaderComponent } from './common-components/dashboard-header/d
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth-interceptor/auth.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ConfirmationPopupComponent } from './common-components/confirmation-popup/confirmation-popup.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -28,7 +30,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     SidebarComponent,
     FooterComponent,
     SignInComponent,
-    DashboardHeaderComponent
+    DashboardHeaderComponent,
+    ConfirmationPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatIconModule,
     MatMenuModule,
     BrowserAnimationsModule
   ],

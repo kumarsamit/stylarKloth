@@ -1,0 +1,11 @@
+
+
+<div mat-dialog-content class="">
+   <p class="text-xl font-semibold text-center text-[#000] mb-6 pt-6">{{detail.heading}}</p>
+   <p class="text-center">{{detail.desc}}</p>
+</div>
+
+<div mat-dialog-actions>
+    <button class="rounded px-6 leading-none py-3 bg-[#e8e8e8] text-sm outline-none" (click)="closePopup('close')">Cancel</button>
+    <button class="rounded px-6 leading-none py-3 text-white bg-[#0c2a63] text-sm outline-none" (click)="closePopup('confirm')">Confirm</button>
+</div>

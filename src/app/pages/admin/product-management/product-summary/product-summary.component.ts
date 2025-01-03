@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ADMIN_GET_PRODUCT_DETAILS_API } from '@env/api.path';
+import { ADMIN_DELETE_PRODUCT_API, ADMIN_GET_PRODUCT_DETAILS_API } from '@env/api.path';
 import { RequestService } from '@services/https/request.service';
 import { SnackbarService } from '@services/snackbar/snackbar.service';
 import { UpdateProductVarientsComponent } from '../update-product-varients/update-product-varients.component';
+import { ConfirmationPopupComponent } from 'src/app/common-components/confirmation-popup/confirmation-popup.component';
 
 @Component({
 	selector: 'app-product-summary',
@@ -50,16 +51,49 @@ export class ProductSummaryComponent {
 	updateVarients(){
 		let obj:any = {
 			productId : this.productDetail.productId,
-			varients : this.productDetail.variants,
-
+			variants : this.productDetail.variants,
 		}
-		this.dialog.open(UpdateProductVarientsComponent, {
+		const dialogRef = this.dialog.open(UpdateProductVarientsComponent, {
 			width: '800px',
 			maxWidth: '90vw',
 			data: obj
 		});
 
+		dialogRef.afterClosed().subscribe((result: any) => {
+			if (result === 'confirm') {
+				this.getProductDetails();
+			}
+		});
 	}
+
+	deleteProduct(){
+		let obj:any = {
+			heading : "Delete",
+			desc: "Are you sure want to delete this product?"
+		}
+		const dialogRef = this.dialog.open(ConfirmationPopupComponent, {
+			width: '500px',
+			maxWidth: '90vw',
+			data: obj
+		});
+		dialogRef.afterClosed().subscribe((result: any) => {
+			if (result === 'confirm') {
+				let requestedData = {};
+				this._request.DELETE(`${ADMIN_DELETE_PRODUCT_API}/${this.productId}`, requestedData).subscribe({
+					next: (resp: any) => {
+						this.loader = false;
+						this._router.navigate(['/product-management'])
+						this._snackbar.notify(resp.data, 1)
+					}, error: (err: any) => {
+						this.loader = false;
+						this._snackbar.notify(err.message, 2)
+					}
+				})
+			}
+		});
+	}
+
+
 
 	back() {
 		history.back();

@@ -1,6 +1,12 @@
-<div class="flex items-center gap-4 mb-6">
-    <img (click)="back()" class="w-5 rotate-180 invert cursor-pointer" src="./assets/images/right-arrow.svg" alt="">
-    <p class="text-[18px] font-semibold text-[#303030]">Product details</p>
+<div class="flex items-center justify-between mb-5">
+    <div class="flex items-center gap-4">
+        <img (click)="back()" class="w-5 rotate-180 invert cursor-pointer" src="./assets/images/right-arrow.svg" alt="">
+        <p class="text-[18px] font-semibold text-[#303030]">Product details</p>
+    </div>
+    <a (click)="deleteProduct()"
+        class="cursor-pointer text-sm bg-[#D2122E] text-white flex items-center gap-2 px-4 rounded-md py-[6px]">
+        Delete
+    </a>
 </div>
 
 <div class="w-full grid grid-cols-3 gap-4" *ngIf="loader === false">
@@ -13,7 +19,8 @@
             </div>
             <div class="flex flex-col gap-1 mb-4">
                 <p class="text-sm text-[#757575]">Product Brand</p>
-                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.productBrand}}</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.productBrand}}
+                </p>
             </div>
             <div class="flex flex-col gap-1">
                 <p class="text-sm text-[#757575]">Product Description</p>
@@ -54,19 +61,23 @@
             <p class="text-[#070707] text-base font-semibold col-span-2">Care Instructions</p>
             <div class="flex flex-col gap-1">
                 <p class="text-sm text-[#757575]">Drying</p>
-                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.careInstruction.drying}}</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">
+                    {{productDetail.careInstruction.drying}}</p>
             </div>
             <div class="flex flex-col gap-1">
                 <p class="text-sm text-[#757575]">Ironing</p>
-                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.careInstruction.ironing}}</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">
+                    {{productDetail.careInstruction.ironing}}</p>
             </div>
             <div class="flex flex-col gap-1">
                 <p class="text-sm text-[#757575]">Storage</p>
-                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.careInstruction.storage}}</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">
+                    {{productDetail.careInstruction.storage}}</p>
             </div>
             <div class="flex flex-col gap-1">
                 <p class="text-sm text-[#757575]">Washing</p>
-                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.careInstruction.washing}}</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">
+                    {{productDetail.careInstruction.washing}}</p>
             </div>
         </div>
     </div>
