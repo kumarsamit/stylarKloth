@@ -310,6 +310,19 @@ const adminRoutes: Routes = [
             sidebar: 1,
         },
     },
+    {
+        path: 'category-management',
+        loadChildren: () => import('../pages/admin/category-management/category-management.module').then((m) => m.CategoryManagementModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'admin',
+            header: 2,
+            footer: 0,
+            sidebar: 1,
+        },
+    },
 ];
 
 const otherRoutes: Routes = [
