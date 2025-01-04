@@ -1,0 +1,75 @@
+<div class="px-4 lg:px-8 xl:px-12 my-10">
+    <div class="font-bold text-[20px] text-[#333] w-full mb-2">Discover Your Style</div>
+    <div class="text-[#666] max-w-[650px]">
+        Discover timeless classics and trendy pieces in our curated fashion collection—perfect for completing your
+        wardrobe.
+    </div>
+</div>
+
+
+
+<div class="px-4 lg:px-8 xl:px-12 my-10">
+    <div class="font-bold text-[20px] text-[#333] w-full mb-2">Styles for Everyone</div>
+    <div class="grid grid-cols-6 gap-4 mt-8">
+        <div *ngFor="let item of categoryListByGender">
+            <div class="relative rounded-md overflow-hidden">
+                <img class="object-center object-cover w-full h-full" src="./assets/images/dummy/child-1.jpg" alt="">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/0 hover:from-black/60 hover:to-black/0 transition cursor-pointer">
+                </div>
+                <p class="absolute bottom-5 text-center left-0 right-0 text-white text-lg font-bold">{{item.name}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="px-4 lg:px-8 xl:px-12 my-10">
+    <div class="font-bold text-[20px] text-[#333] w-full mb-2">Clothing for Every Season</div>
+    <div class="grid grid-cols-6 gap-4 mt-8">
+        <div *ngFor="let item of categoryListBySeason">
+            <div class="relative rounded-md overflow-hidden">
+                <img class="object-center object-cover w-full h-full" src="./assets/images/dummy/child-1.jpg" alt="">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/0 hover:from-black/60 hover:to-black/0 transition cursor-pointer">
+                </div>
+                <p class="absolute bottom-5 text-center left-0 right-0 text-white text-lg font-bold">{{item.name}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="px-4 lg:px-8 xl:px-12 my-10">
+    <div class="font-bold text-[20px] text-[#333] w-full mb-2">Styles for All Ages</div>
+    <div class="grid grid-cols-6 gap-4 mt-8">
+        <div *ngFor="let item of categoryListByAge">
+            <div class="relative rounded-md overflow-hidden">
+                <img class="object-center object-cover w-full h-full" src="./assets/images/dummy/child-1.jpg" alt="">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/0 hover:from-black/60 hover:to-black/0 transition cursor-pointer">
+                </div>
+                <p class="absolute bottom-5 text-center left-0 right-0 text-white text-lg font-bold">{{item.name}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="px-4 lg:px-8 xl:px-12 my-10">
+    <div class="font-bold text-[20px] text-[#333] w-full mb-2">Explore Clothing by Style</div>
+    <div class="grid grid-cols-6 gap-4 mt-8">
+        <div *ngFor="let item of categoryListByType">
+            <div class="relative rounded-md overflow-hidden">
+                <img class="object-center object-cover w-full h-full" src="./assets/images/dummy/child-1.jpg" alt="">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/0 hover:from-black/60 hover:to-black/0 transition cursor-pointer">
+                </div>
+                <p class="absolute bottom-5 text-center left-0 right-0 text-white text-lg font-bold">{{item.name}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+

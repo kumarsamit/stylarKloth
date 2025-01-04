@@ -7,25 +7,40 @@ import { Component } from '@angular/core';
 })
 export class OrderHistoryComponent {
 
-	products: any = [
+	orderList: any = [
 		{
-			name: "Blue dress",
-			price: "400",
-			offerPrice: "600",
-			img: "./assets/images/dummy/child-1.jpg"
+			orderId : 'STYLR101',
+			orderDate : "Jul 6, 2021",
+			totalAmoumt : 2400,
+			productList:[
+				{
+					name : "Sleeveless Dresses",
+					desc : "Dresses without sleeves for unrestricted movement and easy wear during warmer seasons. Often paired with cardigans or shrugs for layering.",
+					deliverDate :  "Jul 9, 2021",
+					price : 1299
+				},
+				{
+					name : "Sleeveless Dresses",
+					desc : "Dresses without sleeves for unrestricted movement and easy wear during warmer seasons. Often paired with cardigans or shrugs for layering.",
+					deliverDate :  "Jul 9, 2021",
+					price : 1299
+				}
+			]
 		},
 		{
-			name: "Blue dress",
-			price: "400",
-			// offerPrice : "600",
-			img: "./assets/images/dummy/child-1.jpg"
+			orderId : 'STYLR101',
+			orderDate : "Jul 6, 2021",
+			totalAmoumt : 2400,
+			deliverDate :  "Jul 9, 2021",
+			productList:[
+				{
+					name : "Sleeveless Dresses",
+					desc : "Dresses without sleeves for unrestricted movement and easy wear during warmer seasons. Often paired with cardigans or shrugs for layering.",
+					deliverDate :  "Jul 9, 2021",
+					price : 1299
+				}
+			]
 		},
-		{
-			name: "Blue dress",
-			price: "400",
-			offerPrice: "600",
-			img: "./assets/images/dummy/child-1.jpg"
-		}
 	]
 
 

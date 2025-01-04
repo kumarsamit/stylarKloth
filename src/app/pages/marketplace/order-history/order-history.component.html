@@ -6,14 +6,47 @@
 </div>
 
 <div class="px-4 lg:px-8 xl:px-12 my-10">
-    <div class="border border-red-500 mb-6 flex gap-4" *ngFor="let item of products">
-        <div class="w-[200px]">
-            <img class="object-center object-cover w-full h-full" src="{{item.img}}" alt="">
+    <div class="border border-[#d7d7d7] rounded-lg mb-6" *ngFor="let order of orderList">
+        <div class="border-b border-[#d7d7d7] flex items-center justify-between p-4 w-full">
+            <div class="flex items-center gap-6">
+                <div class="flex flex-col gap-1">
+                    <p class="text-sm text-[#333]">Order number</p>
+                    <p class="text-sm font-semibold text-[#333]">{{order.orderId}}</p>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <p class="text-sm text-[#333]">Order date</p>
+                    <p class="text-sm font-semibold text-[#333]">{{order.orderDate}}</p>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <p class="text-sm text-[#333]">Total amount</p>
+                    <p class="text-sm font-semibold text-[#333]">{{order.totalAmoumt | currency:'INR':true}}</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-5">
+                <a class="px-5 py-[6px] font-semibold rounded-md text-sm border border-[#26355D] text-[#26355D] hover:bg-[#26355D] hover:text-[#fff] cursor-pointer">View Invoice</a>
+                <a class="px-5 py-[6px] font-semibold rounded-md text-sm border border-[#26355D] text-[#26355D] hover:bg-[#26355D] hover:text-[#fff] cursor-pointer">View Order</a>
+            </div>
         </div>
-        <div>
-            <p>{{item.name}}</p>
-            <p>{{item.price}}</p>
-
+        <div *ngFor="let product of order.productList" class="p-4 product-container">
+            <div class="flex gap-4">
+                <div class="relative rounded-md overflow-hidden w-[180px]">
+                    <img class="object-center object-cover w-full h-full" src="./assets/images/dummy/child-1.jpg" alt="">
+                </div>
+                <div class="flex-1"> 
+                    <div class="flex justify-between items-center mb-4">
+                        <p class="text-[#333] font-semibold">{{product.name}}</p>
+                        <p class="text-[#333]">{{product.price | currency:'INR':true}}</p>
+                    </div>
+                    <p class="text-[#666] max-w-[700px]">{{product.desc}}</p>
+                </div>
+            </div>
+            <div class="flex justify-between items-center mt-2">
+                <p class="font-semibold text-[#666] text-base">Delivered on {{product.deliverDate}}</p>
+                <div class="flex items-center gap-6">
+                    <a class="font-semibold text-base text-[#26355D] cursor-pointer">View product</a>
+                    <a class="font-semibold text-base text-[#26355D] cursor-pointer">Buy again</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
