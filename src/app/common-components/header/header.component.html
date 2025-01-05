@@ -1,43 +1,43 @@
-<div class="bg-[#26355D] py-2 px-4 flex items-center justify-between">
+<div class="bg-[#26355D] py-2 px-2 sm:px-3 md:px-4 flex items-center justify-between flex-wrap md:flex-nowrap">
     <p class="text-white text-xs leading-none">Welcome to the online store</p>
-    <div class="bg-white rounded-md py-[6px] px-4 flex w-[400px] gap-2">
+    <div class="bg-white rounded-md py-[6px] px-4 flex w-full mb-1  mt-2 md:mt-0 md:w-[300px] lg:w-[400px] gap-2 order-3 md:-order-none">
         <input type="text" placeholder="search for products/category" class="text-sm outline-none flex-1">
         <a routerLink="/search-results" class="cursor-pointer">
             <img class="w-5" src="./assets/images/search.svg" alt="">
         </a>
     </div>
-    <div class="flex items-center gap-4">
-        <a class="text-white text-xs cursor-pointer mx-4 leading-none hover:font-semibold" (click)="loginPopup()">Login
+    <div class="flex items-center gap-2 md:gap-4">
+        <a class="text-white text-xs cursor-pointer leading-none hover:font-semibold" (click)="loginPopup()">Login
             or Register</a>
         <a class="cursor-pointer" target="_blank" href="https://www.instagram.com/stylarKloth/">
-            <img class="w-5" src="./assets/images/instagram.svg" alt="">
+            <img class="w-4 sm:w-5" src="./assets/images/instagram.svg" alt="">
         </a>
-        <a class="cursor-pointer"
+        <a class="cursor-pointer "
             href="https://api.whatsapp.com/send?text=Check%20out%20this%20amazing%20deal%20at%20[Your%20Website%20URL]!"
             target="_blank">
-            <img class="w-5" src="./assets/images/whatsapp.svg" alt="">
+            <img class="w-4 sm:w-5" src="./assets/images/whatsapp.svg" alt="">
         </a>
     </div>
 </div>
-<div class="flex justify-between items-center px-4 lg:px-8 xl:px-12 py-4 border-b border-[#d7d7d7]">
+<div class="flex justify-between items-center px-4 lg:px-8 xl:px-12 py-3 md:py-4 border-b border-[#d7d7d7]">
     <a class="cursor-pointer text-lg" routerLink="">Stylar<span class="font-semibold text-[#26355D]">Kloth</span></a>
-    <div class="flex items-center gap-10 header-links">
-        <a routerLink="">Home
+    <div class="hidden items-center gap-10 header-links md:flex">
+        <a routerLink="" class="text-sm md:text-base">Home
             <span></span>
         </a>
-        <a class="cursor-pointer" routerLink="/products">Shop
+        <a class="cursor-pointer text-sm md:text-base" routerLink="/products">Shop
             <span></span>
         </a>
         <a class="cursor-pointer flex items-center gap-[2px]" routerLink="/new-arrival">
             New Arrivals
             <span></span>
         </a>
-        <a class="cursor-pointer" routerLink="/categories">Category
+        <a class="cursor-pointer text-sm md:text-base" routerLink="/categories">Category
             <span></span>
         </a>
     </div>
-    <div class="flex items-center gap-5">
-        <a class="cursor-pointer" routerLink="/wishlist">
+    <div class="flex items-center gap-3 md:gap-5">
+        <a class="cursor-pointer hidden md:flex" routerLink="/wishlist">
             <img class="w-5" src="./assets/images/heart.svg" alt="">
         </a>
         <a class="cursor-pointer" routerLink="/cart">
