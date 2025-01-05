@@ -27,5 +27,14 @@
             </div>
         </div>
     </div>
+</div>
 
+<div class="h-[300px] w-full flex justify-center items-center bg-white rounded-md" *ngIf="list.length ===0 && loader === true">
+    <div class="flex items-center justify-center flex-col gap-2">
+        <mat-spinner [diameter]="20"></mat-spinner>
+        <p class="text-[#555] font-sm">Pleaes wait....</p>
+    </div>
+</div>
+<div class="min-h-[400px] flex justify-center py-10 px-4 bg-white rounded-md" *ngIf="list.length === 0 && loader === false">
+    <img class="max-w-[75%] w-[300px]" src="./assets/images/no-data-found.svg" alt="">
 </div>

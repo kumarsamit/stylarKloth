@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 	styleUrls: ['./child-categories.component.scss']
 })
 export class ChildCategoriesComponent {
+	loader:boolean = false;
 
 	list: any = [
 		{
