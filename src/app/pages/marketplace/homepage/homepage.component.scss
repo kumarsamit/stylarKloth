@@ -12,6 +12,15 @@
         top: 50%;
         transform: translateY(-50%);
         background: #333;
+        
+        @media screen and (max-width: 767px) {
+            left: -90px;
+            width: 80px;
+        }
+        @media screen and (max-width: 535px) {
+            left: -70px;
+            width: 60px;
+        }
     }
 
     
@@ -26,5 +35,14 @@
         top: 50%;
         transform: translateY(-50%);
         background: #333;
+
+        @media screen and (max-width: 767px) {
+            right: -90px;
+            width: 80px;
+        }
+        @media screen and (max-width: 535px) {
+            right: -70px;
+            width: 60px;
+        }
     }
 }

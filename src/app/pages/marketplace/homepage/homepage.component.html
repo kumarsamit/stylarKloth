@@ -9,22 +9,22 @@
     </div>
 </div>
 
-<div class="px-4 lg:px-8 xl:px-12">
-    <div class="text-center font-semibold text-[20px] text-[#333] my-12 heading-lines">
+<div class="px-3 md:px-4 lg:px-8 xl:px-12">
+    <div class="text-center font-semibold text-[18px] lg:text-[20px] text-[#333] my-8 lg:my-12 heading-lines">
         <span>#Featured Products</span>
     </div>
-    <div class="grid gap-4 grid-cols-6">
-        <div *ngFor="let item of products" class="border rounded border-[#d7d7d7] p-2">
+    <div class="grid gap-2 sm:gap-3 md:gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+        <div *ngFor="let item of products" class="border rounded border-[#d7d7d7] p-1 md:p-2">
             <img src="{{item.img}}" alt="">
             <div class="flex flex-col pt-2">
                 <p class="text-base text-[#002244] font-semibold mb-1">{{item.name}}</p>
                 <p class="text-sm text-[#666]">{{item.price |  currency:'INR':true}}
                     <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |  currency:'INR':true}}</span>
                 </p>
-                <div class="flex w-full items-center h-[40px] mt-2 rounded overflow-hidden">
+                <div class="flex w-full items-center h-[35px] md:h-[40px] mt-2 rounded overflow-hidden">
                     <a class="h-full cursor-pointer text-white bg-[#26355D] leading-none flex-1 text-sm px-3 items-center flex border-r border-[#fff]">Add to Cart</a>
                     <a class="cursor-pointer text-white bg-[#26355D] h-full flex items-center justify-center w-[40px]">
-                        <img class="w-6 h-6 invert" src="./assets/images/heart.svg" alt="">
+                        <img class="w-5 h-5 md:w-6 md:h-6 invert" src="./assets/images/heart.svg" alt="">
                     </a>
                 </div>
             </div>
@@ -32,13 +32,13 @@
     </div>
 </div>
 
-<div class="grid grid-cols-2 mt-[80px] min-h-[50vh]">
-    <div class="bg-[url(./assets/images/banner/banner-1.jpg)] bg-cover bg-no-repeat bg-center">
+<div class="grid grid-cols-2 mt-[40px] lg:mt-[80px] min-h-[50vh]">
+    <div class="bg-[url(./assets/images/banner/banner-1.jpg)] bg-cover bg-no-repeat bg-center  h-[200px] sm:h-[300px] md:h-[unset] col-span-2 md:col-span-1">
     </div>
-    <div class="flex flex-col px-5 xl:px-10 py-10 bg-[#26355D] justify-center">
+    <div class="flex flex-col px-5 xl:px-10 py-10 bg-[#26355D] justify-center col-span-2 md:col-span-1">
         <p class="text-base text-[#ccc] leading-none">Limited Offer</p>
-        <p class="text-[40px] font-semibold text-white mb-5 leading-tight">Get a 30% discount on every order you make.</p>
-        <a class="bg-white rounded px-4 py-2 leading-none w-max cursor-pointer flex items-center gap-2 text-[#26355D]">
+        <p class="text-[24px] md:text-[34px] lg:text-[40px] font-semibold text-white mb-5 leading-tight">Get a 30% discount on every order you make.</p>
+        <a class="bg-white rounded px-4 py-2 leading-none w-max cursor-pointer text-sm md:text-base flex items-center gap-2 text-[#26355D]">
             Grab it now
             <img class="w-6" src="./assets/images/arrow.svg" alt="">
         </a>
@@ -46,22 +46,22 @@
 </div>
 
 
-<div class="px-4 lg:px-8 xl:px-12">
-    <div class="text-center font-semibold text-[20px] text-[#333] my-12 heading-lines">
+<div class="px-3 md:px-4 lg:px-8 xl:px-12">
+    <div class="text-center font-semibold text-[18px] lg:text-[20px] text-[#333] my-8 xl:my-12 heading-lines">
         <span>#Hot Picks for Today</span>
     </div>
-    <div class="grid gap-4 grid-cols-6">
-        <div *ngFor="let item of products" class="border rounded border-[#d7d7d7] p-2">
+    <div class="grid gap-2 sm:gap-3 md:gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+        <div *ngFor="let item of products" class="border rounded border-[#d7d7d7] p-1 md:p-2">
             <img src="{{item.img}}" alt="">
             <div class="flex flex-col pt-2">
                 <p class="text-base text-[#002244] font-semibold mb-1">{{item.name}}</p>
                 <p class="text-sm text-[#666]">{{item.price |  currency:'INR':true}}
                     <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |  currency:'INR':true}}</span>
                 </p>
-                <div class="flex w-full items-center h-[40px] mt-2 rounded overflow-hidden">
+                <div class="flex w-full items-center h-[35px] md:h-[40px] mt-2 rounded overflow-hidden">
                     <a class="h-full cursor-pointer text-white bg-[#26355D] leading-none flex-1 text-sm px-3 items-center flex border-r border-[#fff]">Add to Cart</a>
                     <a class="cursor-pointer text-white bg-[#26355D] h-full flex items-center justify-center w-[40px]">
-                        <img class="w-6 h-6 invert" src="./assets/images/heart.svg" alt="">
+                        <img class="w-5 h-5 md:w-6 md:h-6 invert" src="./assets/images/heart.svg" alt="">
                     </a>
                 </div>
             </div>
@@ -121,22 +121,22 @@
 </div>
 
 
-<div class="px-4 lg:px-8 xl:px-12">
-    <div class="text-center font-semibold text-[20px] text-[#333] my-12 heading-lines">
+<div class="px-3 md:px-4 lg:px-8 xl:px-12">
+    <div class="text-center font-semibold text-[18px] lg:text-[20px] text-[#333] my-8 xl:my-12 heading-lines">
       <span>#Limited-Time Deals</span>
     </div>
-    <div class="grid gap-4 grid-cols-6">
-        <div *ngFor="let item of products" class="border rounded border-[#d7d7d7] p-2">
+    <div class="grid gap-2 sm:gap-3 md:gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+        <div *ngFor="let item of products" class="border rounded border-[#d7d7d7] p-1 md:p-2">
             <img src="{{item.img}}" alt="">
             <div class="flex flex-col pt-2">
                 <p class="text-base text-[#002244] font-semibold mb-1">{{item.name}}</p>
                 <p class="text-sm text-[#666]">{{item.price |  currency:'INR':true}}
                     <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |  currency:'INR':true}}</span>
                 </p>
-                <div class="flex w-full items-center h-[40px] mt-2 rounded overflow-hidden">
+                <div class="flex w-full items-center h-[35px] md:h-[40px] mt-2 rounded overflow-hidden">
                     <a class="h-full cursor-pointer text-white bg-[#26355D] leading-none flex-1 text-sm px-3 items-center flex border-r border-[#fff]">Add to Cart</a>
                     <a class="cursor-pointer text-white bg-[#26355D] h-full flex items-center justify-center w-[40px]">
-                        <img class="w-6 h-6 invert" src="./assets/images/heart.svg" alt="">
+                        <img class="w-5 h-5 md:w-6 md:h-6 invert" src="./assets/images/heart.svg" alt="">
                     </a>
                 </div>
             </div>
@@ -145,17 +145,17 @@
 </div>
 
 
-<div class="px-4 lg:px-8 xl:px-12 grid grid-cols-2 gap-4 mt-16">
-    <div class="flex justify-center flex-col gap-2">
+<div class="px-4 lg:px-8 xl:px-12 grid grid-cols-2 gap-4 mt-16 gap-y-10">
+    <div class="flex justify-center flex-col gap-2 col-span-2 md:col-span-1">
         <h2 class="font-semibold text-[20px] text-[#333]">Spread the Love, Get Rewarded</h2>
         <p class="text-sm text-[#666] leading-loose">Love our products? Share the joy with your friends and earn exciting discounts! For every friend you refer who makes a purchase, you’ll get 20% off your next order, and your friend will enjoy 10% off their first purchase. The more you share, the more you save—start referring today!</p>
-        <a class="text-white rounded px-4 py-2 leading-none w-max cursor-pointer flex items-center gap-2 bg-[#26355D]" (click)="shareOnWhatsApp()">
+        <a class="text-white rounded text-sm lg:text-base px-4 py-2 leading-none w-max cursor-pointer flex items-center gap-2 bg-[#26355D]" (click)="shareOnWhatsApp()">
             Start Referring
-            <img class="w-6" src="./assets/images/right-arrow.svg" alt="">
+            <img class="w-5 lg:w-6" src="./assets/images/right-arrow.svg" alt="">
         </a>
     </div>
-    <div class="flex items-center justify-center">
-       <img class="max-w-[300px]" src="./assets/images/refer-friend.svg" alt="">
+    <div class="flex items-center justify-center col-start-1 md:col-start-2 col-span-2 md:col-span-1">
+       <img class="max-w-[200px] md:max-w-[300px]" src="./assets/images/refer-friend.svg" alt="">
     </div>
 </div>
 
