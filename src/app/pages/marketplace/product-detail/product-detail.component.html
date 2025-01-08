@@ -48,6 +48,16 @@
                 </p>
                 <p class="text-sm text-[#bbb] line-through">{{999 | currency:'INR':true}}</p>
                 <div class="flex items-center gap-2 flex-wrap my-5">
+                    <div class="w-full text-base font-semibold">Colors</div>
+                    <div class="flex items-center gap-4">
+                        <a class="w-7 h-7 rounded-full bg-red-900 cursor-pointer"></a>
+                        <a class="w-7 h-7 rounded-full bg-green-900 cursor-pointer"></a>
+                        <a class="w-7 h-7 rounded-full bg-lime-900 cursor-pointer"></a>
+                        <a class="w-7 h-7 rounded-full bg-orange-900 cursor-pointer"></a>
+                        <a class="w-7 h-7 rounded-full bg-purple-900 cursor-pointer"></a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 flex-wrap my-5">
                     <div class="w-full text-base font-semibold">Sizes</div>
                     <a class="text-xs border px-2 py-1 hover:bg-[#eee] transition cursor-pointer">6 - 12 Months</a>
                     <a class="text-xs border px-2 py-1 hover:bg-[#eee] transition cursor-pointer">12 - 18 Months</a>
@@ -61,42 +71,11 @@
 
                 <div class="flex items-center gap-4">
                     <a
-                        class="border border-[#26355d] text-[#26355d] text-sm w-[calc(50%-4px)] py-2 text-center cursor-pointer hover:bg-[#26355d] hover:text-white transition">Add
+                        class="border border-[#26355d] text-[#fff] text-sm px-5 py-2 text-center cursor-pointer bg-[#26355d]">Add
                         To Bag</a>
                     <a
-                        class="border border-[#26355d] text-[#26355d] text-sm w-[calc(50%-4px)] py-2 text-center cursor-pointer hover:bg-[#26355d] hover:text-white transition ">Add
+                        class="border border-[#26355d] text-[#26355d] text-sm px-5 py-2 text-center cursor-pointer hover:bg-[#26355d] hover:text-white transition ">Add
                         To Wishlist</a>
-                </div>
-
-                <div class="flex items-center gap-2 flex-wrap mt-5">
-                    <div class="w-full text-base font-semibold">Product details</div>
-                    <table class="text-sm">
-                        <tr>
-                            <td>Size</td>
-                            <td class="w-10"></td>
-                            <td>6 - 12 Months</td>
-                        </tr>
-                        <tr>
-                            <td>Label size</td>
-                            <td class="w-10"></td>
-                            <td>20</td>
-                        </tr>
-                        <tr>
-                            <td>Ideal for</td>
-                            <td class="w-10"></td>
-                            <td>Boys</td>
-                        </tr>
-                        <tr>
-                            <td>Fabric</td>
-                            <td class="w-10"></td>
-                            <td>Cotton</td>
-                        </tr>
-                        <tr>
-                            <td>Pattern</td>
-                            <td class="w-10"></td>
-                            <td>Printed</td>
-                        </tr>
-                    </table>
                 </div>
             </div>
         </div>
@@ -119,10 +98,28 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam a nisi ut nam quisquam perspiciatis unde
             possimus quae at sequi?
         </div>
-        <div class="" *ngIf="activeProductDescTab === 'Q&A Section'">
+        <div class="" *ngIf="activeProductDescTab === 'Care'">
+            Spot clean as needed
+            Hand wash with mild soap
+            Machine wash interior dividers
+            Treat handle and tabs with leather conditioner
+        </div>
+        <div class="" *ngIf="activeProductDescTab === 'Return'">
+            <p>10% restocking fee</p>
+            Easy return requests
+Pre-paid shipping label included
+10% restocking fee for returns
+60 day return window
+
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod soluta labore quibusdam quis repellat
             necessitatibus qui eius iure nihil, officiis facilis itaque aut dolorem, nam magnam. Iste molestias dolore
             consequuntur molestiae amet aut qui obcaecati?
+        </div>
+        <div class="" *ngIf="activeProductDescTab === 'Shipping'">
+            Easy return requests
+            Pre-paid shipping label included
+            10% restocking fee for returns
+            60 day return window
         </div>
     </div>
 

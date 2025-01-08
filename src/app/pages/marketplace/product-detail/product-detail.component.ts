@@ -8,7 +8,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 	styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent {
-	prodcutDesList:any=['Description','Reviews','Q&A Section'];
+	prodcutDesList:any=['Description','Reviews','Care','Return', 'Shipping'];
 	activeProductDescTab : any = 'Description';
 	products: any = [
 		{
