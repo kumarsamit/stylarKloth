@@ -11,8 +11,17 @@
         <div>
             <mat-label>Name</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="name" type="text" textOnly appearance="outline">
-                <mat-error *ngIf="categoryFormGroup.controls['name'].hasError('required')">
+                <input matInput formControlName="parentCategoryName" type="text" textOnly appearance="outline">
+                <mat-error *ngIf="categoryFormGroup.controls['parentCategoryName'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-label>Description</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <textarea  matInput formControlName="parentCategoryDescription" type="text" textOnly appearance="outline"></textarea>
+                <mat-error *ngIf="categoryFormGroup.controls['parentCategoryDescription'].hasError('required')">
                     This is required field
                 </mat-error>
             </mat-form-field>

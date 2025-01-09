@@ -4,3 +4,7 @@ export const ADMIN_ADD_PRODUCT_DETAILS_API = '/product/addDetails';
 export const ADMIN_GET_PRODUCT_DETAILS_API = '/product';
 export const ADMIN_DELETE_PRODUCT_API = '/product';
 export const ADMIN_UPDATE_PRODUCT_VARIANT_API = '/product/variant';
+
+export const ADMIN_GET_PARENT_CATEGORY_LIST_API = '/product/getAllParentCategories';
+export const ADMIN_CREATE_PARENT_CATEGORY_API = '/product/createParentCategory';
+

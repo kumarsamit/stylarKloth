@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { RequestService } from '@services/https/request.service';
 import { SnackbarService } from '@services/snackbar/snackbar.service';
 import { CreateCategoryComponent } from './create-category/create-category.component';
-import { ADMIN_DELETE_PRODUCT_API, ADMIN_GET_PRODUCT_LIST } from '@env/api.path';
+import { ADMIN_DELETE_PRODUCT_API, ADMIN_GET_PARENT_CATEGORY_LIST_API } from '@env/api.path';
 import { ConfirmationPopupComponent } from 'src/app/common-components/confirmation-popup/confirmation-popup.component';
 
 
@@ -18,11 +18,6 @@ export class CategoryManagementComponent {
 	categoryList: any = [];
 	loader: boolean = false;
 	displayedColumns: string[] = ['Category Id', 'Category Name', 'Child Category', 'Actions'];
-	userList: any = [
-		{ position: 1, name: 'Clothing for Every Season', child: 5 },
-		{ position: 2, name: 'Styles for Everyone', child: 4 },
-		{ position: 3, name: 'Explore Clothing by Style', child: 6 },
-	];
 
 	constructor(
 		private _request: RequestService,
@@ -36,7 +31,7 @@ export class CategoryManagementComponent {
 	getCategories() {
 		let requestedData = {};
 		this.loader = true;
-		this._request.GET(ADMIN_GET_PRODUCT_LIST, requestedData).subscribe({
+		this._request.GET(ADMIN_GET_PARENT_CATEGORY_LIST_API, requestedData).subscribe({
 			next: (resp: any) => {
 				this.categoryList = resp.data;
 				this.loader = false;
@@ -60,8 +55,8 @@ export class CategoryManagementComponent {
 		});
 
 		dialogRef.afterClosed().subscribe((result: any) => {
-			if (result === 'confirm') {
-				console.log('result', result)
+			if (result) {
+				this.getCategories();
 			}
 		});
 	}
