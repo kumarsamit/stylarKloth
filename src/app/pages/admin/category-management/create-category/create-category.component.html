@@ -30,7 +30,8 @@
 </div>
 <div mat-dialog-actions>
     <button class="rounded px-6 leading-none py-2 bg-[#e8e8e8] text-sm" (click)="closePopup('close')">Cancel</button>
-    <button class="rounded px-6 leading-none py-2 text-white bg-[#0c2a63] text-sm" (click)="createCategory()">Update</button>
+    <button *ngIf="modalType === 'create'" class="rounded px-6 leading-none py-2 text-white bg-[#0c2a63] text-sm" (click)="createCategory()">Create</button>
+    <button *ngIf="modalType === 'edit'" class="rounded px-6 leading-none py-2 text-white bg-[#0c2a63] text-sm" (click)="updateCategory()">Update</button>
 </div>
 
 

@@ -7,4 +7,6 @@ export const ADMIN_UPDATE_PRODUCT_VARIANT_API = '/product/variant';
 
 export const ADMIN_GET_PARENT_CATEGORY_LIST_API = '/product/getAllParentCategories';
 export const ADMIN_CREATE_PARENT_CATEGORY_API = '/product/createParentCategory';
+export const ADMIN_UPDATE_PARENT_CATEGORY_API = '/product/updateParentCategory';
+export const ADMIN_DELETE_PARENT_CATEGORY_API = '/product/parentCategory';
 
