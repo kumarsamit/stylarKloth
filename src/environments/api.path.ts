@@ -10,3 +10,11 @@ export const ADMIN_CREATE_PARENT_CATEGORY_API = '/product/createParentCategory';
 export const ADMIN_UPDATE_PARENT_CATEGORY_API = '/product/updateParentCategory';
 export const ADMIN_DELETE_PARENT_CATEGORY_API = '/product/parentCategory';
 
+export const ADMIN_GET_CHILD_CATEGORY_LIST_API = '/product/getAllCategories';
+export const ADMIN_DELETE_CHILD_CATEGORY_LIST_API = '/product/category';
+export const ADMIN_CREATE_CHILD_CATEGORY_API = '/product/createCategory';
+export const ADMIN_UPDATE_CHILD_CATEGORY_API = '/product/updateCategory';
+
+
+
+

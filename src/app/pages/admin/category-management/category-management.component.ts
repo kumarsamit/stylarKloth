@@ -98,7 +98,6 @@ export class CategoryManagementComponent {
 				this._request.DELETE(`${ADMIN_DELETE_PARENT_CATEGORY_API}/${categoryObj.id}`, requestedData).subscribe({
 					next: (resp: any) => {
 						this.loader = false;
-						this._router.navigate(['/category-management']);
 						this.getCategories();
 						this._snackbar.notify(resp.data, 1)
 					}, error: (err: any) => {

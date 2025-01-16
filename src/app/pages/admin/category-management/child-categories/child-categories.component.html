@@ -4,7 +4,7 @@
         <p class="text-[18px] font-semibold text-[#26355d]">Chlid Categories</p>
     </div>
 
-    <a class="cursor-pointer bg-[#26355d] text-white flex items-center gap-2 px-4 rounded-md py-2">
+    <a class="cursor-pointer bg-[#26355d] text-white flex items-center gap-2 px-4 rounded-md py-2" (click)="createCategory()">
         <img class="invert w-4" src="./assets/images/plus.svg" alt="">
         Add Child category
     </a>
@@ -12,28 +12,29 @@
 
 
 <div class="grid grid-cols-3 gap-3 mt-4">
-    <div class="bg-white rounded-md p-4 shadow-md" *ngFor="let Category of list">
-        <div class="flex gap-4 items-center">
+    <div class="bg-white rounded-md p-3 shadow-md" *ngFor="let category of childCategoryList">
+        <div class="flex gap-4 items-start">
             <div class="w-[80px]">
                 <img class="rounded-md" src="/assets/images/dummy/child-1.jpg" alt="">
             </div>
             <div>
-                <p class="text-base font-semibold">{{Category.categoryHeading}}</p>
-                <div class="flex items-center gap-4 mt-1">
-                    <a class="cursor-pointer text-[#26355d] text-sm">Edit</a>
-                    <a class="cursor-pointer text-[#D2122E] text-sm">Delete</a>
+                <p class="text-base font-semibold">{{category.categoryName}}</p>
+                <p class="text-sm text-[#666] mt-1 mb-2">{{category.categoryDescription}}</p>
+                <div class="flex items-center gap-4">
+                    <a class="cursor-pointer text-[#26355d] text-sm" (click)="updateCategory(category)">Edit</a>
+                    <a class="cursor-pointer text-[#D2122E] text-sm" (click)="deleteProduct(category)">Delete</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="h-[300px] w-full flex justify-center items-center bg-white rounded-md" *ngIf="list.length ===0 && loader === true">
+<div class="h-[300px] w-full flex justify-center items-center bg-white rounded-md" *ngIf="childCategoryList.length ===0 && loader === true">
     <div class="flex items-center justify-center flex-col gap-2">
         <mat-spinner [diameter]="20"></mat-spinner>
         <p class="text-[#555] font-sm">Pleaes wait....</p>
     </div>
 </div>
-<div class="min-h-[400px] flex justify-center py-10 px-4 bg-white rounded-md" *ngIf="list.length === 0 && loader === false">
+<div class="min-h-[400px] flex justify-center py-10 px-4 bg-white rounded-md" *ngIf="childCategoryList.length === 0 && loader === false">
     <img class="max-w-[75%] w-[300px]" src="./assets/images/no-data-found.svg" alt="">
 </div>
