@@ -75,27 +75,19 @@
         <div class="flex flex-col gap-1 col-span-2">
             <mat-label>Tags</mat-label>
             <mat-form-field appearance="outline">
-                <mat-chip-grid #chipGrid> 
-                    <mat-chip-row
-                      *ngFor="let item of tagList(); let i = index"
-                      (removed)="remove(item)"
-                      [editable]="true"
-                      [aria-description]="'Press enter to edit ' + item.tag"
-                    >
-                      {{ item.tag }}
-                      <button matChipRemove [attr.aria-label]="'Remove ' + item.tag">
-                        <mat-icon>cancel</mat-icon>
-                      </button>
+                <mat-chip-grid #chipGrid>
+                    <mat-chip-row *ngFor="let item of tagList(); let i = index" (removed)="remove(item)"
+                        [editable]="true" [aria-description]="'Press enter to edit ' + item.tag">
+                        {{ item.tag }}
+                        <button matChipRemove [attr.aria-label]="'Remove ' + item.tag">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
                     </mat-chip-row>
-                  
-                    <input
-                      [matChipInputFor]="chipGrid"
-                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                      [matChipInputAddOnBlur]="addOnBlur"
-                      (matChipInputTokenEnd)="add($event)"
-                    />
-                  </mat-chip-grid>
-              </mat-form-field>
+
+                    <input [matChipInputFor]="chipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                        [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" />
+                </mat-chip-grid>
+            </mat-form-field>
         </div>
 
         <div class="flex flex-col gap-1 col-span-2">
@@ -222,26 +214,18 @@
         <div class="flex flex-col gap-1 col-span-2">
             <mat-label>Meta tags</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <mat-chip-grid #chipGrid2> 
-                    <mat-chip-row
-                      *ngFor="let item of seoKeywordList(); let i = index"
-                      (removed)="removeSeo(item)"
-                      [editable]="true"
-                      [aria-description]="'Press enter to edit ' + item.keyWord"
-                    >
-                      {{ item.keyWord}}
-                      <button matChipRemove [attr.aria-label]="'Remove ' + item.keyWord">
-                        <mat-icon>cancel</mat-icon>
-                      </button>
+                <mat-chip-grid #chipGrid2>
+                    <mat-chip-row *ngFor="let item of seoKeywordList(); let i = index" (removed)="removeSeo(item)"
+                        [editable]="true" [aria-description]="'Press enter to edit ' + item.keyWord">
+                        {{ item.keyWord}}
+                        <button matChipRemove [attr.aria-label]="'Remove ' + item.keyWord">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
                     </mat-chip-row>
-                  
-                    <input
-                      [matChipInputFor]="chipGrid2"
-                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                      [matChipInputAddOnBlur]="addOnBlur"
-                      (matChipInputTokenEnd)="addSeo($event)"
-                    />
-                  </mat-chip-grid>
+
+                    <input [matChipInputFor]="chipGrid2" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                        [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="addSeo($event)" />
+                </mat-chip-grid>
             </mat-form-field>
         </div>
 
@@ -283,6 +267,26 @@
             </div>
         </div>
 
+        <div class="col-span-2 flex justify-end">
+            <button type="submit" class="text-white py-[6px] font-semibold px-10 bg-[#26355D] rounded">Create</button>
+        </div>
+    </form>
+
+</div>
+
+
+<div class="bg-white rounded-md shadow-md p-10 mt-4">
+    <p class="text-[18px] font-semibold text-[#303030] mb-4">Add remaining product details</p>
+    <form (ngSubmit)="createProduct()" [formGroup]="productDetailsFormGroup" class="w-full grid grid-cols-2 gap-x-10">
+        <div class="flex flex-col gap-1">
+            <mat-label>Product Name <span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="productWaistType" type="text" textOnly>
+                <mat-error *ngIf="productDetailsFormGroup.controls['productWaistType'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
         <div class="col-span-2 flex justify-end">
             <button type="submit" class="text-white py-[6px] font-semibold px-10 bg-[#26355D] rounded">Create</button>
         </div>

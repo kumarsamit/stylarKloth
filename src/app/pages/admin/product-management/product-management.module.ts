@@ -41,7 +41,7 @@ const routes: Routes = [
 		ProductManagementComponent,
 		AddProductComponent,
 		ProductSummaryComponent,
-		UpdateProductVarientsComponent
+		UpdateProductVarientsComponent,
 	],
 	imports: [
 		CommonModule,

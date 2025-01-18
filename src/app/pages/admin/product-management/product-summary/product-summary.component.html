@@ -3,10 +3,17 @@
         <img (click)="back()" class="w-5 rotate-180 invert cursor-pointer" src="./assets/images/right-arrow.svg" alt="">
         <p class="text-[18px] font-semibold text-[#303030]">Product details</p>
     </div>
-    <a (click)="deleteProduct()"
-        class="cursor-pointer text-sm bg-[#D2122E] text-white flex items-center gap-2 px-4 rounded-md py-[6px]">
-        Delete
-    </a>
+    <div class="flex items-center gap-4">
+        <a routerLink="/product-management/add-remaining-details/{{productId}}"
+                    class="cursor-pointer text-sm bg-[#26355d] text-white flex items-center gap-2 px-4 rounded-md py-[6px]">
+                    Add Remaining Details
+                </a>
+        <a (click)="deleteProduct()"
+            class="cursor-pointer text-sm bg-[#D2122E] text-white flex items-center gap-2 px-4 rounded-md py-[6px]">
+            Delete
+        </a>
+
+    </div>
 </div>
 
 <div class="w-full grid grid-cols-3 gap-4" *ngIf="loader === false">

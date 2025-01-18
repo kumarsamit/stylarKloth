@@ -33,6 +33,7 @@ export class AddProductComponent {
 
 
 	productFormGroup: FormGroup;
+	productDetailsFormGroup: FormGroup;
 	constructor(
 		private _request: RequestService,
 		private _snackbar: SnackbarService,
@@ -66,6 +67,10 @@ export class AddProductComponent {
 				drying: new FormControl('', []),
 			})
 		});
+		
+		this.productDetailsFormGroup = this.fb.group({
+			productWaistType: new FormControl('Cotton', [Validators.required]),
+		})
 	}
 
 
