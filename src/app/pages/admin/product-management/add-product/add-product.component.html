@@ -25,15 +25,6 @@
             </mat-form-field>
         </div>
         <div class="flex flex-col gap-1">
-            <mat-label>Category<span>*</span></mat-label>
-            <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="category" type="text" textOnly>
-                <mat-error *ngIf="productFormGroup.controls['category'].hasError('required')">
-                    This is required field
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="flex flex-col gap-1">
             <mat-label>Weight</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
                 <input matInput formControlName="productWeight" type="text" textOnly>
@@ -68,6 +59,28 @@
                     <mat-option [value]="false">False</mat-option>
                 </mat-select>
                 <mat-error *ngIf="productFormGroup.controls['productMaterial'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Category<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <mat-select formControlName="parentCategory" (selectionChange)="onSelectionChange($event)">
+                    <mat-option [value]="item.id" *ngFor="let item of categoryList">{{item.name}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="productFormGroup.controls['parentCategory'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1" *ngIf="isParentCategorySelected">
+            <mat-label>Child Category<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <mat-select formControlName="categories" multiple>
+                    <mat-option [value]="item.id" *ngFor="let item of categoryList">{{item.name}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="productFormGroup.controls['categories'].hasError('required')">
                     This is required field
                 </mat-error>
             </mat-form-field>
@@ -267,26 +280,6 @@
             </div>
         </div>
 
-        <div class="col-span-2 flex justify-end">
-            <button type="submit" class="text-white py-[6px] font-semibold px-10 bg-[#26355D] rounded">Create</button>
-        </div>
-    </form>
-
-</div>
-
-
-<div class="bg-white rounded-md shadow-md p-10 mt-4">
-    <p class="text-[18px] font-semibold text-[#303030] mb-4">Add remaining product details</p>
-    <form (ngSubmit)="createProduct()" [formGroup]="productDetailsFormGroup" class="w-full grid grid-cols-2 gap-x-10">
-        <div class="flex flex-col gap-1">
-            <mat-label>Product Name <span>*</span></mat-label>
-            <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="productWaistType" type="text" textOnly>
-                <mat-error *ngIf="productDetailsFormGroup.controls['productWaistType'].hasError('required')">
-                    This is required field
-                </mat-error>
-            </mat-form-field>
-        </div>
         <div class="col-span-2 flex justify-end">
             <button type="submit" class="text-white py-[6px] font-semibold px-10 bg-[#26355D] rounded">Create</button>
         </div>

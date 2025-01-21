@@ -14,6 +14,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { UpdateProductVarientsComponent } from './update-product-varients/update-product-varients.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { UpdateRemainingDetailsComponent } from './update-remaining-details/update-remaining-details.component';
 
 
 
@@ -42,6 +43,7 @@ const routes: Routes = [
 		AddProductComponent,
 		ProductSummaryComponent,
 		UpdateProductVarientsComponent,
+  UpdateRemainingDetailsComponent,
 	],
 	imports: [
 		CommonModule,

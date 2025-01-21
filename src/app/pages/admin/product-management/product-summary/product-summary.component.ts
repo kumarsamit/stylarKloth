@@ -6,6 +6,7 @@ import { RequestService } from '@services/https/request.service';
 import { SnackbarService } from '@services/snackbar/snackbar.service';
 import { UpdateProductVarientsComponent } from '../update-product-varients/update-product-varients.component';
 import { ConfirmationPopupComponent } from 'src/app/common-components/confirmation-popup/confirmation-popup.component';
+import { UpdateRemainingDetailsComponent } from '../update-remaining-details/update-remaining-details.component';
 
 @Component({
 	selector: 'app-product-summary',
@@ -51,9 +52,28 @@ export class ProductSummaryComponent {
 	updateVarients(){
 		let obj:any = {
 			productId : this.productDetail.productId,
-			variants : this.productDetail.variants,
+			details : this.productDetail,
 		}
 		const dialogRef = this.dialog.open(UpdateProductVarientsComponent, {
+			width: '800px',
+			maxWidth: '90vw',
+			data: obj
+		});
+
+		dialogRef.afterClosed().subscribe((result: any) => {
+			if (result === 'confirm') {
+				this.getProductDetails();
+			}
+		});
+	}
+
+
+	updateRemainingDetails(){
+		let obj:any = {
+			productId : this.productDetail.productId,
+			variants : this.productDetail.variants,
+		}
+		const dialogRef = this.dialog.open(UpdateRemainingDetailsComponent, {
 			width: '800px',
 			maxWidth: '90vw',
 			data: obj

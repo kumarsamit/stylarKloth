@@ -3,10 +3,10 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ADMIN_CREATE_PRODUCT_API } from '@env/api.path';
+import { ADMIN_CREATE_PRODUCT_API, ADMIN_GET_CHILD_CATEGORY_LIST_API, ADMIN_GET_PARENT_CATEGORY_LIST_API } from '@env/api.path';
 import { RequestService } from '@services/https/request.service';
 import { SnackbarService } from '@services/snackbar/snackbar.service';
-import {MatChipEditedEvent, MatChipInputEvent} from '@angular/material/chips';
+import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 
 export interface Tag {
 	tag: string;
@@ -27,9 +27,12 @@ export class AddProductComponent {
 	storage_instructions: any = ['Store in a Cool, Dry Place', 'Do Not Fold', 'Avoid Humidity', 'Use Mothballs or Silica Gel for Protection', 'Store Flat'];
 	readonly addOnBlur = true;
 	readonly separatorKeysCodes = [ENTER, COMMA] as const;
-	tagList = signal<Tag[]>([{ tag : 'stylarKloth' }]);
-	seoKeywordList = signal<KeyWords[]>([{ keyWord : 'stylarKloth' }]);
+	tagList = signal<Tag[]>([{ tag: 'stylarKloth' }]);
+	seoKeywordList = signal<KeyWords[]>([{ keyWord: 'stylarKloth' }]);
 	readonly announcer = inject(LiveAnnouncer);
+	categoryList: any = [];
+	childCategoryList: any = [];
+	isParentCategorySelected:boolean = false;
 
 
 	productFormGroup: FormGroup;
@@ -45,7 +48,8 @@ export class AddProductComponent {
 			productName: new FormControl('Shirt', [Validators.required]),
 			productDescription: new FormControl('', [Validators.required]),
 			productBrand: new FormControl('StylarKloth', [Validators.required]),
-			category: new FormControl('Shirt', [Validators.required]),
+			parentCategory: new FormControl('', [Validators.required]),
+			categories: new FormControl('', [Validators.required]),
 			productPrice: new FormControl(1000, [Validators.required]),
 			productDiscountedPrice: new FormControl(800, [Validators.required]),
 			productActualPrice: new FormControl(600, [Validators.required]),
@@ -56,18 +60,18 @@ export class AddProductComponent {
 			variants: this.fb.array([]),
 			tags: [this.tagList()],
 			seoKeyWords: [this.seoKeywordList()],
-			metaData : this.fb.group({
+			metaData: this.fb.group({
 				title: new FormControl('Shirt', []),
 				description: new FormControl('', []),
 			}),
-			careInstruction : this.fb.group({
+			careInstruction: this.fb.group({
 				storage: new FormControl('', []),
 				washing: new FormControl('', []),
 				ironing: new FormControl('', []),
 				drying: new FormControl('', []),
 			})
 		});
-		
+
 		this.productDetailsFormGroup = this.fb.group({
 			productWaistType: new FormControl('Cotton', [Validators.required]),
 		})
@@ -114,7 +118,7 @@ export class AddProductComponent {
 			return [...tagList];
 		});
 	}
-	
+
 	get variants(): FormArray {
 		return this.productFormGroup.get('variants') as FormArray;
 	}
@@ -133,8 +137,8 @@ export class AddProductComponent {
 	}
 
 	createProduct() {
-		let requestedData:any = {};
-		let imagesList= [
+		let requestedData: any = {};
+		let imagesList = [
 			{
 				"imageUrl": "https://example.com/images/jacket1.jpg"
 			},
@@ -142,11 +146,11 @@ export class AddProductComponent {
 				"imageUrl": "https://example.com/images/jacket1.jpg"
 			}
 		];
-		requestedData = {...this.productFormGroup.value};
+		requestedData = { ...this.productFormGroup.value };
 		requestedData['images'] = imagesList;
 		requestedData['currency'] = "INR";
 		console.log('this.productFormGroup.status', this.productFormGroup.status)
-		if(this.productFormGroup.status === 'INVALID'){
+		if (this.productFormGroup.status === 'INVALID') {
 			return
 		}
 		this._request.POST(ADMIN_CREATE_PRODUCT_API, requestedData).subscribe({
@@ -160,12 +164,43 @@ export class AddProductComponent {
 		})
 	}
 
+	getCategories() {
+		let requestedData = {};
+		this._request.GET(ADMIN_GET_PARENT_CATEGORY_LIST_API, requestedData).subscribe({
+			next: (resp: any) => {
+				this.categoryList = resp.data;
+			}, error: (err: any) => {
+				this._snackbar.notify(err.message, 2)
+
+			}
+		})
+	}
+
+	onSelectionChange(event: any) {
+		this.isParentCategorySelected = true;
+		this.childCategoryList = []
+;		this.productFormGroup.patchValue({
+			category : ''
+		});
+		let requestedData = {};
+		this._request.GET(`${ADMIN_GET_CHILD_CATEGORY_LIST_API}/${event.value}`, requestedData).subscribe({
+			next: (resp: any) => {
+				this.childCategoryList = resp.data;
+				console.log('this.childCategoryList', this.childCategoryList)
+			}, error: (err: any) => {
+				this._snackbar.notify(err.message, 2)
+
+			}
+		})
+	}
+
 	back() {
 		history.back();
 	}
 
 	ngOnInit() {
 		this.addVariant();
+		this.getCategories();
 	}
 
 
