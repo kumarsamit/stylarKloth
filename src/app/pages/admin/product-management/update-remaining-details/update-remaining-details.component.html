@@ -7,12 +7,30 @@
 
 
 <div mat-dialog-content>
-    <form (ngSubmit)="updateRemainingDetails()" [formGroup]="productFormGroup" class="w-full grid grid-cols-2 gap-x-10">
+    <form (ngSubmit)="updateRemainingDetails()" [formGroup]="productFormGroup" class="w-full grid grid-cols-3 gap-x-4">
         <div class="flex flex-col gap-1">
             <mat-label>Product Material<span>*</span></mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
                 <input matInput formControlName="productMaterial" type="text" textOnly>
                 <mat-error *ngIf="productFormGroup.controls['productMaterial'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Product Waist Type<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="productWaistType" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['productWaistType'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Product Closure Type<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="productClosureType" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['productClosureType'].hasError('required')">
                     This is required field
                 </mat-error>
             </mat-form-field>

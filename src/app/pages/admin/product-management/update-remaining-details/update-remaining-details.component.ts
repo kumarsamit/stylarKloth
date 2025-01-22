@@ -20,6 +20,8 @@ export class UpdateRemainingDetailsComponent {
 
 	productFormGroup: any = new FormGroup({
 		productMaterial: new FormControl('', [Validators.required]),
+		productClosureType: new FormControl('', [Validators.required]),
+		productWaistType: new FormControl('', [Validators.required]),
 	});
 
 	constructor(

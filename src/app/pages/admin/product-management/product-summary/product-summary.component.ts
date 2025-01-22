@@ -74,7 +74,7 @@ export class ProductSummaryComponent {
 			variants : this.productDetail.variants,
 		}
 		const dialogRef = this.dialog.open(UpdateRemainingDetailsComponent, {
-			width: '800px',
+			width: '900px',
 			maxWidth: '90vw',
 			data: obj
 		});
@@ -113,6 +113,9 @@ export class ProductSummaryComponent {
 		});
 	}
 
+	updateDetails(){ 
+		this._router.navigate(['/product-management/add-product'],{ queryParams: { id: this.productId} })
+	}
 
 
 	back() {

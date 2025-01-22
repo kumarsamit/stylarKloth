@@ -2,8 +2,8 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ADMIN_CREATE_PRODUCT_API, ADMIN_GET_CHILD_CATEGORY_LIST_API, ADMIN_GET_PARENT_CATEGORY_LIST_API } from '@env/api.path';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ADMIN_CREATE_PRODUCT_API, ADMIN_GET_CHILD_CATEGORY_LIST_API, ADMIN_GET_PARENT_CATEGORY_LIST_API, ADMIN_GET_PRODUCT_DETAILS_API } from '@env/api.path';
 import { RequestService } from '@services/https/request.service';
 import { SnackbarService } from '@services/snackbar/snackbar.service';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
@@ -32,36 +32,37 @@ export class AddProductComponent {
 	readonly announcer = inject(LiveAnnouncer);
 	categoryList: any = [];
 	childCategoryList: any = [];
-	isParentCategorySelected:boolean = false;
-
-
+	isParentCategorySelected: boolean = false;
+	productDetail: any = '';
+	productId: any = '';
 	productFormGroup: FormGroup;
-	productDetailsFormGroup: FormGroup;
+
 	constructor(
 		private _request: RequestService,
+		private _activatedRoute: ActivatedRoute,
 		private _snackbar: SnackbarService,
 		private _router: Router,
 		private fb: FormBuilder
 	) {
 
 		this.productFormGroup = this.fb.group({
-			productName: new FormControl('Shirt', [Validators.required]),
+			productName: new FormControl('', [Validators.required]),
 			productDescription: new FormControl('', [Validators.required]),
-			productBrand: new FormControl('StylarKloth', [Validators.required]),
+			productBrand: new FormControl('', [Validators.required]),
 			parentCategory: new FormControl('', [Validators.required]),
 			categories: new FormControl('', [Validators.required]),
-			productPrice: new FormControl(1000, [Validators.required]),
-			productDiscountedPrice: new FormControl(800, [Validators.required]),
-			productActualPrice: new FormControl(600, [Validators.required]),
-			productMaterial: new FormControl('Cotton', [Validators.required]),
-			productWeight: new FormControl('100', []),
-			productCancellable: new FormControl('true', []),
-			productReturnable: new FormControl('true', []),
+			productPrice: new FormControl('', [Validators.required]),
+			productDiscountedPrice: new FormControl('', [Validators.required]),
+			productActualPrice: new FormControl('', [Validators.required]),
+			productMaterial: new FormControl('', [Validators.required]),
+			productWeight: new FormControl('', []),
+			productCancellable: new FormControl(false, []),
+			productReturnable: new FormControl(false, []),
 			variants: this.fb.array([]),
 			tags: [this.tagList()],
 			seoKeyWords: [this.seoKeywordList()],
 			metaData: this.fb.group({
-				title: new FormControl('Shirt', []),
+				title: new FormControl('', []),
 				description: new FormControl('', []),
 			}),
 			careInstruction: this.fb.group({
@@ -72,8 +73,12 @@ export class AddProductComponent {
 			})
 		});
 
-		this.productDetailsFormGroup = this.fb.group({
-			productWaistType: new FormControl('Cotton', [Validators.required]),
+		this._activatedRoute.queryParams.subscribe((o: any) => {
+			if (o.id) {
+				this.productId = o.id;
+				this.getProductDetails();
+			}
+
 		})
 	}
 
@@ -179,9 +184,9 @@ export class AddProductComponent {
 	onSelectionChange(event: any) {
 		this.isParentCategorySelected = true;
 		this.childCategoryList = []
-;		this.productFormGroup.patchValue({
-			category : ''
-		});
+			; this.productFormGroup.patchValue({
+				category: ''
+			});
 		let requestedData = {};
 		this._request.GET(`${ADMIN_GET_CHILD_CATEGORY_LIST_API}/${event.value}`, requestedData).subscribe({
 			next: (resp: any) => {
@@ -196,6 +201,27 @@ export class AddProductComponent {
 
 	back() {
 		history.back();
+	}
+
+
+	getProductDetails() {
+		let requestedData = {};
+		this._request.GET(`${ADMIN_GET_PRODUCT_DETAILS_API}/${this.productId}`, requestedData).subscribe({
+			next: (resp: any) => {
+				this.productDetail = resp.data;
+				this.productFormGroup.patchValue({
+					productName: this.productDetail.productName,
+					productDescription: this.productDetail.productDescription,
+					productBrand: this.productDetail.productBrand,
+					productWeight: this.productDetail.productWeight,
+					productMaterial: this.productDetail.productMaterial,
+					productCancellable: this.productDetail.productCancellable,
+					productReturnable: this.productDetail.productReturnable,
+				})
+			}, error: (err: any) => {
+				this._snackbar.notify(err.message, 2)
+			}
+		})
 	}
 
 	ngOnInit() {
