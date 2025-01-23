@@ -35,10 +35,157 @@
                 </mat-error>
             </mat-form-field>
         </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Leg Opening Type<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="productLegOpening" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['productLegOpening'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>EcoFriendly Rating<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="productEcoFriendlyRating" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['productEcoFriendlyRating'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Pocket Details<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="productPocketDetails" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['productPocketDetails'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>water Resistance<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="waterResistance" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['waterResistance'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Breathability<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="productBreathability" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['productBreathability'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>WishList Option<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <mat-select formControlName="wishListOption">
+                    <mat-option [value]="true">True</mat-option>
+                    <mat-option [value]="false">False</mat-option>
+                </mat-select>
+                <mat-error *ngIf="productFormGroup.controls['wishListOption'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Gift Wrapping<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <mat-select formControlName="isGiftWrapping">
+                    <mat-option [value]="true">True</mat-option>
+                    <mat-option [value]="false">False</mat-option>
+                </mat-select>
+                <mat-error *ngIf="productFormGroup.controls['isGiftWrapping'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Price Alert<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="priceAlert" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['priceAlert'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Average Rating<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <mat-select formControlName="productAverageRating">
+                    <mat-option [value]="5">5</mat-option>
+                    <mat-option [value]="4">4</mat-option>
+                    <mat-option [value]="3">3</mat-option>
+                    <mat-option [value]="2">2</mat-option>
+                    <mat-option [value]="1">1</mat-option>
+                </mat-select>
+                <mat-error *ngIf="productFormGroup.controls['productAverageRating'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Size Chart Type<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="sizeChartType" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['sizeChartType'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex flex-col gap-1">
+            <mat-label>Dimensions<span>*</span></mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="productDimensions" type="text" textOnly>
+                <mat-error *ngIf="productFormGroup.controls['productDimensions'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div formArrayName="reviews" class="col-span-3">
+            <div class="w-full grid grid-cols-4 gap-x-4" *ngFor="let variant of reviews.controls; let i = index"
+                [formGroupName]="i">
+                <div class="flex flex-col gap-1">
+                    <mat-label>Rating<span>*</span></mat-label>
+                    <mat-form-field class="w-full mb-1" appearance="outline">
+                        <input matInput formControlName="rating" type="text" textOnly>
+                        <mat-error *ngIf="variant.get('rating')?.hasError('required')">
+                            This is required field
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="flex flex-col gap-1 col-span-2">
+                    <mat-label>Review<span>*</span></mat-label>
+                    <mat-form-field class="w-full mb-1" appearance="outline">
+                        <input matInput formControlName="review" type="text" textOnly>
+                        <mat-error *ngIf="variant.get('review')?.hasError('required')">
+                            This is required field
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="flex gap-3 items-center">
+                    <a class="cursor-pointer" (click)="addReview();" *ngIf="i === reviews.length - 1">
+                        <img class="w-7" src="./assets/images/add-square.svg" alt="">
+                    </a>
+                    <a class="cursor-pointer" (click)="removeReview(i);" *ngIf="i < reviews.length - 1">
+                        <img class="w-7" src="./assets/images/delete-red.svg" alt="">
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
     </form>
 </div>
 
 <div mat-dialog-actions>
     <button class="rounded px-6 leading-none py-2 bg-[#e8e8e8] text-sm" (click)="closePopup('close')">Cancel</button>
-    <button class="rounded px-6 leading-none py-2 text-white bg-[#0c2a63] text-sm" (click)="updateRemainingDetails()">Update</button>
+    <button class="rounded px-6 leading-none py-2 text-white bg-[#0c2a63] text-sm"
+        (click)="updateRemainingDetails()">Update</button>
 </div>

@@ -71,7 +71,7 @@ export class ProductSummaryComponent {
 	updateRemainingDetails(){
 		let obj:any = {
 			productId : this.productDetail.productId,
-			variants : this.productDetail.variants,
+			productDetail : this.productDetail,
 		}
 		const dialogRef = this.dialog.open(UpdateRemainingDetailsComponent, {
 			width: '900px',
