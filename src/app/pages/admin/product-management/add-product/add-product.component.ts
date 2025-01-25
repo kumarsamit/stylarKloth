@@ -49,7 +49,7 @@ export class AddProductComponent {
 			productName: new FormControl('', [Validators.required]),
 			productDescription: new FormControl('', [Validators.required]),
 			productBrand: new FormControl('', [Validators.required]),
-			parentCategory: new FormControl('', [Validators.required]),
+			productParentCategoryId: new FormControl('', [Validators.required]),
 			categories: new FormControl('', [Validators.required]),
 			productPrice: new FormControl('', [Validators.required]),
 			productDiscountedPrice: new FormControl('', [Validators.required]),
@@ -217,6 +217,12 @@ export class AddProductComponent {
 					productMaterial: this.productDetail.productMaterial,
 					productCancellable: this.productDetail.productCancellable,
 					productReturnable: this.productDetail.productReturnable,
+					productPrice: this.productDetail.productPrice,
+					productDiscountedPrice: this.productDetail.productDiscountedPrice,
+					productActualPrice: this.productDetail.productActualPrice,
+					careInstruction : {
+						washing: this.productDetail.washing,
+					}
 				})
 			}, error: (err: any) => {
 				this._snackbar.notify(err.message, 2)

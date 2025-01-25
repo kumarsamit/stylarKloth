@@ -31,41 +31,42 @@ export class UpdateRemainingDetailsComponent {
 
 	) {
 		this.productData = data.productDetail;
+		console.log('data', data)
 		this.productId = data.productId;
 		this.productFormGroup = this.fb.group({
-			productMaterial: new FormControl('', [Validators.required]),
-			productClosureType: new FormControl('', [Validators.required]),
-			productWaistType: new FormControl('', [Validators.required]),
-			productLegOpening: new FormControl('', [Validators.required]),
-			productEcoFriendlyRating: new FormControl('', [Validators.required]),
-			productPocketDetails: new FormControl('', [Validators.required]),
-			waterResistance: new FormControl('', [Validators.required]),
-			productBreathability: new FormControl('', [Validators.required]),
-			wishListOption: new FormControl(true, [Validators.required]),
-			isGiftWrapping: new FormControl(true, [Validators.required]),
-			priceAlert: new FormControl('', [Validators.required]),
-			productAverageRating: new FormControl('', [Validators.required]),
-			sizeChartType: new FormControl('', [Validators.required]),
-			productDimensions: new FormControl('', [Validators.required]),
+			productMaterial: new FormControl('',),
+			productClosureType: new FormControl('',),
+			productWaistType: new FormControl('',),
+			productLegOpening: new FormControl('',),
+			productEcoFriendlyRating: new FormControl('',),
+			productPocketDetails: new FormControl('',),
+			waterResistance: new FormControl('',),
+			productBreathability: new FormControl('',),
+			wishListOption: new FormControl(true,),
+			isGiftWrapping: new FormControl(true,),
+			priceAlert: new FormControl('',),
+			productAverageRating: new FormControl('',),
+			sizeChartType: new FormControl('',),
+			productDimensions: new FormControl('',),
 			reviews: this.fb.array([]),
 		});
-		// this.productFormGroup.patchValue({
-		// 	productMaterial: this.productData.productMaterial,
-		// 	productClosureType: this.productData,
-		// 	productWaistType: this.productData,
-		// 	productLegOpening: this.productData,
-		// 	productEcoFriendlyRating: this.productData,
-		// 	productPocketDetails: this.productData,
-		// 	waterResistance: this.productData,
-		// 	productBreathability: this.productData,
-		// 	wishListOption:this.productData,
-		// 	isGiftWrapping:this.productData,
-		// 	priceAlert: this.productData,
-		// 	productAverageRating: this.productData,
-		// 	sizeChartType: this.productData,
-		// 	productDimensions: this.productData,
-		// 	reviews: this.fb.array([]),
-		// })
+		this.productFormGroup.patchValue({
+			productMaterial: this.productData.productMaterial,
+			productClosureType: this.productData.productClosureType,
+			productWaistType: this.productData.productWaistType,
+			productLegOpening: this.productData.productLegOpening,
+			productEcoFriendlyRating: this.productData.productEcoFriendlyRating,
+			productPocketDetails: this.productData.productPocketDetails,
+			waterResistance: this.productData.isWaterResistance,
+			productBreathability: this.productData.productBreathability,
+			wishListOption: this.productData.isWishListOption,
+			isGiftWrapping: this.productData.isGiftWrapping,
+			priceAlert: this.productData.isPriceAlert,
+			productAverageRating: this.productData.productAverageRating,
+			sizeChartType: this.productData.productAverageRating,
+			productDimensions: this.productData.productDimensions,
+			// reviews: this.fb.array([])
+		})
 	}
 
 	get reviews(): FormArray {
@@ -89,6 +90,11 @@ export class UpdateRemainingDetailsComponent {
 	}
 
 	updateRemainingDetails() {
+		console.log('this.productFormGroup', this.productFormGroup)
+		this.productFormGroup.markAllAsTouched();
+		if(this.productFormGroup.status === 'INVALID'){
+			return
+		}
 		let requestedData: any = {};
 		requestedData = this.productFormGroup.value;
 		requestedData['productId'] = this.productId;
@@ -107,9 +113,21 @@ export class UpdateRemainingDetailsComponent {
 		})
 	}
 
-	ngOnInit() {
-		this.addReview();
+	patchItems() {
+		if (this.productData.reviews.length) {
+			this.productData.reviews.forEach((detail: any) => {
+				this.reviews.push(
+					this.fb.group({
+						rating: new FormControl(detail.rating),
+						review: new FormControl(detail.review),
+					})
+				);
+			});
+		}
 	}
 
-
+	ngOnInit() {
+		this.addReview();
+		this.patchItems();
+	}
 }

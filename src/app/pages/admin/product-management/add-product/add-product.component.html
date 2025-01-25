@@ -66,10 +66,10 @@
         <div class="flex flex-col gap-1">
             <mat-label>Category<span>*</span></mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <mat-select formControlName="parentCategory" (selectionChange)="onSelectionChange($event)">
+                <mat-select formControlName="productParentCategoryId" (selectionChange)="onSelectionChange($event)">
                     <mat-option [value]="item.id" *ngFor="let item of categoryList">{{item.name}}</mat-option>
                 </mat-select>
-                <mat-error *ngIf="productFormGroup.controls['parentCategory'].hasError('required')">
+                <mat-error *ngIf="productFormGroup.controls['productParentCategoryId'].hasError('required')">
                     This is required field
                 </mat-error>
             </mat-form-field>

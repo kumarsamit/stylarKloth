@@ -91,13 +91,89 @@
                     {{productDetail.careInstruction.washing}}</p>
             </div>
         </div>
+        <div class="rounded-md bg-white col-span-2 p-4 grid grid-cols-3 gap-x-4">
+            <p class="text-[#070707] text-base font-semibold mb-2 col-span-3">Remaining Information</p>
+            <div class="flex flex-col gap-1 mb-4">
+                <p class="text-sm text-[#757575]">Product Waist Type</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.productWaistType ?? '-'}}</p>
+            </div>
+            <div class="flex flex-col gap-1 mb-4">
+                <p class="text-sm text-[#757575]">Product Closure Type</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.productClosureType ?? '-'}}
+                </p>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="text-sm text-[#757575]">Leg Opening Type</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md leading-relaxed">
+                    {{productDetail.productLegOpening ?? '-'}}</p>
+            </div>
+            <div class="flex flex-col gap-1 mb-4">
+                <p class="text-sm text-[#757575]">EcoFriendly Rating</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.productEcoFriendlyRating ?? '-'}}</p>
+            </div>
+            <div class="flex flex-col gap-1 mb-4">
+                <p class="text-sm text-[#757575]">Pocket Details</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.productPocketDetails ?? '-'}}
+                </p>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="text-sm text-[#757575]">Water Resistance</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md leading-relaxed">
+                    {{productDetail.isWaterResistance ?? '-'}}</p>
+            </div>
+            <div class="flex flex-col gap-1 mb-4">
+                <p class="text-sm text-[#757575]">Breathability</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.productBreathability ?? '-'}}</p>
+            </div>
+            <div class="flex flex-col gap-1 mb-4">
+                <p class="text-sm text-[#757575]">WishList Option</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.isWishListOption ?? '-'}}
+                </p>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="text-sm text-[#757575]">Gift Wrapping</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md leading-relaxed">
+                    {{productDetail.isGiftWrapping ?? '-'}}</p>
+            </div>
+            <div class="flex flex-col gap-1 mb-4">
+                <p class="text-sm text-[#757575]">Price Alert</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.isPriceAlert ?? '-'}}</p>
+            </div>
+            <div class="flex flex-col gap-1 mb-4">
+                <p class="text-sm text-[#757575]">Average Rating</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.productAverageRating ?? '-'}}
+                </p>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="text-sm text-[#757575]">Size Chart Type</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md leading-relaxed">
+                    {{productDetail.productAverageRating ?? '-'}}</p>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="text-sm text-[#757575]">Dimensions</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md leading-relaxed">
+                    {{productDetail.productDimensions ?? '-'}}</p>
+            </div>
+        </div>
     </div>
     <div class=" flex flex-col gap-4">
         <div class="rounded-md bg-white p-4">
             <p class="text-[#070707] text-base font-semibold mb-2">Category</p>
             <div class="flex flex-col gap-1 mb-4">
                 <p class="text-sm text-[#757575]">Product Category</p>
-                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">{{productDetail.categories.join(', ')}}</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">
+                    {{productDetail.category ?? '-'}}
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-1 mb-4">
+                <p class="text-sm text-[#757575]">Product Child Category</p>
+                <p class="p-2 text-sm bg-[#f8fafb] border border-[#d7d7d7] rounded-md">
+                    <ng-container *ngFor="let item of productDetail.categories;  let i = index">
+                        <ng-container *ngIf="i>0">,</ng-container>
+                        {{item.categoryName}}
+                    </ng-container>
+                </p>
             </div>
 
             <div class="flex flex-col gap-1">
