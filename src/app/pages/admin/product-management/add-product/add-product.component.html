@@ -3,9 +3,9 @@
     <p class="text-[18px] font-semibold text-[#303030]">Add Product</p>
 </div>
 
-<div class="bg-white rounded-md shadow-md p-10 mt-4">
-    <p class="text-[18px] font-semibold text-[#303030] mb-4">Product details</p>
-    <form (ngSubmit)="createProduct()" [formGroup]="productFormGroup" class="w-full grid grid-cols-2 gap-x-10">
+<form (ngSubmit)="createProduct()" [formGroup]="productFormGroup" class="w-full grid grid-cols-3 gap-4 mt-4">
+    <div class="bg-white rounded-md shadow-md col-span-2 grid grid-cols-2 p-4 gap-x-4">
+        <p class="text-[18px] font-semibold text-[#303030] mb-4 col-span-2">Product details</p>
         <div class="flex flex-col gap-1">
             <mat-label>Product Name <span>*</span></mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
@@ -115,10 +115,11 @@
         <div class="text-[18px] font-semibold text-[#303030] my-4 col-span-2">
             Discounts & Offer
         </div>
-        <div class="grid grid-cols-4 col-span-2 gap-x-6">
+        <div class="grid grid-cols-3 col-span-2 gap-x-4 price-cont">
             <div class="flex flex-col gap-1">
                 <mat-label>Price<span>*</span></mat-label>
                 <mat-form-field class="w-full mb-1" appearance="outline">
+                    <span matPrefix>₹</span>
                     <input matInput formControlName="productPrice" type="text" textOnly>
                     <mat-error *ngIf="productFormGroup.controls['productPrice'].hasError('required')">
                         This is required field
@@ -128,6 +129,7 @@
             <div class="flex flex-col gap-1">
                 <mat-label>Discount Price<span>*</span></mat-label>
                 <mat-form-field class="w-full mb-1" appearance="outline">
+                    <span matPrefix>₹</span>
                     <input matInput formControlName="productDiscountedPrice" type="text" textOnly>
                     <mat-error *ngIf="productFormGroup.controls['productDiscountedPrice'].hasError('required')">
                         This is required field
@@ -137,6 +139,7 @@
             <div class="flex flex-col gap-1">
                 <mat-label>Actual Price<span>*</span></mat-label>
                 <mat-form-field class="w-full mb-1" appearance="outline">
+                    <span matPrefix>₹</span>
                     <input matInput formControlName="productActualPrice" type="text" textOnly>
                     <mat-error *ngIf="productFormGroup.controls['productActualPrice'].hasError('required')">
                         This is required field
@@ -151,7 +154,7 @@
         </div>
 
         <div formArrayName="variants" class="col-span-2">
-            <div class="w-full grid grid-cols-4 gap-x-10" *ngFor="let variant of variants.controls; let i = index"
+            <div class="w-full grid grid-cols-4 gap-x-4" *ngFor="let variant of variants.controls; let i = index"
                 [formGroupName]="i">
                 <div class="flex flex-col gap-1">
                     <mat-label>Size<span>*</span></mat-label>
@@ -205,84 +208,90 @@
             <input type="file" id="upload_image" hidden>
 
         </div>
-
-
-        <div class="text-[18px] font-semibold text-[#303030] mb-4 mt-6 col-span-2">
-            Meta details
-        </div>
-        <div class="grid col-span-2 grid-cols-2 gap-x-6" formGroupName="metaData">
-            <div class="flex flex-col gap-1">
-                <mat-label>Meta Title</mat-label>
-                <mat-form-field class="w-full mb-1" appearance="outline">
-                    <input matInput formControlName="title" type="text" textOnly>
-                </mat-form-field>
+    </div>
+    <div class="">
+        <div class="bg-white rounded-md shadow-md p-4 pb-0 mb-4">
+            <div class="text-[18px] font-semibold text-[#303030] mb-4">
+                Care instructions
             </div>
-            <div class="flex flex-col gap-1 col-span-2">
-                <mat-label>Meta Description</mat-label>
-                <mat-form-field class="w-full mb-1" appearance="outline">
-                    <textarea matInput formControlName="description" type="text" textOnly></textarea>
-                </mat-form-field>
+            <div class="" formGroupName="careInstruction">
+                <div class="flex flex-col gap-1">
+                    <mat-label>Washing</mat-label>
+                    <mat-form-field class="w-full mb-1" appearance="outline">
+                        <mat-select formControlName="washing">
+                            <mat-option [value]="item" *ngFor="let item of washing_instructions">{{item}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <mat-label>Ironing</mat-label>
+                    <mat-form-field class="w-full mb-1" appearance="outline">
+                        <mat-select formControlName="ironing">
+                            <mat-option [value]="item" *ngFor="let item of ironing_instructions">{{item}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <mat-label>Drying</mat-label>
+                    <mat-form-field class="w-full mb-1" appearance="outline">
+                        <mat-select formControlName="drying">
+                            <mat-option [value]="item" *ngFor="let item of dry_cleaning">{{item}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <mat-label>Storage</mat-label>
+                    <mat-form-field class="w-full mb-1" appearance="outline">
+                        <mat-select formControlName="storage">
+                            <mat-option [value]="item" *ngFor="let item of storage_instructions">{{item}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
             </div>
         </div>
-        <div class="flex flex-col gap-1 col-span-2">
-            <mat-label>Meta tags</mat-label>
-            <mat-form-field class="w-full mb-1" appearance="outline">
-                <mat-chip-grid #chipGrid2>
-                    <mat-chip-row *ngFor="let item of seoKeywordList(); let i = index" (removed)="removeSeo(item)"
-                        [editable]="true" [aria-description]="'Press enter to edit ' + item.keyWord">
-                        {{ item.keyWord}}
-                        <button matChipRemove [attr.aria-label]="'Remove ' + item.keyWord">
-                            <mat-icon>cancel</mat-icon>
-                        </button>
-                    </mat-chip-row>
 
-                    <input [matChipInputFor]="chipGrid2" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                        [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="addSeo($event)" />
-                </mat-chip-grid>
-            </mat-form-field>
-        </div>
-
-        <div class="text-[18px] font-semibold text-[#303030] mb-4 mt-6 col-span-2">
-            Care instructions
-        </div>
-        <div class="col-span-2 grid grid-cols-2 gap-x-6" formGroupName="careInstruction">
-            <div class="flex flex-col gap-1">
-                <mat-label>Washing</mat-label>
-                <mat-form-field class="w-full mb-1" appearance="outline">
-                    <mat-select formControlName="washing">
-                        <mat-option [value]="item" *ngFor="let item of washing_instructions">{{item}}</mat-option>
-                    </mat-select>
-                </mat-form-field>
+        <div class="bg-white rounded-md shadow-md p-4 pb-0">
+            <div class="text-[18px] font-semibold text-[#303030] mb-4">
+                Meta details
             </div>
-            <div class="flex flex-col gap-1">
-                <mat-label>Ironing</mat-label>
-                <mat-form-field class="w-full mb-1" appearance="outline">
-                    <mat-select formControlName="ironing">
-                        <mat-option [value]="item" *ngFor="let item of ironing_instructions">{{item}}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-            <div class="flex flex-col gap-1">
-                <mat-label>Drying</mat-label>
-                <mat-form-field class="w-full mb-1" appearance="outline">
-                    <mat-select formControlName="drying">
-                        <mat-option [value]="item" *ngFor="let item of dry_cleaning">{{item}}</mat-option>
-                    </mat-select>
-                </mat-form-field>
+            <div class="" formGroupName="metaData">
+                <div class="flex flex-col gap-1">
+                    <mat-label>Meta Title</mat-label>
+                    <mat-form-field class="w-full mb-1" appearance="outline">
+                        <input matInput formControlName="title" type="text" textOnly>
+                    </mat-form-field>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <mat-label>Meta Description</mat-label>
+                    <mat-form-field class="w-full mb-1" appearance="outline">
+                        <textarea matInput formControlName="description" type="text" textOnly></textarea>
+                    </mat-form-field>
+                </div>
             </div>
             <div class="flex flex-col gap-1">
-                <mat-label>Storage</mat-label>
+                <mat-label>Meta tags</mat-label>
                 <mat-form-field class="w-full mb-1" appearance="outline">
-                    <mat-select formControlName="storage">
-                        <mat-option [value]="item" *ngFor="let item of storage_instructions">{{item}}</mat-option>
-                    </mat-select>
+                    <mat-chip-grid #chipGrid2>
+                        <mat-chip-row *ngFor="let item of seoKeywordList(); let i = index" (removed)="removeSeo(item)"
+                            [editable]="true" [aria-description]="'Press enter to edit ' + item.keyWord">
+                            {{ item.keyWord}}
+                            <button matChipRemove [attr.aria-label]="'Remove ' + item.keyWord">
+                                <mat-icon>cancel</mat-icon>
+                            </button>
+                        </mat-chip-row>
+    
+                        <input [matChipInputFor]="chipGrid2" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                            [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="addSeo($event)" />
+                    </mat-chip-grid>
                 </mat-form-field>
             </div>
+
         </div>
 
-        <div class="col-span-2 flex justify-end">
-            <button type="submit" class="text-white py-[6px] font-semibold px-10 bg-[#26355D] rounded">Create</button>
-        </div>
-    </form>
+    </div>
 
-</div>
+
+    <div class="col-span-2 flex justify-end">
+        <button type="submit" class="text-white py-[6px] font-semibold px-10 bg-[#26355D] rounded">Create</button>
+    </div>
+</form>
