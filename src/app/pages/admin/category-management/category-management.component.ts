@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { RequestService } from '@services/https/request.service';
 import { SnackbarService } from '@services/snackbar/snackbar.service';
 import { CreateCategoryComponent } from './create-category/create-category.component';
-import { ADMIN_DELETE_PARENT_CATEGORY_API, ADMIN_DELETE_PRODUCT_API, ADMIN_GET_PARENT_CATEGORY_LIST_API } from '@env/api.path';
+import { ADMIN_DELETE_PARENT_CATEGORY_API, ADMIN_GET_PARENT_CATEGORY_LIST_API } from '@env/api.path';
 import { ConfirmationPopupComponent } from 'src/app/common-components/confirmation-popup/confirmation-popup.component';
 
 

@@ -323,6 +323,19 @@ const adminRoutes: Routes = [
             sidebar: 1,
         },
     },
+    {
+        path: 'coupon-management',
+        loadChildren: () => import('../pages/admin/coupon-management/coupon-management.module').then((m) => m.CouponManagementModule),
+        // resolve: {
+        //     routeResolver: ValidateMeta
+        // },
+        data: {
+            module: 'admin',
+            header: 2,
+            footer: 0,
+            sidebar: 1,
+        },
+    },
 ];
 
 const otherRoutes: Routes = [

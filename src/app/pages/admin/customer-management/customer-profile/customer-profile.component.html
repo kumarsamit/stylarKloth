@@ -1,1 +1,118 @@
-<p>customer-profile works!</p>
+<div class="flex items-center justify-between mb-5">
+    <div class="flex items-center gap-4">
+        <img (click)="back()" class="w-5 rotate-180 invert cursor-pointer" src="./assets/images/right-arrow.svg" alt="">
+        <p class="text-[18px] font-semibold text-[#26355d]">Profile Information
+        </p>
+    </div>
+</div>
+
+<div class="bg-white shadow p-4 mb-4 flex justify-between items-center rounded-md">
+    <div class="flex items-center gap-6">
+        <img src="https://via.placeholder.com/100" alt="User Profile" class="w-20 h-20 rounded-full shadow">
+        <div>
+            <h1 class="text-base font-bold">John Doe</h1>
+            <p class="text-gray-600">johndoe@email.com</p>
+            <p class="text-sm text-gray-500">Account Status : <span class="text-green-600 font-semibold">Active</span>
+            </p>
+        </div>
+    </div>
+    <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Suspend Account</button>
+</div>
+
+<div class="grid grid-cols-3 gap-4">
+    <div class="bg-white p-4 shadow rounded-md">
+        <h2 class="text-base font-semibold mb-1">Profile Information</h2>
+        <table class="w-full text-sm border-separate border-spacing-y-2">
+            <tr>
+                <td class="font-semibold">Name</td>
+                <td> John Doe</td>
+            </tr>
+            <tr>
+                <td class="font-semibold">Email</td>
+                <td>johndoe@email.com</td>
+            </tr>
+            <tr>
+                <td class="font-semibold">Phone</td>
+                <td>+1234567890</td>
+            </tr>
+            <tr>
+                <td class="font-semibold">Last Login</td>
+                <td> Jan 1, 2023</td>
+            </tr>
+            <tr>
+                <td class="font-semibold">Role</td>
+                <td>Customer</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="bg-white p-4 shadow rounded-md col-span-2">
+        <h2 class="text-base font-semibold mb-2">Addresses</h2>
+        <ul class="list-disc pl-4 max-h-[160px] overflow-y-auto text-sm">
+            <li class="text-gray-500 mb-1">456 Office St, Boston, MA, 02108</li>
+            <li class="text-gray-500 mb-1">456 Office St, Boston, MA, 02108</li>
+            <li class="text-gray-500 mb-1">456 Office St, Boston, MA, 02108</li>
+            <li class="text-gray-500 mb-1">456 Office St, Boston, MA, 02108</li>
+        </ul>
+    </div>
+
+    <!-- Order History -->
+    <div class="bg-white p-4 shadow rounded-md col-span-3">
+        <h2 class="text-base font-semibold mb-2">Order History</h2>
+        <div class="mb-4">
+            <p class="text-sm mb-1">Total Orders : <span class="font-semibold">45</span></p>
+            <p class="text-sm mb-1">Total Amount Spent : <span class="font-semibold">₹5,600</span></p>
+            <p class="text-sm mb-1">Loyalty points earned : <span class="font-semibold">600</span></p>
+            <p class="text-sm">Loyalty points redeemed : <span class="font-semibold">600</span></p>
+        </div>
+        <div class="border rounded overflow-hidden">
+            <table mat-table [dataSource]="userList" *ngIf="userList.length !==0 && loader === false">
+                <ng-container matColumnDef="Order Id">
+                    <th mat-header-cell *matHeaderCellDef>Order Id</th>
+                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                </ng-container>
+        
+                <!-- Name Column -->
+                <ng-container matColumnDef="Date">
+                    <th mat-header-cell *matHeaderCellDef>Date</th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+        
+                <!-- Weight Column -->
+                <ng-container matColumnDef="Items">
+                    <th mat-header-cell *matHeaderCellDef> Items </th>
+                    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                </ng-container>
+        
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Amount">
+                    <th mat-header-cell *matHeaderCellDef> Phone number </th>
+                    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+        
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Status">
+                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+        
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+        <div class="h-[300px] w-full flex justify-center items-center bg-white rounded-md" *ngIf="userList.length ===0 && loader === true">
+            <div class="flex items-center justify-center flex-col gap-2">
+                <mat-spinner [diameter]="20"></mat-spinner>
+                <p class="text-[#555] font-sm">Pleaes wait....</p>
+            </div>
+        </div>
+        <div class="min-h-[400px] flex justify-center py-10 px-4 bg-white rounded-md" *ngIf="userList.length === 0 && loader === false">
+            <img class="max-w-[75%] w-[300px]" src="./assets/images/no-data-found.svg" alt="">
+        </div>
+    
+    
+    </div>
+
+
+</div>

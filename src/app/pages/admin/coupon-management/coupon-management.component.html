@@ -1,0 +1,92 @@
+
+
+<div class="flex items-center justify-between mb-4">
+    <p class="text-[18px] font-semibold text-[#26355d]">Coupon Listing</p>
+    <div>
+        <a  (click)="onAddCoupon()"
+            class="cursor-pointer bg-[#26355d] text-white flex items-center gap-2 px-4 rounded-md py-2">
+            <img class="invert w-4" src="./assets/images/plus.svg" alt="">
+            Add New Coupon
+        </a>
+    </div>
+</div>
+
+<div class="mt-4 rounded-md overflow-hidden shadow-md">
+    <table mat-table [dataSource]="coupons" matSort class="mat-elevation-z8 w-full">
+        <!-- Coupon Code Column -->
+        <ng-container matColumnDef="couponCode">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Coupon Code</th>
+            <td mat-cell *matCellDef="let coupon" class="font-semibold text-[#333]">{{ coupon.couponCode }}</td>
+        </ng-container>
+
+        <!-- Discount Type Column -->
+        <ng-container matColumnDef="discountType">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Discount Type</th>
+            <td mat-cell *matCellDef="let coupon">{{ coupon.discountType }}</td>
+        </ng-container>
+
+        <!-- Discount Value Column -->
+        <ng-container matColumnDef="orderMin">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Max value</th>
+            <td mat-cell *matCellDef="let coupon">{{ coupon.discountValue }}</td>
+        </ng-container>
+        <!-- Discount Value Column -->
+        <ng-container matColumnDef="orderMax">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Min value</th>
+            <td mat-cell *matCellDef="let coupon">{{ coupon.discountValue }}</td>
+        </ng-container>
+        <!-- Discount Value Column -->
+        <ng-container matColumnDef="discountValue">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Discount Value</th>
+            <td mat-cell *matCellDef="let coupon">{{ coupon.discountValue }}</td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let coupon">
+                <span class="text-white px-2 py-1 rounded font-semibold" [ngClass]="{
+                    'text-green-600': coupon.status === 'Active',
+                    'text-gray-400': coupon.status === 'Inactive',
+                    'text-red-600': coupon.status === 'Expired'
+                  }">
+                    {{ coupon.status }}
+                </span>
+            </td>
+        </ng-container>
+
+        <!-- Start Date Column -->
+        <ng-container matColumnDef="startDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Date</th>
+            <td mat-cell *matCellDef="let coupon">{{ coupon.startDate | date: 'shortDate' }}</td>
+        </ng-container>
+
+        <!-- End Date Column -->
+        <ng-container matColumnDef="endDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>End Date</th>
+            <td mat-cell *matCellDef="let coupon">{{ coupon.endDate | date: 'shortDate' }}</td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let coupon">
+                <div class="flex items-center gap-3">
+                    <a routerLink="list/{{coupon.id}}" class="cursor-pointer">
+                        <img class="w-5 opacity-80" src="./assets/images/view.svg" alt="">
+                    </a>
+                    <a (click)="onEditCoupon(coupon)" class="cursor-pointer">
+                        <img class="w-4 opacity-80" src="./assets/images/edit.svg" alt="">
+                    </a>
+                    <a (click)="onDeleteCoupon(coupon)" class="cursor-pointer">
+                        <img class="w-5" src="./assets/images/delete-red.svg" alt="">
+                    </a>
+                </div>
+            </td>
+        </ng-container>
+
+        <!-- Table Header and Rows -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
