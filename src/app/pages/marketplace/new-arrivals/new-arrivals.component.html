@@ -1,40 +1,135 @@
-<div
-    class="relative h-[80vh] min-h-[300px] bg-[url(./assets/images/new-arrival-2.jpg)] bg-cover bg-center flex justify-center items-center">
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/60"></div>
-    <span class="relative z-10 font-bold text-[40px] text-white">Discover Our Latest Arrivals</span>
-</div>
-
-<div class="px-4 lg:px-8 xl:px-12">
-    <div class="flex items-center justify-between my-12 ">
-        <div class="text-center font-semibold text-[20px] text-[#333] ">#Featured Products</div>
-        <div class="flex gap-2 items-center">
-            <mat-label>Filter by</mat-label>
-            <mat-form-field appearance="outline">
-                <mat-select>
-                    <mat-option value="option1">Price: Low to High</mat-option>
-                    <mat-option value="option2">Price: High to Low</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
+<section class="relative w-full h-[400px] bg-cover bg-center flex items-center justify-center"
+    style="background-image: url('./assets/images/banner/banner-3.jpg');">
+    <div class="bg-black bg-opacity-50 p-10 text-center rounded-lg">
+        <h1 class="text-4xl font-bold text-white">Fresh Styles, Just In!</h1>
+        <p class="text-lg text-gray-200 mt-2">Discover the latest trends and update your wardrobe.</p>
+        <a href="#"
+            class="mt-4 inline-block bg-white text-black px-6 py-2 rounded-md font-medium hover:bg-gray-200 transition">Shop
+            Now</a>
     </div>
-    <div class="grid gap-4 grid-cols-6">
-        <div *ngFor="let item of products" class="border rounded border-[#d7d7d7] p-2">
-            <img src="{{item.img}}" alt="">
-            <div class="flex flex-col pt-2">
-                <p class="text-base text-[#002244] font-semibold mb-1">{{item.name}}</p>
-                <p class="text-sm text-[#666]">{{item.price | currency:'INR':true}}
-                    <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |
-                        currency:'INR':true}}</span>
-                </p>
-                <div class="flex w-full items-center h-[40px] mt-2 rounded overflow-hidden">
-                    <a
-                        class="h-full cursor-pointer text-white bg-[#26355D] leading-none flex-1 text-sm px-3 items-center flex border-r border-[#fff]">Add
-                        to Cart</a>
-                    <a class="cursor-pointer text-white bg-[#26355D] h-full flex items-center justify-center w-[40px]">
-                        <img class="w-6 h-6 invert" src="./assets/images/heart.svg" alt="">
-                    </a>
-                </div>
+</section>
+
+<div class="px-3 md:px-4 lg:px-8 xl:px-12">
+    <div class="container mx-auto py-6">
+        <div class="flex justify-between items-center bg-white">
+            <div class="flex gap-4">
+                <select class="p-2 border rounded-md">
+                    <option>Category</option>
+                    <option>Men</option>
+                    <option>Women</option>
+                    <option>Kids</option>
+                </select>
+                <select class="p-2 border rounded-md">
+                    <option>Price</option>
+                    <option>Under $50</option>
+                    <option>$50 - $100</option>
+                    <option>$100 - $200</option>
+                </select>
+                <select class="p-2 border rounded-md">
+                    <option>Size</option>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                </select>
+                <select class="p-2 border rounded-md">
+                    <option>Sort By</option>
+                    <option>Newest</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                </select>
             </div>
         </div>
     </div>
+
+    <!-- Product Grid -->
+    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="./assets/images/dummy/child-1.jpg" alt="Product" class="w-full h-64 object-cover">
+            <div class="p-4">
+                <h2 class="text-lg font-semibold">Trendy Jacket</h2>
+                <p class="text-gray-600">$99.99</p>
+                <button class="mt-2 bg-[#26355D] text-white px-4 py-2 rounded-md w-full">Add to
+                    Cart</button>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="./assets/images/dummy/child-1.jpg" alt="Product" class="w-full h-64 object-cover">
+            <div class="p-4">
+                <h2 class="text-lg font-semibold">Casual Shirt</h2>
+                <p class="text-gray-600">$49.99</p>
+                <button class="mt-2 bg-[#26355D] text-white px-4 py-2 rounded-md w-full">Add to
+                    Cart</button>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="./assets/images/dummy/child-1.jpg" alt="Product" class="w-full h-64 object-cover">
+            <div class="p-4">
+                <h2 class="text-lg font-semibold">Stylish Sneakers</h2>
+                <p class="text-gray-600">$79.99</p>
+                <button class="mt-2 bg-[#26355D] text-white px-4 py-2 rounded-md w-full">Add to
+                    Cart</button>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <img src="./assets/images/dummy/child-1.jpg" alt="Product" class="w-full h-64 object-cover">
+            <div class="p-4">
+                <h2 class="text-lg font-semibold">Elegant Dress</h2>
+                <p class="text-gray-600">$129.99</p>
+                <button class="mt-2 bg-[#26355D] text-white px-4 py-2 rounded-md w-full">Add to
+                    Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lookbook / Styling Inspiration -->
+    <div class="container mx-auto py-10">
+        <h2 class="text-2xl font-bold text-center mb-6">Style Inspiration</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <img src="./assets/images/dummy/child-1.jpg" alt="Lookbook" class="w-full rounded-lg">
+            <img src="./assets/images/dummy/child-1.jpg" alt="Lookbook" class="w-full rounded-lg">
+            <img src="./assets/images/dummy/child-1.jpg" alt="Lookbook" class="w-full rounded-lg">
+        </div>
+    </div>
+
+    <div class="container mx-auto py-10 bg-[#26355D] text-white text-center rounded-lg shadow-lg">
+        <h2 class="text-2xl font-bold">Limited-Time Deals</h2>
+        <p class="mt-2">Get 20% off on selected new arrivals. Hurry, offer ends soon!</p>
+        <button class="mt-4 bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600">Shop Now</button>
+    </div>
+
+
+
+    <div class="container mx-auto py-10">
+        <h2 class="text-2xl font-bold text-center mb-6">Trending Now</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <img src="./assets/images/dummy/child-1.jpg" class="w-full rounded-lg">
+            <img src="./assets/images/dummy/child-1.jpg" class="w-full rounded-lg">
+            <img src="./assets/images/dummy/child-1.jpg" class="w-full rounded-lg">
+            <img src="./assets/images/dummy/child-1.jpg" class="w-full rounded-lg">
+        </div>
+    </div>
+
+    <div class="px-4 lg:px-8 xl:px-12 grid grid-cols-2 gap-4 mt-16 gap-y-10">
+        <div class="flex justify-center flex-col gap-2 col-span-2 md:col-span-1">
+            <h2 class="font-semibold text-[20px] text-[#333]">Spread the Love, Get Rewarded</h2>
+            <p class="text-sm text-[#666] leading-loose">Love our products? Share the joy with your friends and earn
+                exciting discounts! For every friend you refer who makes a purchase, you’ll get 20% off your next order,
+                and
+                your friend will enjoy 10% off their first purchase. The more you share, the more you save—start
+                referring
+                today!</p>
+            <a class="text-white rounded text-sm lg:text-base px-4 py-2 leading-none w-max cursor-pointer flex items-center gap-2 bg-[#26355D]"
+                (click)="shareOnWhatsApp()">
+                Start Referring
+                <img class="w-5 lg:w-6" src="./assets/images/right-arrow.svg" alt="">
+            </a>
+        </div>
+        <div class="flex items-center justify-center col-start-1 md:col-start-2 col-span-2 md:col-span-1">
+            <img class="max-w-[200px] md:max-w-[300px]" src="./assets/images/refer-friend.svg" alt="">
+        </div>
+    </div>
+
 </div>

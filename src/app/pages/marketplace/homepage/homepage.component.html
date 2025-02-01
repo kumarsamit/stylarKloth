@@ -1,13 +1,30 @@
+
+<section class="relative w-full h-[500px] bg-cover bg-center flex items-center justify-center mb-5" 
+style="background-image: url('./assets/images/dummy/banner-1.jpg');">
+<div class="bg-black bg-opacity-50 p-10 text-center rounded-lg">
+    <h1 class="text-5xl font-bold text-white">New Season, New Style!</h1>
+    <p class="text-lg text-gray-200 mt-2">Explore the latest trends & refresh your wardrobe.</p>
+    <a href="#" class="mt-4 inline-block bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-gray-200 transition">Shop Now</a>
+</div>
+</section>
+
+
+
+
+<!-- 
 <div class="grid grid-cols-5 gap-2 w-full h-[calc(100vh-96px)] overflow-hidden">
-    <div class="col-span-3 bg-[url(./assets/images/dummy/banner-1.jpg)] bg-cover grayscale hover:grayscale-0 transition bg-center">
+    <div
+        class="col-span-3 bg-[url(./assets/images/dummy/banner-1.jpg)] bg-cover grayscale hover:grayscale-0 transition bg-center">
     </div>
     <div class="col-span-2 flex gap-2 flex-wrap">
-        <div class="w-full bg-[url(./assets/images/dummy/banner-2.jpg)] bg-cover grayscale hover:grayscale-0 transition bg-center">
+        <div
+            class="w-full bg-[url(./assets/images/dummy/banner-2.jpg)] bg-cover grayscale hover:grayscale-0 transition bg-center">
         </div>
-        <div class="w-full bg-[url(./assets/images/dummy/banner-3.jpg)] bg-cover grayscale hover:grayscale-0 transition bg-center">
+        <div
+            class="w-full bg-[url(./assets/images/dummy/banner-3.jpg)] bg-cover grayscale hover:grayscale-0 transition bg-center">
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="px-3 md:px-4 lg:px-8 xl:px-12">
     <div class="text-center font-semibold text-[18px] lg:text-[20px] text-[#333] my-8 lg:my-12 heading-lines">
@@ -18,11 +35,14 @@
             <img src="{{item.img}}" alt="">
             <div class="flex flex-col pt-2">
                 <p class="text-base text-[#002244] font-semibold mb-1">{{item.name}}</p>
-                <p class="text-sm text-[#666]">{{item.price |  currency:'INR':true}}
-                    <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |  currency:'INR':true}}</span>
+                <p class="text-sm text-[#666]">{{item.price | currency:'INR':true}}
+                    <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |
+                        currency:'INR':true}}</span>
                 </p>
                 <div class="flex w-full items-center h-[35px] md:h-[40px] mt-2 rounded overflow-hidden">
-                    <a class="h-full cursor-pointer text-white bg-[#26355D] leading-none flex-1 text-sm px-3 items-center flex border-r border-[#fff]">Add to Cart</a>
+                    <a
+                        class="h-full cursor-pointer text-white bg-[#26355D] leading-none flex-1 text-sm px-3 items-center flex border-r border-[#fff]">Add
+                        to Cart</a>
                     <a class="cursor-pointer text-white bg-[#26355D] h-full flex items-center justify-center w-[40px]">
                         <img class="w-5 h-5 md:w-6 md:h-6 invert" src="./assets/images/heart.svg" alt="">
                     </a>
@@ -33,12 +53,15 @@
 </div>
 
 <div class="grid grid-cols-2 mt-[40px] lg:mt-[80px] min-h-[50vh]">
-    <div class="bg-[url(./assets/images/banner/banner-1.jpg)] bg-cover bg-no-repeat bg-center  h-[200px] sm:h-[300px] md:h-[unset] col-span-2 md:col-span-1">
+    <div
+        class="bg-[url(./assets/images/banner/banner-1.jpg)] bg-cover bg-no-repeat bg-center  h-[200px] sm:h-[300px] md:h-[unset] col-span-2 md:col-span-1">
     </div>
     <div class="flex flex-col px-5 xl:px-10 py-10 bg-[#26355D] justify-center col-span-2 md:col-span-1">
         <p class="text-base text-[#ccc] leading-none">Limited Offer</p>
-        <p class="text-[24px] md:text-[34px] lg:text-[40px] font-semibold text-white mb-5 leading-tight">Get a 30% discount on every order you make.</p>
-        <a class="bg-white rounded px-4 py-2 leading-none w-max cursor-pointer text-sm md:text-base flex items-center gap-2 text-[#26355D]">
+        <p class="text-[24px] md:text-[34px] lg:text-[40px] font-semibold text-white mb-5 leading-tight">Get a 30%
+            discount on every order you make.</p>
+        <a
+            class="bg-white rounded px-4 py-2 leading-none w-max cursor-pointer text-sm md:text-base flex items-center gap-2 text-[#26355D]">
             Grab it now
             <img class="w-6" src="./assets/images/arrow.svg" alt="">
         </a>
@@ -55,11 +78,14 @@
             <img src="{{item.img}}" alt="">
             <div class="flex flex-col pt-2">
                 <p class="text-base text-[#002244] font-semibold mb-1">{{item.name}}</p>
-                <p class="text-sm text-[#666]">{{item.price |  currency:'INR':true}}
-                    <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |  currency:'INR':true}}</span>
+                <p class="text-sm text-[#666]">{{item.price | currency:'INR':true}}
+                    <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |
+                        currency:'INR':true}}</span>
                 </p>
                 <div class="flex w-full items-center h-[35px] md:h-[40px] mt-2 rounded overflow-hidden">
-                    <a class="h-full cursor-pointer text-white bg-[#26355D] leading-none flex-1 text-sm px-3 items-center flex border-r border-[#fff]">Add to Cart</a>
+                    <a
+                        class="h-full cursor-pointer text-white bg-[#26355D] leading-none flex-1 text-sm px-3 items-center flex border-r border-[#fff]">Add
+                        to Cart</a>
                     <a class="cursor-pointer text-white bg-[#26355D] h-full flex items-center justify-center w-[40px]">
                         <img class="w-5 h-5 md:w-6 md:h-6 invert" src="./assets/images/heart.svg" alt="">
                     </a>
@@ -73,49 +99,85 @@
 <div class="mt-16">
     <div class="grid grid-cols-4 gap-2">
         <div class=" col-span-2 relative overflow-hidden">
-            <img  class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer"></div>
-            <span class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New Arrivals</span>
+            <img class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer">
+            </div>
+            <span
+                class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New
+                Arrivals</span>
         </div>
         <div class=" relative overflow-hidden">
-             <img  class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer"></div>
-            <span class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New Arrivals</span>
+            <img class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer">
+            </div>
+            <span
+                class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New
+                Arrivals</span>
         </div>
         <div class=" relative overflow-hidden row-span-2">
-             <img  class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer"></div>
-            <span class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New Arrivals</span>
+            <img class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer">
+            </div>
+            <span
+                class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New
+                Arrivals</span>
         </div>
         <div class=" relative overflow-hidden">
-             <img  class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer"></div>
-            <span class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New Arrivals</span>
+            <img class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer">
+            </div>
+            <span
+                class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New
+                Arrivals</span>
         </div>
         <div class=" relative overflow-hidden col-span-2">
-             <img  class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer"></div>
-            <span class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New Arrivals</span>
+            <img class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer">
+            </div>
+            <span
+                class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New
+                Arrivals</span>
         </div>
         <div class=" relative overflow-hidden row-span-2">
-             <img  class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer"></div>
-            <span class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New Arrivals</span>
+            <img class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer">
+            </div>
+            <span
+                class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New
+                Arrivals</span>
         </div>
         <div class=" relative overflow-hidden">
-             <img  class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer"></div>
-            <span class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New Arrivals</span>
+            <img class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer">
+            </div>
+            <span
+                class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New
+                Arrivals</span>
         </div>
         <div class=" relative overflow-hidden row-span-2 col-span-2">
-             <img  class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer"></div>
-            <span class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New Arrivals</span>
+            <img class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer">
+            </div>
+            <span
+                class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New
+                Arrivals</span>
         </div>
         <div class="rounded-md relative overflow-hidden">
-             <img  class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer"></div>
-            <span class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New Arrivals</span>
+            <img class="object-center object-cover w-full h-full" src="./assets/images/dummy/banner-1.jpg" alt="">
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-black/40 to-black/40 hover:from-black/60 hover:to-black/60 transition cursor-pointer">
+            </div>
+            <span
+                class="text-white bg-[#002244] text-[24px] font-semibold absolute z-30 px-4 py-2 rounded top-5 left-5">New
+                Arrivals</span>
         </div>
     </div>
 </div>
@@ -123,18 +185,21 @@
 
 <div class="px-3 md:px-4 lg:px-8 xl:px-12">
     <div class="text-center font-semibold text-[18px] lg:text-[20px] text-[#333] my-8 xl:my-12 heading-lines">
-      <span>#Limited-Time Deals</span>
+        <span>#Limited-Time Deals</span>
     </div>
     <div class="grid gap-2 sm:gap-3 md:gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         <div *ngFor="let item of products" class="border rounded border-[#d7d7d7] p-1 md:p-2">
             <img src="{{item.img}}" alt="">
             <div class="flex flex-col pt-2">
                 <p class="text-base text-[#002244] font-semibold mb-1">{{item.name}}</p>
-                <p class="text-sm text-[#666]">{{item.price |  currency:'INR':true}}
-                    <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |  currency:'INR':true}}</span>
+                <p class="text-sm text-[#666]">{{item.price | currency:'INR':true}}
+                    <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |
+                        currency:'INR':true}}</span>
                 </p>
                 <div class="flex w-full items-center h-[35px] md:h-[40px] mt-2 rounded overflow-hidden">
-                    <a class="h-full cursor-pointer text-white bg-[#26355D] leading-none flex-1 text-sm px-3 items-center flex border-r border-[#fff]">Add to Cart</a>
+                    <a
+                        class="h-full cursor-pointer text-white bg-[#26355D] leading-none flex-1 text-sm px-3 items-center flex border-r border-[#fff]">Add
+                        to Cart</a>
                     <a class="cursor-pointer text-white bg-[#26355D] h-full flex items-center justify-center w-[40px]">
                         <img class="w-5 h-5 md:w-6 md:h-6 invert" src="./assets/images/heart.svg" alt="">
                     </a>
@@ -148,16 +213,17 @@
 <div class="px-4 lg:px-8 xl:px-12 grid grid-cols-2 gap-4 mt-16 gap-y-10">
     <div class="flex justify-center flex-col gap-2 col-span-2 md:col-span-1">
         <h2 class="font-semibold text-[20px] text-[#333]">Spread the Love, Get Rewarded</h2>
-        <p class="text-sm text-[#666] leading-loose">Love our products? Share the joy with your friends and earn exciting discounts! For every friend you refer who makes a purchase, you’ll get 20% off your next order, and your friend will enjoy 10% off their first purchase. The more you share, the more you save—start referring today!</p>
-        <a class="text-white rounded text-sm lg:text-base px-4 py-2 leading-none w-max cursor-pointer flex items-center gap-2 bg-[#26355D]" (click)="shareOnWhatsApp()">
+        <p class="text-sm text-[#666] leading-loose">Love our products? Share the joy with your friends and earn
+            exciting discounts! For every friend you refer who makes a purchase, you’ll get 20% off your next order, and
+            your friend will enjoy 10% off their first purchase. The more you share, the more you save—start referring
+            today!</p>
+        <a class="text-white rounded text-sm lg:text-base px-4 py-2 leading-none w-max cursor-pointer flex items-center gap-2 bg-[#26355D]"
+            (click)="shareOnWhatsApp()">
             Start Referring
             <img class="w-5 lg:w-6" src="./assets/images/right-arrow.svg" alt="">
         </a>
     </div>
     <div class="flex items-center justify-center col-start-1 md:col-start-2 col-span-2 md:col-span-1">
-       <img class="max-w-[200px] md:max-w-[300px]" src="./assets/images/refer-friend.svg" alt="">
+        <img class="max-w-[200px] md:max-w-[300px]" src="./assets/images/refer-friend.svg" alt="">
     </div>
 </div>
-
-
-

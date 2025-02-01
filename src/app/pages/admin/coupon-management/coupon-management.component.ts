@@ -10,7 +10,6 @@ export class CouponManagementComponent {
 
   displayedColumns: string[] = [
     'couponCode',
-    'discountType',
     'orderMin',
     'discountValue',
     'maxDiscount',
