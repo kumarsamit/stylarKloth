@@ -43,7 +43,7 @@
 
     <!-- Product Grid -->
     <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="bg-white rounded-lg shadow overflow-hidden">
             <img src="./assets/images/dummy/child-1.jpg" alt="Product" class="w-full h-64 object-cover">
             <div class="p-4">
                 <h2 class="text-lg font-semibold">Trendy Jacket</h2>
@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="bg-white rounded-lg shadow overflow-hidden">
             <img src="./assets/images/dummy/child-1.jpg" alt="Product" class="w-full h-64 object-cover">
             <div class="p-4">
                 <h2 class="text-lg font-semibold">Casual Shirt</h2>
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="bg-white rounded-lg shadow overflow-hidden">
             <img src="./assets/images/dummy/child-1.jpg" alt="Product" class="w-full h-64 object-cover">
             <div class="p-4">
                 <h2 class="text-lg font-semibold">Stylish Sneakers</h2>
@@ -73,7 +73,7 @@
             </div>
         </div>
 
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="bg-white rounded-lg shadow overflow-hidden">
             <img src="./assets/images/dummy/child-1.jpg" alt="Product" class="w-full h-64 object-cover">
             <div class="p-4">
                 <h2 class="text-lg font-semibold">Elegant Dress</h2>
@@ -112,7 +112,33 @@
         </div>
     </div>
 
-    <div class="px-4 lg:px-8 xl:px-12 grid grid-cols-2 gap-4 mt-16 gap-y-10">
+    <div class="">
+        <div class="text-center font-semibold text-[18px] lg:text-[20px] text-[#333] my-8 lg:my-12 heading-lines">
+            <span>#Featured Products</span>
+        </div>
+        <div class="grid gap-2 sm:gap-3 md:gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+            <div *ngFor="let item of products" class="border rounded border-[#d7d7d7] p-1 md:p-2">
+                <img src="{{item.img}}" alt="">
+                <div class="flex flex-col pt-2">
+                    <p class="text-base text-[#002244] font-semibold mb-1">{{item.name}}</p>
+                    <p class="text-sm text-[#666]">{{item.price | currency:'INR':true}}
+                        <span *ngIf="item.offerPrice" class="mx-2 line-through text-[#bbb] text-xs">{{item.offerPrice |
+                            currency:'INR':true}}</span>
+                    </p>
+                    <div class="flex w-full items-center h-[35px] md:h-[40px] mt-2 rounded overflow-hidden">
+                        <a
+                            class="h-full cursor-pointer text-white bg-[#26355D] leading-none flex-1 text-sm px-3 items-center flex border-r border-[#fff]">Add
+                            to Cart</a>
+                        <a class="cursor-pointer text-white bg-[#26355D] h-full flex items-center justify-center w-[40px]">
+                            <img class="w-5 h-5 md:w-6 md:h-6 invert" src="./assets/images/heart.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 mt-16 gap-y-10">
         <div class="flex justify-center flex-col gap-2 col-span-2 md:col-span-1">
             <h2 class="font-semibold text-[20px] text-[#333]">Spread the Love, Get Rewarded</h2>
             <p class="text-sm text-[#666] leading-loose">Love our products? Share the joy with your friends and earn

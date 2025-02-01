@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { CouponDetailComponent } from './coupon-detail/coupon-detail.component';
 import { CreateCouponComponent } from './create-coupon/create-coupon.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -28,6 +29,7 @@ const routes: Routes = [
     CreateCouponComponent
   ],
   imports: [
+    MatDialogModule,
     CommonModule,
     MatIconModule,
     MatTableModule,
