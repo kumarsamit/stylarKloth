@@ -46,6 +46,9 @@
         <a class="cursor-pointer" [matMenuTriggerFor]="Menu">
             <img class="w-5" src="./assets/images/user.svg" alt="">
         </a>
+        <a class="cursor-pointer flex md:hidden" [matMenuTriggerFor]="Menu2">
+            <img class="w-5" src="./assets/images/burger-menu.svg" alt="">
+        </a>
     </div>
 </div>
 
@@ -69,5 +72,23 @@
     <button mat-menu-item>
         <img class="w-5 opacity-70" src="./assets/images/logout.svg" alt="">
         Logout
+    </button>
+</mat-menu>
+<mat-menu #Menu2="matMenu" class="headerMatmenu">
+    <button mat-menu-item routerLink="/user-profile">
+        <!-- <img class="w-5 opacity-70" src="./assets/images/user-menu.svg" alt=""> -->
+        Home
+    </button>
+    <button mat-menu-item routerLink="/order-history">
+        <!-- <img class="w-5 opacity-70" src="./assets/images/order-history.svg" alt=""> -->
+       Sale
+    </button>
+    <button mat-menu-item routerLink="/wishlist">
+        <!-- <img class="w-5 opacity-70" src="./assets/images/wishlist-menu.svg" alt=""> -->
+        New Arrival
+    </button>
+    <button mat-menu-item routerLink="/dashboard">
+        <!-- <img class="w-5 opacity-70" src="./assets/images/admin.svg" alt=""> -->
+        Category
     </button>
 </mat-menu>

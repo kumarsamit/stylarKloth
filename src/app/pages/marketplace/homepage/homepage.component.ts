@@ -115,22 +115,59 @@ export class HomepageComponent {
 		window.open(whatsappURL, '_blank');
 	}
 
-	get prevIndex() {
-		return (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+
+	ngOnInit() {
+		this.startAutoPlay();
 	}
 
-	get nextIndex() {
-		return (this.currentIndex + 1) % this.slides.length;
+	ngOnDestroy() {
+		this.clearAutoPlay();
 	}
 
 	next() {
 		this.currentIndex = (this.currentIndex + 1) % this.slides.length;
 		this.offset = -this.currentIndex * 100;
+		this.resetAutoPlay();
 	}
 
 	prev() {
 		this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
 		this.offset = -this.currentIndex * 100;
+		this.resetAutoPlay();
+	}
+
+	goToSlide(index: number) {
+		this.currentIndex = index;
+		this.offset = -index * 100;
+		this.resetAutoPlay();
+	}
+
+	private startAutoPlay() {
+		if (!this.paused) {
+			this.autoPlayInterval = setInterval(() => this.next(), 3000);
+		}
+	}
+
+	private clearAutoPlay() {
+		if (this.autoPlayInterval) {
+			clearInterval(this.autoPlayInterval);
+			this.autoPlayInterval = null;
+		}
+	}
+
+	private resetAutoPlay() {
+		this.clearAutoPlay();
+		this.startAutoPlay();
+	}
+
+	pauseAutoPlay() {
+		this.paused = true;
+		this.clearAutoPlay();
+	}
+
+	resumeAutoPlay() {
+		this.paused = false;
+		this.startAutoPlay();
 	}
 
 }

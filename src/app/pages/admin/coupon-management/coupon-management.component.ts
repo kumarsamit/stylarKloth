@@ -71,7 +71,7 @@ export class CouponManagementComponent {
 
 	createCoupon() {
 		let obj: any = {
-			heading: 'Create Category',
+			heading: 'Create Coupon',
 			type: 'create'
 		}
 		const dialogRefCreate = this.dialog.open(CreateCouponComponent, {

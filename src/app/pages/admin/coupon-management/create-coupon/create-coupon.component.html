@@ -4,3 +4,105 @@
         <mat-icon>close</mat-icon>
     </a>
 </div>
+<div mat-dialog-content class="">
+    <form [formGroup]="couponFormGroup" class="w-full mt-4 grid grid-cols-3 gap-x-4">
+        <div class="col-span-3">
+            <mat-label>Name</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="parentCategoryName" type="text" textOnly appearance="outline">
+                <mat-error *ngIf="couponFormGroup.controls['parentCategoryName'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-span-3">
+            <mat-label>Description</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <textarea matInput formControlName="parentCategoryDescription" type="text" textOnly
+                    appearance="outline"></textarea>
+                <mat-error *ngIf="couponFormGroup.controls['parentCategoryDescription'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-label>Discount%</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="parentCategoryName" type="text" textOnly appearance="outline">
+                <mat-error *ngIf="couponFormGroup.controls['parentCategoryName'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-label>Max Disount Amount</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="parentCategoryName" type="text" textOnly appearance="outline">
+                <mat-error *ngIf="couponFormGroup.controls['parentCategoryName'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-label>Min Order Value</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="parentCategoryName" type="text" textOnly appearance="outline">
+                <mat-error *ngIf="couponFormGroup.controls['parentCategoryName'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-label>Expiry</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="parentCategoryName" type="text" textOnly appearance="outline">
+                <mat-error *ngIf="couponFormGroup.controls['parentCategoryName'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-label>Quantity</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="parentCategoryName" type="text" textOnly appearance="outline">
+                <mat-error *ngIf="couponFormGroup.controls['parentCategoryName'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-label>Category</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <input matInput formControlName="parentCategoryName" type="text" textOnly appearance="outline">
+                <mat-error *ngIf="couponFormGroup.controls['parentCategoryName'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button class="rounded px-6 leading-none py-2 bg-[#e8e8e8] text-sm" (click)="closePopup('close')">Cancel</button>
+    <button *ngIf="modalType === 'create'"
+        class="rounded px-6 leading-none py-2 text-white bg-[#0c2a63] text-sm flex gap-4 items-center"
+        (click)="createCoupon()">
+        <ng-container *ngIf="!loader">
+            Create
+        </ng-container>
+        <ng-container *ngIf="loader">
+            <mat-spinner [diameter]="20"></mat-spinner>
+            please wait...
+        </ng-container>
+    </button>
+    <button *ngIf="modalType === 'edit'"
+        class="rounded px-6 leading-none py-2 text-white bg-[#0c2a63] text-sm flex gap-4 items-center"
+        (click)="updateCoupon()">
+        <ng-container *ngIf="!loader">
+            Update
+        </ng-container>
+        <ng-container *ngIf="loader">
+            <mat-spinner [diameter]="20"></mat-spinner>
+            please wait...
+        </ng-container>
+    </button>
+</div>
