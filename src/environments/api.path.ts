@@ -16,6 +16,9 @@ export const ADMIN_DELETE_CHILD_CATEGORY_LIST_API = '/product/category';
 export const ADMIN_CREATE_CHILD_CATEGORY_API = '/product/createCategory';
 export const ADMIN_UPDATE_CHILD_CATEGORY_API = '/product/updateCategory';
 
+export const ADMIN_CREATE_COUPON_API = '/coupon/create';
+export const ADMIN_GET_COUPON_LIST_API = '/coupon/all';
+export const ADMIN_GET_COUPON_DETIALS_API = '/coupon';
 
 
 

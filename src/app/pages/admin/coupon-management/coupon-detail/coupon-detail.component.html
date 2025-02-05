@@ -1,5 +1,5 @@
 <div class="flex items-center justify-between mb-4">
-    <p class="text-[18px] font-semibold text-[#26355d]">Coupon Details - <span class="text-blue-600">NEWYEAR10</span>
+    <p class="text-[18px] font-semibold text-[#26355d]">Coupon Details - <span class="text-blue-600">{{couponDetails.couponCode}}</span>
     </p>
     <div class="flex items-center gap-4">
         <a class="cursor-pointer text-sm bg-[#26355d] text-white flex items-center gap-2 px-4 rounded-md py-[6px]">
@@ -19,27 +19,27 @@
                 <tr>
                     <td class="font-semibold">Coupon Code</td>
                     <td class="w-10"></td>
-                    <td>NEWYEAR10</td>
+                    <td>{{couponDetails.couponCode}}</td>
                 </tr>
                 <tr>
                     <td class="font-semibold">Discount Value</td>
                     <td class="w-10"></td>
-                    <td> John Doe</td>
+                    <td>{{couponDetails.discountValue}}</td>
                 </tr>
                 <tr>
                     <td class="font-semibold">Description</td>
                     <td class="w-10"></td>
-                    <td> John Doe</td>
+                    <td>{{couponDetails.couponDescription}}</td>
                 </tr>
                 <tr>
                     <td class="font-semibold">Validity</td>
                     <td class="w-10"></td>
-                    <td> John Doe</td>
+                    <td>{{couponDetails.couponCode}}</td>
                 </tr>
                 <tr>
                     <td class="font-semibold">Status</td>
                     <td class="w-10"></td>
-                    <td>Active</td>
+                    <td>{{couponDetails.couponStatus}}</td>
                 </tr>
             </table>
     </div>
@@ -50,17 +50,17 @@
             <tr>
                 <td class="font-semibold">Min Order Value</td>
                 <td class="w-10"></td>
-                <td>₹1000</td>
+                <td>{{couponDetails.orderMinimumValue | currency:'INR':true}}</td>
             </tr>
             <tr>
                 <td class="font-semibold">Max Discount Cap</td>
                 <td class="w-10"></td>
-                <td>₹500</td>
+                <td>{{couponDetails.maxDiscountValue | currency:'INR':true}}</td>
             </tr>
             <tr>
                 <td class="font-semibold">Usage Limit</td>
                 <td class="w-10"></td>
-                <td>100 times (1 per user)</td>
+                <td>-</td>
             </tr>
             <tr>
                 <td class="font-semibold">Applicable Categories</td>
@@ -77,15 +77,15 @@
     <h2 class="text-[16px] font-semibold mb-4">Usage Statistics</h2>
     <div class="grid grid-cols-4 gap-4 text-center">
         <div class="p-4 bg-gray-100 rounded-md">
-            <h3 class="text-xl font-bold">45</h3>
+            <h3 class="text-xl font-bold">{{couponDetails.couponUsage}}</h3>
             <p class="text-sm">Total Coupons Used</p>
         </div>
         <div class="p-4 bg-gray-100 rounded-md">
-            <h3 class="text-xl font-bold">₹1,50,000</h3>
+            <h3 class="text-xl font-bold">{{couponDetails.revenueGenerated | currency:'INR':true}}</h3>
             <p class="text-sm">Revenue Generated</p>
         </div>
         <div class="p-4 bg-gray-100 rounded-md">
-            <h3 class="text-xl font-bold">120</h3>
+            <h3 class="text-xl font-bold">{{couponDetails.orderPlaced}}</h3>
             <p class="text-sm">Orders Placed</p>
         </div>
     </div>

@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { RequestService } from '@services/https/request.service';
 import { SnackbarService } from '@services/snackbar/snackbar.service';
+import { ADMIN_GET_COUPON_LIST_API } from '@env/api.path';
 
 @Component({
 	selector: 'app-coupon-management',
@@ -12,7 +13,8 @@ import { SnackbarService } from '@services/snackbar/snackbar.service';
 })
 export class CouponManagementComponent {
 
-
+	loader: boolean = false;
+	couponList: any = [];
 	displayedColumns: string[] = [
 		'couponCode',
 		'orderMin',
@@ -24,42 +26,6 @@ export class CouponManagementComponent {
 		'actions',
 	];
 
-	coupons = [
-		{
-			couponCode: 'SAVE20',
-			description: '20% off on orders above $100',
-			discountType: 'Percentage',
-			orderMinValue: '2000',
-			discountValue: '20%',
-			maxDiscount: '400',
-			status: 'Active',
-			limit: '20',
-			endDate: new Date('2025-12-31'),
-		},
-		{
-			couponCode: 'SAVE20',
-			description: '20% off on orders above $100',
-			discountType: 'Percentage',
-			orderMinValue: '2000',
-			discountValue: '20%',
-			maxDiscount: '300',
-			status: 'Active',
-			limit: '20',
-			endDate: new Date('2025-12-31'),
-		},
-		{
-			couponCode: 'SAVE20',
-			description: '20% off on orders above $100',
-			discountType: 'Percentage',
-			orderMinValue: '2000',
-			discountValue: '20%',
-			maxDiscount: '300',
-			status: 'Active',
-			limit: '20',
-			endDate: new Date('2025-12-31'),
-		}
-	];
-
 	constructor(
 		private _request: RequestService,
 		private dialog: MatDialog,
@@ -67,6 +33,21 @@ export class CouponManagementComponent {
 		private _router: Router,
 	) {
 
+	}
+
+	getCouponList() {
+		let requestedData = {};
+		this.loader = true;
+		this._request.GET(ADMIN_GET_COUPON_LIST_API, requestedData).subscribe({
+			next: (resp: any) => {
+				this.couponList = resp.data;
+				this.loader = false;
+			}, error: (err: any) => {
+				this.loader = false;
+				this._snackbar.notify(err.message, 2)
+
+			}
+		})
 	}
 
 	createCoupon() {
@@ -93,5 +74,9 @@ export class CouponManagementComponent {
 
 	onDeleteCoupon(coupon: any) {
 		console.log('Delete coupon', coupon);
+	}
+
+	ngOnInit(){
+		this.getCouponList();
 	}
 }
