@@ -1,10 +1,11 @@
 import { Component, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { ADMIN_CREATE_COUPON_API, ADMIN_GET_PARENT_CATEGORY_LIST_API } from '@env/api.path';
+import { ADMIN_CREATE_COUPON_API, ADMIN_DELETE_COUPON_API, ADMIN_GET_PARENT_CATEGORY_LIST_API } from '@env/api.path';
 import { RequestService } from '@services/https/request.service';
 import { SnackbarService } from '@services/snackbar/snackbar.service';
+import { ConfirmationPopupComponent } from 'src/app/common-components/confirmation-popup/confirmation-popup.component';
 
 @Component({
 	selector: 'app-create-coupon',
@@ -18,6 +19,7 @@ export class CreateCouponComponent {
 	loader: boolean = false;
 	categoryData: any = '';
 	categoryList: any = [];
+	todayDate:any=new Date();
 	couponFormGroup = new FormGroup({
 		couponCode: new FormControl('', [Validators.required]),
 		orderMinimumValue: new FormControl('', [Validators.required]),
@@ -25,15 +27,15 @@ export class CreateCouponComponent {
 		maxDiscountValue: new FormControl('', [Validators.required]),
 		limit: new FormControl('', [Validators.required]),
 		expiryDate: new FormControl('', [Validators.required]),
-		parentCategories: new FormControl('', [Validators.required]),
+		parentCategories: new FormControl([], [Validators.required]),
 		couponDescription: new FormControl('', [Validators.required]),
 		discountType: new FormControl('', [Validators.required]),
-		createdBy: new FormControl('', [Validators.required]),
 	})
 
 	constructor(
 		private _request: RequestService,
 		private _snackbar: SnackbarService,
+		private _dialog: MatDialog,
 		private _router: Router,
 		private _dialogRef: MatDialogRef<CreateCouponComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: any,
@@ -68,16 +70,14 @@ export class CreateCouponComponent {
 
 
 	createCoupon() {
-		let requestedData:any = {
-			couponCode: "DISCOUNT2025",
-			orderMinimumValue: 100,
-			discountValue: 20,
-			maxDiscountValue: 50,
-			limit: 1000,
-			expiryDate: "2025-12-31",
-			parentCategories: [1, 4],
-			couponDescription: "Special discount for 2025",
-			discountType: 1,
+		this.couponFormGroup.markAllAsTouched();
+		console.log('this.couponFormGroup.status', this.couponFormGroup.status)
+		console.log('this.couponFormGroup.value', this.couponFormGroup.value)
+		if (this.couponFormGroup.status === 'INVALID') {
+			return
+		}
+		let requestedData: any = {
+			...this.couponFormGroup.value
 		}
 		requestedData['createdBy'] = "admin"
 		this._request.POST(ADMIN_CREATE_COUPON_API, requestedData).subscribe({
@@ -91,11 +91,12 @@ export class CreateCouponComponent {
 		})
 		console.log('this.couponFormGroup', this.couponFormGroup)
 	}
+
 	updateCoupon() {
 		console.log('this.couponFormGroup', this.couponFormGroup)
 	}
 
-	ngOnInit(){
+	ngOnInit() {
 		this.getCategories();
 	}
 

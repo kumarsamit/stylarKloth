@@ -19,9 +19,9 @@
             <mat-label>Coupon Type</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
                 <mat-select formControlName="discountType">
-                    <mat-option [value]="1">Flat</mat-option>
-                    <mat-option [value]="1">Discount</mat-option>
-                    <mat-option [value]="1">Delivery</mat-option>
+                    <mat-option [value]="1">Percentage</mat-option>
+                    <mat-option [value]="2">Flat</mat-option>
+                    <mat-option [value]="3">Delivery</mat-option>
                 </mat-select>
                 <mat-error *ngIf="couponFormGroup.controls['discountType'].hasError('required')">
                     This is required field
@@ -31,7 +31,7 @@
         <div class="col-span-3">
             <mat-label>Description</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <textarea matInput formControlName="couponDescription" type="text" textOnly
+                <textarea matInput formControlName="couponDescription" type="text" textOnly maxlength="240"
                     appearance="outline"></textarea>
                 <mat-error *ngIf="couponFormGroup.controls['couponDescription'].hasError('required')">
                     This is required field
@@ -67,8 +67,10 @@
         </div>
         <div>
             <mat-label>Expiry</mat-label>
-            <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="expiryDate" type="text" textOnly appearance="outline">
+            <mat-form-field appearance="outline" class="w-full">
+                <input matInput [matDatepicker]="picker" formControlName="expiryDate" [min]="todayDate">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
                 <mat-error *ngIf="couponFormGroup.controls['expiryDate'].hasError('required')">
                     This is required field
                 </mat-error>
@@ -86,7 +88,7 @@
         <div>
             <mat-label>Category</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <mat-select formControlName="parentCategories">
+                <mat-select formControlName="parentCategories" multiple>
                     <mat-option [value]="item.id" *ngFor="let item of categoryList">{{item.name}}</mat-option>
                 </mat-select>
                 <mat-error *ngIf="couponFormGroup.controls['parentCategories'].hasError('required')">

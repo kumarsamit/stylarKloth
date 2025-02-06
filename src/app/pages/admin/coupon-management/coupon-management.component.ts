@@ -4,7 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { RequestService } from '@services/https/request.service';
 import { SnackbarService } from '@services/snackbar/snackbar.service';
-import { ADMIN_GET_COUPON_LIST_API } from '@env/api.path';
+import { ADMIN_DELETE_COUPON_API, ADMIN_GET_COUPON_LIST_API } from '@env/api.path';
+import { ConfirmationPopupComponent } from 'src/app/common-components/confirmation-popup/confirmation-popup.component';
 
 @Component({
 	selector: 'app-coupon-management',
@@ -28,7 +29,7 @@ export class CouponManagementComponent {
 
 	constructor(
 		private _request: RequestService,
-		private dialog: MatDialog,
+		private _dialog: MatDialog,
 		private _snackbar: SnackbarService,
 		private _router: Router,
 	) {
@@ -55,7 +56,7 @@ export class CouponManagementComponent {
 			heading: 'Create Coupon',
 			type: 'create'
 		}
-		const dialogRefCreate = this.dialog.open(CreateCouponComponent, {
+		const dialogRefCreate = this._dialog.open(CreateCouponComponent, {
 			width: '600px',
 			maxWidth: '90vw',
 			data: obj
@@ -72,8 +73,32 @@ export class CouponManagementComponent {
 		console.log('Edit coupon', coupon);
 	}
 
-	onDeleteCoupon(coupon: any) {
-		console.log('Delete coupon', coupon);
+	deleteCoupon(couponObj: any) {
+		let obj: any = {
+			heading: "Delete",
+			desc: "Are you sure want to delete this coupon?"
+		}
+		const dialogRefDelete = this._dialog.open(ConfirmationPopupComponent, {
+			width: '500px',
+			maxWidth: '90vw',
+			data: obj
+		});
+		dialogRefDelete.afterClosed().subscribe((result: any) => {
+			console.log('result', result)
+			if (result === 'proceed') {
+				let requestedData = {};
+				this._request.DELETE(`${ADMIN_DELETE_COUPON_API}/${couponObj.id}`, requestedData).subscribe({
+					next: (resp: any) => {
+						this.loader = false;
+						this.getCouponList();
+						this._snackbar.notify(resp.data, 1)
+					}, error: (err: any) => {
+						this.loader = false;
+						this._snackbar.notify(err.message, 2)
+					}
+				})
+			}
+		});
 	}
 
 	ngOnInit(){
