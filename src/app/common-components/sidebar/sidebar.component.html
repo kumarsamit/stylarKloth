@@ -20,6 +20,13 @@
         Category
     </a>
 
+    <a [routerLinkActive]="'is-active'" routerLink="/coupon-management"
+        class="cursor-pointer rounded-e-full flex items-center gap-2 p-3 hover:bg-[rgba(38,53,93,0.2)] text-[#26355d]">
+        <img class="w-7" src="./assets/images/sidebar/coupon.svg" alt="">
+        <img class="w-7 hidden" src="./assets/images/sidebar/coupon-active.svg" alt="">
+        Coupon
+    </a>
+
     <a [routerLinkActive]="'is-active'" routerLink="/order-management"
         class="cursor-pointer rounded-e-full flex items-center gap-2 p-3 hover:bg-[rgba(38,53,93,0.2)] text-[#26355d]">
         <img class="w-7" src="./assets/images/sidebar/order-admin.svg" alt="">
@@ -32,12 +39,6 @@
         <img class="w-7" src="./assets/images/sidebar/customer-management.svg" alt="">
         <img class="w-7 hidden" src="./assets/images/sidebar/customer-management-active.svg" alt="">
         Customer
-    </a>
-    <a [routerLinkActive]="'is-active'" routerLink="/coupon-management"
-        class="cursor-pointer rounded-e-full flex items-center gap-2 p-3 hover:bg-[rgba(38,53,93,0.2)] text-[#26355d]">
-        <img class="w-7" src="./assets/images/sidebar/coupon.svg" alt="">
-        <img class="w-7 hidden" src="./assets/images/sidebar/coupon-active.svg" alt="">
-        Coupon
     </a>
     <a [routerLinkActive]="'is-active'"
         class="cursor-pointer rounded-e-full flex items-center gap-2 p-3 hover:bg-[rgba(38,53,93,0.2)] text-[#26355d]">

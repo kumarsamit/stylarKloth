@@ -62,10 +62,10 @@ export class CouponManagementComponent {
 			data: obj
 		});
 		dialogRefCreate.afterClosed().subscribe((result: any) => {
-			// console.log('result', result)
-			// if (result === 'proceed') {
-			// 	this.getCategories();
-			// }
+			console.log('result', result)
+			if (result === 'proceed') {
+				this.getCouponList();
+			}
 		});
 	}
 

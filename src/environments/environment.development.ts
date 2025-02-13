@@ -1,4 +1,4 @@
 export const environment = {
-    api_path : 'https://5ca5-2401-4900-1c5b-7b59-d856-1c28-93c1-cbc8.ngrok-free.app',
+    api_path : 'https://0d76-2401-4900-1c5a-4bfb-d507-2676-e03e-7861.ngrok-free.app',
     auth_prefix : "stylarKlothDev"
 };

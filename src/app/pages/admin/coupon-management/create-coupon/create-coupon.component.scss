@@ -37,3 +37,17 @@
     stroke: #ffffff;
 }
 
+:host ::ng-deep .price-cont .mat-mdc-form-field-icon-prefix {
+    height: 42px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:#f7f7f7;
+    border-radius: 4px 0 0 4px;
+    padding: 0;
+    margin-left: 2px;
+}
+:host ::ng-deep .price-cont .mat-mdc-form-field-infix  {
+padding-left: 10px;
+}

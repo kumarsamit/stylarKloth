@@ -20,6 +20,7 @@ export class CreateCouponComponent {
 	categoryData: any = '';
 	categoryList: any = [];
 	todayDate:any=new Date();
+	couponType:any=1;
 	couponFormGroup = new FormGroup({
 		couponCode: new FormControl('', [Validators.required]),
 		orderMinimumValue: new FormControl('', [Validators.required]),
@@ -29,7 +30,7 @@ export class CreateCouponComponent {
 		expiryDate: new FormControl('', [Validators.required]),
 		parentCategories: new FormControl([], [Validators.required]),
 		couponDescription: new FormControl('', [Validators.required]),
-		discountType: new FormControl('', [Validators.required]),
+		discountType: new FormControl(1, [Validators.required]),
 	})
 
 	constructor(
@@ -55,6 +56,21 @@ export class CreateCouponComponent {
 	closePopup(type: any) {
 		this._dialogRef.close(type);
 	};
+
+	getCouponType(event:any){
+		this.couponType = event.value;
+		if(this.couponType == 2){
+			this.couponFormGroup.patchValue({
+				maxDiscountValue : '0'
+			})
+		}
+		if(this.couponType == 3){
+			this.couponFormGroup.patchValue({
+				maxDiscountValue : '0',
+				discountValue : '0',
+			})
+		}
+	}
 
 	getCategories() {
 		let requestedData = {};
@@ -83,6 +99,7 @@ export class CreateCouponComponent {
 		this._request.POST(ADMIN_CREATE_COUPON_API, requestedData).subscribe({
 			next: (resp: any) => {
 				this._snackbar.notify(resp.message, 1);
+				this._dialogRef.close('proceed');
 				this.loader = false;
 			}, error: (err: any) => {
 				this.loader = false;

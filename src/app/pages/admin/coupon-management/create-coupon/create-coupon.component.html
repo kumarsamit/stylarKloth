@@ -6,7 +6,7 @@
 </div>
 <div mat-dialog-content class="">
     <form [formGroup]="couponFormGroup" class="w-full mt-4 grid grid-cols-3 gap-x-4">
-        <div class="col-span-3">
+        <div class="col-span-2">
             <mat-label>Coupon Code</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
                 <input matInput formControlName="couponCode" type="text" textOnly appearance="outline">
@@ -15,10 +15,10 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="col-span-3">
+        <div class="">
             <mat-label>Coupon Type</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <mat-select formControlName="discountType">
+                <mat-select formControlName="discountType" (selectionChange)="getCouponType($event)">
                     <mat-option [value]="1">Percentage</mat-option>
                     <mat-option [value]="2">Flat</mat-option>
                     <mat-option [value]="3">Delivery</mat-option>
@@ -28,37 +28,30 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="col-span-3">
-            <mat-label>Description</mat-label>
-            <mat-form-field class="w-full mb-1" appearance="outline">
-                <textarea matInput formControlName="couponDescription" type="text" textOnly maxlength="240"
-                    appearance="outline"></textarea>
-                <mat-error *ngIf="couponFormGroup.controls['couponDescription'].hasError('required')">
-                    This is required field
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div>
+        <div class="price-cont">
             <mat-label>Discount value</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="discountValue" type="text" textOnly appearance="outline">
+                <span matPrefix>{{couponType === 1 ? "%" : "₹"}}</span>
+                <input matInput formControlName="discountValue" type="text" textOnly appearance="outline" [disabled]="couponType === 3">
                 <mat-error *ngIf="couponFormGroup.controls['discountValue'].hasError('required')">
                     This is required field
                 </mat-error>
             </mat-form-field>
         </div>
-        <div>
+        <div class="price-cont">
             <mat-label>Max Disount Amount</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
-                <input matInput formControlName="maxDiscountValue" type="text" textOnly appearance="outline">
+                <span matPrefix>₹</span>
+                <input matInput formControlName="maxDiscountValue" type="text" textOnly appearance="outline"  [disabled]="couponType === 2">
                 <mat-error *ngIf="couponFormGroup.controls['maxDiscountValue'].hasError('required')">
                     This is required field
                 </mat-error>
             </mat-form-field>
         </div>
-        <div>
+        <div class="price-cont">
             <mat-label>Min Order Value</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
+                <span matPrefix>₹</span>
                 <input matInput formControlName="orderMinimumValue" type="text" textOnly appearance="outline">
                 <mat-error *ngIf="couponFormGroup.controls['orderMinimumValue'].hasError('required')">
                     This is required field
@@ -92,6 +85,16 @@
                     <mat-option [value]="item.id" *ngFor="let item of categoryList">{{item.name}}</mat-option>
                 </mat-select>
                 <mat-error *ngIf="couponFormGroup.controls['parentCategories'].hasError('required')">
+                    This is required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-span-3">
+            <mat-label>Description</mat-label>
+            <mat-form-field class="w-full mb-1" appearance="outline">
+                <textarea matInput formControlName="couponDescription" type="text" textOnly maxlength="240"
+                    appearance="outline"></textarea>
+                <mat-error *ngIf="couponFormGroup.controls['couponDescription'].hasError('required')">
                     This is required field
                 </mat-error>
             </mat-form-field>
