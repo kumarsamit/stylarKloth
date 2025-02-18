@@ -18,6 +18,7 @@ import { AuthInterceptor } from './services/auth-interceptor/auth.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ConfirmationPopupComponent } from './common-components/confirmation-popup/confirmation-popup.component';
 import { MatIconModule } from '@angular/material/icon';
+import { WebsiteSidebarComponent } from './common-components/website-sidebar/website-sidebar.component';
 
 
 
@@ -31,7 +32,8 @@ import { MatIconModule } from '@angular/material/icon';
     FooterComponent,
     SignInComponent,
     DashboardHeaderComponent,
-    ConfirmationPopupComponent
+    ConfirmationPopupComponent,
+    WebsiteSidebarComponent
   ],
   imports: [
     BrowserModule,

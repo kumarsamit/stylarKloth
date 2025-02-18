@@ -32,7 +32,7 @@
             <mat-label>Discount value</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
                 <span matPrefix>{{couponType === 1 ? "%" : "₹"}}</span>
-                <input matInput formControlName="discountValue" type="text" textOnly appearance="outline" [disabled]="couponType === 3">
+                <input matInput formControlName="discountValue" type="text" textOnly appearance="outline" [disabled]="couponType == 3">
                 <mat-error *ngIf="couponFormGroup.controls['discountValue'].hasError('required')">
                     This is required field
                 </mat-error>
@@ -42,7 +42,7 @@
             <mat-label>Max Disount Amount</mat-label>
             <mat-form-field class="w-full mb-1" appearance="outline">
                 <span matPrefix>₹</span>
-                <input matInput formControlName="maxDiscountValue" type="text" textOnly appearance="outline"  [disabled]="couponType === 2">
+                <input matInput formControlName="maxDiscountValue" type="text" textOnly appearance="outline"  [disabled]="couponType == 2">
                 <mat-error *ngIf="couponFormGroup.controls['maxDiscountValue'].hasError('required')">
                     This is required field
                 </mat-error>
